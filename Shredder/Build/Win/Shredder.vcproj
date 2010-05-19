@@ -354,10 +354,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/FORCE:multiple"
-				AdditionalDependencies="EdoController_Win32.lib"
-				OutputFile="$(ProjectDir)/../../../../Bin/VST/$(ProjectName)_VST_$(PlatformName).dll"
+				OutputFile="$(ProjectDir)../../../Bin/$(ProjectName)_$(PlatformName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;$(InputDir)\..\..\..\..\Bin&quot;"
+				AdditionalLibraryDirectories=""
 				ModuleDefinitionFile=""
 				DelayLoadDLLs=""
 				GenerateDebugInformation="true"
@@ -1075,6 +1074,18 @@
 				</File>
 				<File
 					RelativePath="..\..\Source\UI\ShredderSlot.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Instigator"
+				>
+				<File
+					RelativePath="..\..\..\About\Instigator.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\About\Instigator.h"
 					>
 				</File>
 			</Filter>
