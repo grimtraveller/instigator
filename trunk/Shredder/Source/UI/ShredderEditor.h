@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  19 May 2010 2:50:11pm
+  Creation date:  20 May 2010 12:56:41am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,14 +19,15 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_6D74F2FA__
-#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_6D74F2FA__
+#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_187FE5D__
+#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_187FE5D__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
 #include "ShredderEditorOptions.h"
 #include "ShredderPluginEditor.h"
 #include "ShredderResources.h"
+#include <../../../About/Instigator.h>
 //[/Headers]
 
 #include "ShredderSlot.h"
@@ -63,6 +64,9 @@ public:
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
 
+    // Binary resources:
+    static const char* name_png;
+    static const int name_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
@@ -77,6 +81,7 @@ private:
 	PopupMenu pluginMenu;
 	int lastBeat;
 	Array <ToggleButton*>leds;
+	Instigator instigator;
     //[/UserVariables]
 
     //==============================================================================
@@ -103,6 +108,7 @@ private:
     ToggleButton* led16;
     Label* positionInfo;
     ShredderPeakSlot* component;
+    ImageButton* instigatorBtn;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -111,4 +117,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_6D74F2FA__
+#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_187FE5D__
