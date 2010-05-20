@@ -27,7 +27,7 @@
 #include "ShredderEditorOptions.h"
 #include "ShredderPluginEditor.h"
 #include "ShredderResources.h"
-#include <../../../About/Instigator.h>
+#include "../../../About/Instigator.h"
 //[/Headers]
 
 #include "ShredderSlot.h"
