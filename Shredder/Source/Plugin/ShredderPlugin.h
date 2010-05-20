@@ -13,6 +13,9 @@
 #define SP_PLUGIN_STATE			T("pluginState")
 #define SP_PLUGIN_DESCRIPTION	T("pluginDescription")
 #define SP_SLOT_TYPE			T("slotType")
+#define SP_SAMPLERATE			T("sampleRate")
+#define SP_ENVELOPE				T("envelope")
+#define SP_MIX					T("mix")
 
 #define _propB(x)			shredderPluginProperties.getBoolValue(x)
 #define _propI(x)			shredderPluginProperties.getIntValue(x)
@@ -74,7 +77,23 @@ class ShredderPlugin
 		const ShredderPlugin::SlotType getSlotType();
 		void setSlotType(const SlotType newSlotType);
 
+		void setMix (const int mixAmount);
+		const int getMix();
+
 		AudioPluginInstance *pluginInstance;
+
+		/* ADSR */
+		const float getAttack();
+		void setAttack(const float newAttack);
+
+		const float getDecay();
+		void setDecay(const float newDecay);
+
+		const float getSustain();
+		void setSustain(const float newSustain);
+
+		const float getRelease();
+		void setRelease(const float newRelease);
 
 	private:
 		PropertySet shredderPluginDefaultProperties;

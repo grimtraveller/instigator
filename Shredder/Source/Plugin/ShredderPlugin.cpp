@@ -22,6 +22,8 @@ ShredderPlugin::ShredderPlugin (XmlElement *xmlState, AudioPluginFormatManager &
 		if (shredderPluginProperties.containsKey (T("pluginState")))
 		{
 			pluginDescription.loadFromXml (*_propX (SP_PLUGIN_DESCRIPTION));
+			envelope.loadXml (_propX (SP_ENVELOPE));
+
 			pluginInstance		= pluginManager.createPluginInstance (pluginDescription, errorMessage);
 
 			if (pluginInstance == 0)
@@ -40,10 +42,11 @@ ShredderPlugin::ShredderPlugin (XmlElement *xmlState, AudioPluginFormatManager &
 
 void ShredderPlugin::setDefaults()
 {
-	lastBeat = 1;
-
+	lastBeat	= 1;
+	
 	stepBits.clear();
 	shredderPluginDefaultProperties.setValue (SP_LENGTH, 16);
+	shredderPluginDefaultProperties.setValue (SP_SAMPLERATE, 44100.0);
 	shredderPluginDefaultProperties.setValue (SP_PROCESSING, true);
 	shredderPluginDefaultProperties.setValue (SP_FADE_OFF, 0.0);
 	shredderPluginDefaultProperties.setValue (SP_SLOT_TYPE, SequencerSlot);
@@ -61,6 +64,7 @@ XmlElement *ShredderPlugin::createXml()
 		shredderPluginProperties.setValue (SP_PLUGIN_STATE, pluginState.toBase64Encoding());
 		shredderPluginProperties.setValue (SP_PLUGIN_DESCRIPTION, pluginDescription.createXml());
 		shredderPluginProperties.setValue (SP_STEP_BITS, stepBits.toString (2, 16));
+		shredderPluginProperties.setValue (SP_ENVELOPE, envelope.createXml());
 
 		return (shredderPluginProperties.createXml(T("shredderPlugin")));
 	}
@@ -139,14 +143,11 @@ const String ShredderPlugin::getName()
 	return (T("--- No plugin"));
 }
 
-void ShredderPlugin::setLength (const int _length)
-{
-	shredderPluginProperties.setValue (SP_LENGTH, _length);
-}
-
 void ShredderPlugin::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
 	lastBeat = 1;
+
+	shredderPluginProperties.setValue (SP_SAMPLERATE, sampleRate);
 
 	if (pluginInstance)
 	{
@@ -262,6 +263,11 @@ const int ShredderPlugin::getLength()
 	return (_propI(SP_LENGTH));
 }
 
+void ShredderPlugin::setLength (const int _length)
+{
+	shredderPluginProperties.setValue (SP_LENGTH, _length);
+}
+
 const ShredderPlugin::SlotType ShredderPlugin::getSlotType()
 {
 	return ((const ShredderPlugin::SlotType)_propI(SP_SLOT_TYPE));
@@ -280,4 +286,54 @@ void ShredderPlugin::setStep (const int stepNumber, const bool stepState)
 const bool ShredderPlugin::getStep (const int stepNumber)
 {
 	return (stepBits[stepNumber-1]);
+}
+
+const float ShredderPlugin::getAttack()
+{
+	return (envelope.__attack);
+}
+
+void ShredderPlugin::setAttack(const float newAttack)
+{
+	envelope.__attack = newAttack;
+}
+
+const float ShredderPlugin::getDecay()
+{
+	return (envelope.__decay);
+}
+
+void ShredderPlugin::setDecay(const float newDecay)
+{
+	envelope.__decay = newDecay;
+}
+
+const float ShredderPlugin::getSustain()
+{
+	return (envelope.__sustain);
+}
+
+void ShredderPlugin::setSustain(const float newSustain)
+{
+	envelope.__sustain = newSustain;
+}
+
+const float ShredderPlugin::getRelease()
+{
+	return (envelope.__release);
+}
+
+void ShredderPlugin::setRelease(const float newRelease)
+{
+	envelope.__release = newRelease;
+}
+
+void ShredderPlugin::setMix (const int mixAmount)
+{
+	shredderPluginProperties.setValue (SP_MIX, mixAmount);
+}
+
+const int ShredderPlugin::getMix()
+{
+	return (_propI(SP_MIX));
 }
