@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  19 May 2010 10:05:38pm
+  Creation date:  20 May 2010 4:13:55pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -53,9 +53,12 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
       pluginEditor (0),
       pluginName (0),
       fadeSlider (0),
-      label (0),
       processButton (0),
-      slider (0)
+      attack (0),
+      decay (0),
+      sustain (0),
+      release (0),
+      label (0)
 {
     addAndMakeVisible (groupComponent = new GroupComponent (T("new group"),
                                                             String::empty));
@@ -152,37 +155,75 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
 
     addAndMakeVisible (fadeSlider = new Slider (T("fadeSlider")));
     fadeSlider->setRange (0, 1, 0.01);
-    fadeSlider->setSliderStyle (Slider::IncDecButtons);
-    fadeSlider->setTextBoxStyle (Slider::TextBoxLeft, false, 36, 16);
-    fadeSlider->setColour (Slider::rotarySliderOutlineColourId, Colour (0x0));
+    fadeSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    fadeSlider->setTextBoxStyle (Slider::TextBoxRight, false, 48, 16);
+    fadeSlider->setColour (Slider::backgroundColourId, Colours::white);
+    fadeSlider->setColour (Slider::thumbColourId, Colour (0xffc4c4c4));
+    fadeSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x7fffffff));
+    fadeSlider->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
     fadeSlider->setColour (Slider::textBoxTextColourId, Colours::white);
     fadeSlider->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
     fadeSlider->setColour (Slider::textBoxHighlightColourId, Colour (0x40e0e0f2));
     fadeSlider->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
     fadeSlider->addListener (this);
 
-    addAndMakeVisible (label = new Label (T("new label"),
-                                          T("Fade")));
-    label->setFont (Font (10.0000f, Font::bold));
-    label->setJustificationType (Justification::centred);
-    label->setEditable (false, false, false);
-    label->setColour (Label::textColourId, Colours::white);
-    label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
-
     addAndMakeVisible (processButton = new ToggleButton (T("processButton")));
     processButton->setButtonText (T("Enable"));
     processButton->addButtonListener (this);
     processButton->setColour (ToggleButton::textColourId, Colours::white);
 
-    addAndMakeVisible (slider = new Slider (T("new slider")));
-    slider->setRange (1, 2, 1);
-    slider->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
-    slider->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
-    slider->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
-    slider->addListener (this);
+    addAndMakeVisible (attack = new Slider (T("attack")));
+    attack->setRange (0, 100, 1);
+    attack->setSliderStyle (Slider::RotaryVerticalDrag);
+    attack->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    attack->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    attack->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    attack->setColour (Slider::textBoxTextColourId, Colours::white);
+    attack->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    attack->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    attack->addListener (this);
+
+    addAndMakeVisible (decay = new Slider (T("decay")));
+    decay->setRange (0, 100, 1);
+    decay->setSliderStyle (Slider::RotaryVerticalDrag);
+    decay->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    decay->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    decay->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    decay->setColour (Slider::textBoxTextColourId, Colours::white);
+    decay->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    decay->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    decay->addListener (this);
+
+    addAndMakeVisible (sustain = new Slider (T("sustain")));
+    sustain->setRange (0, 100, 1);
+    sustain->setSliderStyle (Slider::RotaryVerticalDrag);
+    sustain->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    sustain->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    sustain->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    sustain->setColour (Slider::textBoxTextColourId, Colours::white);
+    sustain->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    sustain->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    sustain->addListener (this);
+
+    addAndMakeVisible (release = new Slider (T("release")));
+    release->setRange (0, 100, 1);
+    release->setSliderStyle (Slider::RotaryVerticalDrag);
+    release->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    release->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    release->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    release->setColour (Slider::textBoxTextColourId, Colours::white);
+    release->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    release->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    release->addListener (this);
+
+    addAndMakeVisible (label = new Label (T("new label"),
+                                          T("Fade")));
+    label->setFont (Font (10.0000f, Font::bold));
+    label->setJustificationType (Justification::centredLeft);
+    label->setEditable (false, false, false);
+    label->setColour (Label::textColourId, Colours::white);
+    label->setColour (TextEditor::textColourId, Colours::black);
+    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
 
     //[UserPreSize]
@@ -254,9 +295,12 @@ ShredderSlot::~ShredderSlot()
     deleteAndZero (pluginEditor);
     deleteAndZero (pluginName);
     deleteAndZero (fadeSlider);
-    deleteAndZero (label);
     deleteAndZero (processButton);
-    deleteAndZero (slider);
+    deleteAndZero (attack);
+    deleteAndZero (decay);
+    deleteAndZero (sustain);
+    deleteAndZero (release);
+    deleteAndZero (label);
 
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
@@ -294,10 +338,13 @@ void ShredderSlot::resized()
     pluginMenu->setBounds (600, 58, 32, 32);
     pluginEditor->setBounds (632, 58, 32, 32);
     pluginName->setBounds (344, 64, 246, 24);
-    fadeSlider->setBounds (96, 72, 72, 16);
-    label->setBounds (96, 56, 72, 16);
+    fadeSlider->setBounds (128, 60, 64, 32);
     processButton->setBounds (16, 72, 72, 16);
-    slider->setBounds (184, 60, 64, 32);
+    attack->setBounds (208, 60, 64, 32);
+    decay->setBounds (272, 60, 64, 32);
+    sustain->setBounds (336, 60, 64, 32);
+    release->setBounds (400, 60, 64, 32);
+    label->setBounds (88, 64, 32, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -479,10 +526,25 @@ void ShredderSlot::sliderValueChanged (Slider* sliderThatWasMoved)
 		shredder->getCallbackLock().exit();
         //[/UserSliderCode_fadeSlider]
     }
-    else if (sliderThatWasMoved == slider)
+    else if (sliderThatWasMoved == attack)
     {
-        //[UserSliderCode_slider] -- add your slider handling code here..
-        //[/UserSliderCode_slider]
+        //[UserSliderCode_attack] -- add your slider handling code here..
+        //[/UserSliderCode_attack]
+    }
+    else if (sliderThatWasMoved == decay)
+    {
+        //[UserSliderCode_decay] -- add your slider handling code here..
+        //[/UserSliderCode_decay]
+    }
+    else if (sliderThatWasMoved == sustain)
+    {
+        //[UserSliderCode_sustain] -- add your slider handling code here..
+        //[/UserSliderCode_sustain]
+    }
+    else if (sliderThatWasMoved == release)
+    {
+        //[UserSliderCode_release] -- add your slider handling code here..
+        //[/UserSliderCode_release]
     }
 
     //[UsersliderValueChanged_Post]
@@ -644,25 +706,45 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="14" bold="1" italic="0" justification="34"/>
   <SLIDER name="fadeSlider" id="49fa7714b5e59ae4" memberName="fadeSlider"
-          virtualName="" explicitFocusOrder="0" pos="96 72 72 16" rotaryslideroutline="0"
+          virtualName="" explicitFocusOrder="0" pos="128 60 64 32" bkgcol="ffffffff"
+          thumbcol="ffc4c4c4" rotarysliderfill="7fffffff" rotaryslideroutline="ffffffff"
           textboxtext="ffffffff" textboxbkgd="0" textboxhighlight="40e0e0f2"
-          textboxoutline="0" min="0" max="1" int="0.01" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="36"
+          textboxoutline="0" min="0" max="1" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="48"
           textBoxHeight="16" skewFactor="1"/>
-  <LABEL name="new label" id="2d30152685b46507" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="96 56 72 16" textCol="ffffffff" edTextCol="ff000000"
-         edBkgCol="0" labelText="Fade" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
-         bold="1" italic="0" justification="36"/>
   <TOGGLEBUTTON name="processButton" id="dff9ca9cd9964ab6" memberName="processButton"
                 virtualName="" explicitFocusOrder="0" pos="16 72 72 16" txtcol="ffffffff"
                 buttonText="Enable" connectedEdges="0" needsCallback="1" radioGroupId="0"
                 state="0"/>
-  <SLIDER name="new slider" id="4786b9b86028837c" memberName="slider" virtualName=""
-          explicitFocusOrder="0" pos="184 60 64 32" textboxtext="ffffffff"
-          textboxbkgd="ffffff" textboxoutline="808080" min="1" max="2"
-          int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxRight"
-          textBoxEditable="1" textBoxWidth="32" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="attack" id="4786b9b86028837c" memberName="attack" virtualName=""
+          explicitFocusOrder="0" pos="208 60 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="decay" id="8ee841ecb4b32b26" memberName="decay" virtualName=""
+          explicitFocusOrder="0" pos="272 60 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="sustain" id="c31fce3c0095eed4" memberName="sustain" virtualName=""
+          explicitFocusOrder="0" pos="336 60 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="release" id="7ed2af46945d5cd9" memberName="release" virtualName=""
+          explicitFocusOrder="0" pos="400 60 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="bb16dfeba71f5534" memberName="label" virtualName=""
+         explicitFocusOrder="0" pos="88 64 32 24" textCol="ffffffff" edTextCol="ff000000"
+         edBkgCol="0" labelText="Fade" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         bold="1" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -672,7 +754,7 @@ END_JUCER_METADATA
 //==============================================================================
 // Binary resources - be careful not to edit any of these sections!
 
-// JUCER_RESOURCE: plugin_editor_png, 2053, "../../../../../../Users/atom/Desktop/plugin_editor.png"
+// JUCER_RESOURCE: plugin_editor_png, 2053, "../../../../../Users/atom/Desktop/plugin_editor.png"
 static const unsigned char resource_ShredderSlot_plugin_editor_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,25,116,69,88,116,83,111,102,116,
 119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,7,167,73,68,65,84,120,218,180,87,125,80,20,231,25,255,237,222,237,125,112,71,0,177,119,124,42,17,80,208,54,
 13,104,154,198,161,17,153,201,164,118,28,99,170,105,154,214,25,99,59,105,109,18,42,255,36,53,74,139,141,214,24,154,100,160,105,99,172,26,19,27,59,182,201,116,52,26,99,170,163,92,180,26,4,149,24,130,2,
@@ -714,7 +796,7 @@ static const unsigned char resource_ShredderSlot_plugin_editor_png[] = { 137,80,
 const char* ShredderSlot::plugin_editor_png = (const char*) resource_ShredderSlot_plugin_editor_png;
 const int ShredderSlot::plugin_editor_pngSize = 2053;
 
-// JUCER_RESOURCE: plugin_loaded_png, 1743, "../../../../../../Users/atom/Desktop/plugin_loaded.png"
+// JUCER_RESOURCE: plugin_loaded_png, 1743, "../../../../../Users/atom/Desktop/plugin_loaded.png"
 static const unsigned char resource_ShredderSlot_plugin_loaded_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,25,116,69,88,116,83,111,102,116,
 119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,6,113,73,68,65,84,120,218,180,87,107,76,20,87,20,62,51,59,179,179,11,75,151,5,100,97,145,135,169,32,160,180,
 18,106,172,74,139,18,211,196,68,139,198,182,73,19,83,53,237,15,250,163,246,87,171,161,26,73,106,108,181,246,149,54,169,45,181,73,173,73,31,154,26,35,241,81,21,31,24,145,162,66,21,73,85,20,129,5,89,100,
@@ -750,7 +832,7 @@ static const unsigned char resource_ShredderSlot_plugin_loaded_png[] = { 137,80,
 const char* ShredderSlot::plugin_loaded_png = (const char*) resource_ShredderSlot_plugin_loaded_png;
 const int ShredderSlot::plugin_loaded_pngSize = 1743;
 
-// JUCER_RESOURCE: plugin_unloaded_png, 1660, "../../../../../../Users/atom/Desktop/plugin_unloaded.png"
+// JUCER_RESOURCE: plugin_unloaded_png, 1660, "../../../../../Users/atom/Desktop/plugin_unloaded.png"
 static const unsigned char resource_ShredderSlot_plugin_unloaded_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,25,116,69,88,116,83,111,102,116,
 119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,6,30,73,68,65,84,120,218,164,87,107,108,83,101,24,126,219,158,158,245,198,182,118,99,151,18,215,149,64,118,
 195,176,13,72,64,49,238,135,38,162,198,41,248,147,24,13,254,216,31,129,63,40,96,66,36,145,127,100,8,10,97,129,65,226,111,98,66,166,27,32,49,181,217,140,147,40,108,162,92,214,118,115,108,237,214,174,151,

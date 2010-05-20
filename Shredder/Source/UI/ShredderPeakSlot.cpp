@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  19 May 2010 4:44:32pm
+  Creation date:  20 May 2010 4:12:59pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -38,25 +38,14 @@ ShredderPeakSlot::ShredderPeakSlot (ShredderEditor *_shredderEditor, Shredder *_
       pluginName (0),
       processButton (0),
       slider (0),
-      slider2 (0),
-      slider3 (0),
-      slider4 (0),
-      slider5 (0),
-      slider6 (0),
-      slider7 (0),
-      slider8 (0),
-      slider9 (0),
-      slider10 (0),
-      slider11 (0),
-      slider12 (0),
-      slider13 (0),
-      slider14 (0),
-      slider15 (0),
-      slider16 (0),
       rmsMeterL (0),
       rmsMeterR (0),
       label (0),
-      label2 (0)
+      label2 (0),
+      attack (0),
+      decay (0),
+      sustain (0),
+      release (0)
 {
     addAndMakeVisible (groupComponent = new GroupComponent (T("new group"),
                                                             String::empty));
@@ -95,146 +84,11 @@ ShredderPeakSlot::ShredderPeakSlot (ShredderEditor *_shredderEditor, Shredder *_
     addAndMakeVisible (slider = new Slider (T("1")));
     slider->setRange (0, 1, 0.01);
     slider->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
+    slider->setTextBoxStyle (Slider::TextBoxBelow, false, 32, 12);
     slider->setColour (Slider::textBoxTextColourId, Colours::white);
     slider->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
     slider->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
     slider->addListener (this);
-
-    addAndMakeVisible (slider2 = new Slider (T("1")));
-    slider2->setRange (0, 1, 0.01);
-    slider2->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider2->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider2->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider2->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider2->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider2->addListener (this);
-
-    addAndMakeVisible (slider3 = new Slider (T("1")));
-    slider3->setRange (0, 1, 0.01);
-    slider3->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider3->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider3->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider3->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider3->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider3->addListener (this);
-
-    addAndMakeVisible (slider4 = new Slider (T("1")));
-    slider4->setRange (0, 1, 0.01);
-    slider4->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider4->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider4->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider4->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider4->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider4->addListener (this);
-
-    addAndMakeVisible (slider5 = new Slider (T("1")));
-    slider5->setRange (0, 1, 0.01);
-    slider5->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider5->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider5->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider5->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider5->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider5->addListener (this);
-
-    addAndMakeVisible (slider6 = new Slider (T("1")));
-    slider6->setRange (0, 1, 0.01);
-    slider6->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider6->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider6->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider6->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider6->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider6->addListener (this);
-
-    addAndMakeVisible (slider7 = new Slider (T("1")));
-    slider7->setRange (0, 1, 0.01);
-    slider7->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider7->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider7->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider7->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider7->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider7->addListener (this);
-
-    addAndMakeVisible (slider8 = new Slider (T("1")));
-    slider8->setRange (0, 1, 0.01);
-    slider8->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider8->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider8->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider8->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider8->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider8->addListener (this);
-
-    addAndMakeVisible (slider9 = new Slider (T("1")));
-    slider9->setRange (0, 1, 0.01);
-    slider9->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider9->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider9->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider9->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider9->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider9->addListener (this);
-
-    addAndMakeVisible (slider10 = new Slider (T("1")));
-    slider10->setRange (0, 1, 0.01);
-    slider10->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider10->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider10->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider10->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider10->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider10->addListener (this);
-
-    addAndMakeVisible (slider11 = new Slider (T("1")));
-    slider11->setRange (0, 1, 0.01);
-    slider11->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider11->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider11->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider11->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider11->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider11->addListener (this);
-
-    addAndMakeVisible (slider12 = new Slider (T("1")));
-    slider12->setRange (0, 1, 0.01);
-    slider12->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider12->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider12->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider12->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider12->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider12->addListener (this);
-
-    addAndMakeVisible (slider13 = new Slider (T("1")));
-    slider13->setRange (0, 1, 0.01);
-    slider13->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider13->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider13->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider13->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider13->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider13->addListener (this);
-
-    addAndMakeVisible (slider14 = new Slider (T("1")));
-    slider14->setRange (0, 1, 0.01);
-    slider14->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider14->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider14->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider14->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider14->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider14->addListener (this);
-
-    addAndMakeVisible (slider15 = new Slider (T("1")));
-    slider15->setRange (0, 1, 0.01);
-    slider15->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider15->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider15->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider15->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider15->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider15->addListener (this);
-
-    addAndMakeVisible (slider16 = new Slider (T("1")));
-    slider16->setRange (0, 1, 0.01);
-    slider16->setSliderStyle (Slider::RotaryVerticalDrag);
-    slider16->setTextBoxStyle (Slider::TextBoxAbove, false, 32, 10);
-    slider16->setColour (Slider::textBoxTextColourId, Colours::white);
-    slider16->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    slider16->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    slider16->addListener (this);
 
     addAndMakeVisible (rmsMeterL = new ShredderRMSMeter());
     rmsMeterL->setName (T("rmsMeterL"));
@@ -259,6 +113,50 @@ ShredderPeakSlot::ShredderPeakSlot (ShredderEditor *_shredderEditor, Shredder *_
     label2->setColour (Label::textColourId, Colours::white);
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (attack = new Slider (T("attack")));
+    attack->setRange (0, 100, 1);
+    attack->setSliderStyle (Slider::RotaryVerticalDrag);
+    attack->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    attack->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    attack->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    attack->setColour (Slider::textBoxTextColourId, Colours::white);
+    attack->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    attack->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    attack->addListener (this);
+
+    addAndMakeVisible (decay = new Slider (T("decay")));
+    decay->setRange (0, 100, 1);
+    decay->setSliderStyle (Slider::RotaryVerticalDrag);
+    decay->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    decay->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    decay->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    decay->setColour (Slider::textBoxTextColourId, Colours::white);
+    decay->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    decay->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    decay->addListener (this);
+
+    addAndMakeVisible (sustain = new Slider (T("sustain")));
+    sustain->setRange (0, 100, 1);
+    sustain->setSliderStyle (Slider::RotaryVerticalDrag);
+    sustain->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    sustain->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    sustain->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    sustain->setColour (Slider::textBoxTextColourId, Colours::white);
+    sustain->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    sustain->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    sustain->addListener (this);
+
+    addAndMakeVisible (release = new Slider (T("release")));
+    release->setRange (0, 100, 1);
+    release->setSliderStyle (Slider::RotaryVerticalDrag);
+    release->setTextBoxStyle (Slider::TextBoxRight, false, 32, 20);
+    release->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    release->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    release->setColour (Slider::textBoxTextColourId, Colours::white);
+    release->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    release->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    release->addListener (this);
 
 
     //[UserPreSize]
@@ -290,25 +188,14 @@ ShredderPeakSlot::~ShredderPeakSlot()
     deleteAndZero (pluginName);
     deleteAndZero (processButton);
     deleteAndZero (slider);
-    deleteAndZero (slider2);
-    deleteAndZero (slider3);
-    deleteAndZero (slider4);
-    deleteAndZero (slider5);
-    deleteAndZero (slider6);
-    deleteAndZero (slider7);
-    deleteAndZero (slider8);
-    deleteAndZero (slider9);
-    deleteAndZero (slider10);
-    deleteAndZero (slider11);
-    deleteAndZero (slider12);
-    deleteAndZero (slider13);
-    deleteAndZero (slider14);
-    deleteAndZero (slider15);
-    deleteAndZero (slider16);
     deleteAndZero (rmsMeterL);
     deleteAndZero (rmsMeterR);
     deleteAndZero (label);
     deleteAndZero (label2);
+    deleteAndZero (attack);
+    deleteAndZero (decay);
+    deleteAndZero (sustain);
+    deleteAndZero (release);
 
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
@@ -331,26 +218,15 @@ void ShredderPeakSlot::resized()
     pluginEditor->setBounds (632, 58, 32, 32);
     pluginName->setBounds (344, 64, 246, 24);
     processButton->setBounds (16, 72, 72, 16);
-    slider->setBounds (16, 16, 32, 42);
-    slider2->setBounds (56, 16, 32, 42);
-    slider3->setBounds (96, 16, 32, 42);
-    slider4->setBounds (136, 16, 32, 42);
-    slider5->setBounds (184, 16, 32, 42);
-    slider6->setBounds (224, 16, 32, 42);
-    slider7->setBounds (264, 16, 32, 42);
-    slider8->setBounds (304, 16, 32, 42);
-    slider9->setBounds (352, 16, 32, 42);
-    slider10->setBounds (392, 16, 32, 42);
-    slider11->setBounds (432, 16, 32, 42);
-    slider12->setBounds (472, 16, 32, 42);
-    slider13->setBounds (520, 16, 32, 42);
-    slider14->setBounds (560, 16, 32, 42);
-    slider15->setBounds (600, 16, 32, 42);
-    slider16->setBounds (640, 16, 32, 42);
+    slider->setBounds (368, 24, 48, 56);
     rmsMeterL->setBounds (104, 72, 112, 16);
     rmsMeterR->setBounds (232, 72, 112, 16);
     label->setBounds (88, 72, 16, 16);
     label2->setBounds (216, 72, 16, 16);
+    attack->setBounds (40, 24, 64, 32);
+    decay->setBounds (104, 24, 64, 32);
+    sustain->setBounds (176, 24, 64, 32);
+    release->setBounds (240, 24, 64, 32);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -390,80 +266,25 @@ void ShredderPeakSlot::sliderValueChanged (Slider* sliderThatWasMoved)
         //[UserSliderCode_slider] -- add your slider handling code here..
         //[/UserSliderCode_slider]
     }
-    else if (sliderThatWasMoved == slider2)
+    else if (sliderThatWasMoved == attack)
     {
-        //[UserSliderCode_slider2] -- add your slider handling code here..
-        //[/UserSliderCode_slider2]
+        //[UserSliderCode_attack] -- add your slider handling code here..
+        //[/UserSliderCode_attack]
     }
-    else if (sliderThatWasMoved == slider3)
+    else if (sliderThatWasMoved == decay)
     {
-        //[UserSliderCode_slider3] -- add your slider handling code here..
-        //[/UserSliderCode_slider3]
+        //[UserSliderCode_decay] -- add your slider handling code here..
+        //[/UserSliderCode_decay]
     }
-    else if (sliderThatWasMoved == slider4)
+    else if (sliderThatWasMoved == sustain)
     {
-        //[UserSliderCode_slider4] -- add your slider handling code here..
-        //[/UserSliderCode_slider4]
+        //[UserSliderCode_sustain] -- add your slider handling code here..
+        //[/UserSliderCode_sustain]
     }
-    else if (sliderThatWasMoved == slider5)
+    else if (sliderThatWasMoved == release)
     {
-        //[UserSliderCode_slider5] -- add your slider handling code here..
-        //[/UserSliderCode_slider5]
-    }
-    else if (sliderThatWasMoved == slider6)
-    {
-        //[UserSliderCode_slider6] -- add your slider handling code here..
-        //[/UserSliderCode_slider6]
-    }
-    else if (sliderThatWasMoved == slider7)
-    {
-        //[UserSliderCode_slider7] -- add your slider handling code here..
-        //[/UserSliderCode_slider7]
-    }
-    else if (sliderThatWasMoved == slider8)
-    {
-        //[UserSliderCode_slider8] -- add your slider handling code here..
-        //[/UserSliderCode_slider8]
-    }
-    else if (sliderThatWasMoved == slider9)
-    {
-        //[UserSliderCode_slider9] -- add your slider handling code here..
-        //[/UserSliderCode_slider9]
-    }
-    else if (sliderThatWasMoved == slider10)
-    {
-        //[UserSliderCode_slider10] -- add your slider handling code here..
-        //[/UserSliderCode_slider10]
-    }
-    else if (sliderThatWasMoved == slider11)
-    {
-        //[UserSliderCode_slider11] -- add your slider handling code here..
-        //[/UserSliderCode_slider11]
-    }
-    else if (sliderThatWasMoved == slider12)
-    {
-        //[UserSliderCode_slider12] -- add your slider handling code here..
-        //[/UserSliderCode_slider12]
-    }
-    else if (sliderThatWasMoved == slider13)
-    {
-        //[UserSliderCode_slider13] -- add your slider handling code here..
-        //[/UserSliderCode_slider13]
-    }
-    else if (sliderThatWasMoved == slider14)
-    {
-        //[UserSliderCode_slider14] -- add your slider handling code here..
-        //[/UserSliderCode_slider14]
-    }
-    else if (sliderThatWasMoved == slider15)
-    {
-        //[UserSliderCode_slider15] -- add your slider handling code here..
-        //[/UserSliderCode_slider15]
-    }
-    else if (sliderThatWasMoved == slider16)
-    {
-        //[UserSliderCode_slider16] -- add your slider handling code here..
-        //[/UserSliderCode_slider16]
+        //[UserSliderCode_release] -- add your slider handling code here..
+        //[/UserSliderCode_release]
     }
 
     //[UsersliderValueChanged_Post]
@@ -529,85 +350,10 @@ BEGIN_JUCER_METADATA
                 buttonText="Enable" connectedEdges="0" needsCallback="1" radioGroupId="0"
                 state="0"/>
   <SLIDER name="1" id="5c3066dab521fae7" memberName="slider" virtualName=""
-          explicitFocusOrder="0" pos="16 16 32 42" textboxtext="ffffffff"
+          explicitFocusOrder="0" pos="368 24 48 56" textboxtext="ffffffff"
           textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="f127032f5d1e5552" memberName="slider2" virtualName=""
-          explicitFocusOrder="0" pos="56 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="49be9b4b84a09e85" memberName="slider3" virtualName=""
-          explicitFocusOrder="0" pos="96 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="15c7b6a32d74cab0" memberName="slider4" virtualName=""
-          explicitFocusOrder="0" pos="136 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="9fb71d5269373c85" memberName="slider5" virtualName=""
-          explicitFocusOrder="0" pos="184 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="acdbe76305453985" memberName="slider6" virtualName=""
-          explicitFocusOrder="0" pos="224 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="59b9a39710a3836d" memberName="slider7" virtualName=""
-          explicitFocusOrder="0" pos="264 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="f617a6659f3094f0" memberName="slider8" virtualName=""
-          explicitFocusOrder="0" pos="304 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="c107c5417f7175a5" memberName="slider9" virtualName=""
-          explicitFocusOrder="0" pos="352 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="b087022129c35942" memberName="slider10" virtualName=""
-          explicitFocusOrder="0" pos="392 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="297eeb3c95ab7e0a" memberName="slider11" virtualName=""
-          explicitFocusOrder="0" pos="432 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="4c16b3142fa1fe84" memberName="slider12" virtualName=""
-          explicitFocusOrder="0" pos="472 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="19af44b6264b8a6d" memberName="slider13" virtualName=""
-          explicitFocusOrder="0" pos="520 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="9dd5d8402ce13aee" memberName="slider14" virtualName=""
-          explicitFocusOrder="0" pos="560 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="8e2ccba490c4f611" memberName="slider15" virtualName=""
-          explicitFocusOrder="0" pos="600 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
-  <SLIDER name="1" id="af02c3aabd341571" memberName="slider16" virtualName=""
-          explicitFocusOrder="0" pos="640 16 32 42" textboxtext="ffffffff"
-          textboxbkgd="0" textboxoutline="0" min="0" max="1" int="0.01"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxAbove" textBoxEditable="1"
-          textBoxWidth="32" textBoxHeight="10" skewFactor="1"/>
+          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+          textBoxWidth="32" textBoxHeight="12" skewFactor="1"/>
   <GENERICCOMPONENT name="rmsMeterL" id="e33d72333415bf84" memberName="rmsMeterL"
                     virtualName="" explicitFocusOrder="0" pos="104 72 112 16" class="ShredderRMSMeter"
                     params=""/>
@@ -624,6 +370,30 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="R" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="14" bold="1" italic="0" justification="36"/>
+  <SLIDER name="attack" id="4786b9b86028837c" memberName="attack" virtualName=""
+          explicitFocusOrder="0" pos="40 24 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="decay" id="8ee841ecb4b32b26" memberName="decay" virtualName=""
+          explicitFocusOrder="0" pos="104 24 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="sustain" id="c31fce3c0095eed4" memberName="sustain" virtualName=""
+          explicitFocusOrder="0" pos="176 24 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="release" id="7ed2af46945d5cd9" memberName="release" virtualName=""
+          explicitFocusOrder="0" pos="240 24 64 32" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
+          textBoxHeight="20" skewFactor="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -633,7 +403,7 @@ END_JUCER_METADATA
 //==============================================================================
 // Binary resources - be careful not to edit any of these sections!
 
-// JUCER_RESOURCE: plugin_editor_png, 2053, "../../../../../../Users/atom/Desktop/plugin_editor.png"
+// JUCER_RESOURCE: plugin_editor_png, 2053, "../../../../../Users/atom/Desktop/plugin_editor.png"
 static const unsigned char resource_ShredderPeakSlot_plugin_editor_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,25,116,69,88,116,83,111,102,
 116,119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,7,167,73,68,65,84,120,218,180,87,125,80,20,231,25,255,237,222,237,125,112,71,0,177,119,124,42,17,80,208,
 54,13,104,154,198,161,17,153,201,164,118,28,99,170,105,154,214,25,99,59,105,109,18,42,255,36,53,74,139,141,214,24,154,100,160,105,99,172,26,19,27,59,182,201,116,52,26,99,170,163,92,180,26,4,149,24,130,
@@ -675,7 +445,7 @@ static const unsigned char resource_ShredderPeakSlot_plugin_editor_png[] = { 137
 const char* ShredderPeakSlot::plugin_editor_png = (const char*) resource_ShredderPeakSlot_plugin_editor_png;
 const int ShredderPeakSlot::plugin_editor_pngSize = 2053;
 
-// JUCER_RESOURCE: plugin_loaded_png, 1743, "../../../../../../Users/atom/Desktop/plugin_loaded.png"
+// JUCER_RESOURCE: plugin_loaded_png, 1743, "../../../../../Users/atom/Desktop/plugin_loaded.png"
 static const unsigned char resource_ShredderPeakSlot_plugin_loaded_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,25,116,69,88,116,83,111,102,
 116,119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,6,113,73,68,65,84,120,218,180,87,107,76,20,87,20,62,51,59,179,179,11,75,151,5,100,97,145,135,169,32,160,
 180,18,106,172,74,139,18,211,196,68,139,198,182,73,19,83,53,237,15,250,163,246,87,171,161,26,73,106,108,181,246,149,54,169,45,181,73,173,73,31,154,26,35,241,81,21,31,24,145,162,66,21,73,85,20,129,5,89,
@@ -711,7 +481,7 @@ static const unsigned char resource_ShredderPeakSlot_plugin_loaded_png[] = { 137
 const char* ShredderPeakSlot::plugin_loaded_png = (const char*) resource_ShredderPeakSlot_plugin_loaded_png;
 const int ShredderPeakSlot::plugin_loaded_pngSize = 1743;
 
-// JUCER_RESOURCE: plugin_unloaded_png, 1660, "../../../../../../Users/atom/Desktop/plugin_unloaded.png"
+// JUCER_RESOURCE: plugin_unloaded_png, 1660, "../../../../../Users/atom/Desktop/plugin_unloaded.png"
 static const unsigned char resource_ShredderPeakSlot_plugin_unloaded_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,25,116,69,88,116,83,111,102,
 116,119,97,114,101,0,65,100,111,98,101,32,73,109,97,103,101,82,101,97,100,121,113,201,101,60,0,0,6,30,73,68,65,84,120,218,164,87,107,108,83,101,24,126,219,158,158,245,198,182,118,99,151,18,215,149,64,
 118,195,176,13,72,64,49,238,135,38,162,198,41,248,147,24,13,254,216,31,129,63,40,96,66,36,145,127,100,8,10,97,129,65,226,111,98,66,166,27,32,49,181,217,140,147,40,108,162,92,214,118,115,108,237,214,174,
