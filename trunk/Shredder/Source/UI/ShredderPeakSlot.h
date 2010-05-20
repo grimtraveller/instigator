@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  19 May 2010 4:44:32pm
+  Creation date:  20 May 2010 4:12:59pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERPEAKSLOT_SHREDDERPEAKSLOT_F98CFE27__
-#define __JUCER_HEADER_SHREDDERPEAKSLOT_SHREDDERPEAKSLOT_F98CFE27__
+#ifndef __JUCER_HEADER_SHREDDERPEAKSLOT_SHREDDERPEAKSLOT_8E7DEE37__
+#define __JUCER_HEADER_SHREDDERPEAKSLOT_SHREDDERPEAKSLOT_8E7DEE37__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -95,25 +95,14 @@ private:
     Label* pluginName;
     ToggleButton* processButton;
     Slider* slider;
-    Slider* slider2;
-    Slider* slider3;
-    Slider* slider4;
-    Slider* slider5;
-    Slider* slider6;
-    Slider* slider7;
-    Slider* slider8;
-    Slider* slider9;
-    Slider* slider10;
-    Slider* slider11;
-    Slider* slider12;
-    Slider* slider13;
-    Slider* slider14;
-    Slider* slider15;
-    Slider* slider16;
     ShredderRMSMeter* rmsMeterL;
     ShredderRMSMeter* rmsMeterR;
     Label* label;
     Label* label2;
+    Slider* attack;
+    Slider* decay;
+    Slider* sustain;
+    Slider* release;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -122,4 +111,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERPEAKSLOT_SHREDDERPEAKSLOT_F98CFE27__
+#endif   // __JUCER_HEADER_SHREDDERPEAKSLOT_SHREDDERPEAKSLOT_8E7DEE37__

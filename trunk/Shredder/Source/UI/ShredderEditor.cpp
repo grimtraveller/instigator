@@ -458,8 +458,8 @@ void ShredderEditor::changeListenerCallback (void* objectThatHasChanged)
 			}
 		}
 
-		const String position = ppqToBarsBeatsString (lastPosInfo.ppqPosition, lastPosInfo.ppqPositionOfLastBarStart, lastPosInfo.timeSigNumerator, lastPosInfo.timeSigDenominator);
-		positionInfo->setText (position, false);
+		// const String position = ppqToBarsBeatsString (lastPosInfo.ppqPosition, lastPosInfo.ppqPositionOfLastBarStart, lastPosInfo.timeSigNumerator, lastPosInfo.timeSigDenominator);
+		// positionInfo->setText (position, false);
 	}
 }
 
