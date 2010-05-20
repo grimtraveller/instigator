@@ -6,15 +6,15 @@
 #define JUCE_ALSA						0
 #define JUCE_JACK						0
 #define JUCE_QUICKTIME					0
-#define JUCE_SUPPORT_CARBON				0
+#define JUCE_SUPPORT_CARBON				1
 #define JUCE_OPENGL						0
 #define JUCE_USE_FLAC					0
 #define JUCE_USE_OGGVORBIS				0
 #define JUCE_USE_CDBURNER				0
 #define JUCE_USE_XINERAMA				0
 #define JUCE_USE_XSHM					0
-#define JUCE_PLUGINHOST_VST				1
-#define JUCE_PLUGINHOST_AU				0
+#define JUCE_PLUGINHOST_VST				0
+#define JUCE_PLUGINHOST_AU				1
 
 /* debugging */
 #ifdef JUCE_DEBUG
