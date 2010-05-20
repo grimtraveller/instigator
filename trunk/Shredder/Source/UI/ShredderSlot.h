@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 4:13:55pm
+  Creation date:  20 May 2010 11:31:35pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,12 +19,13 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_9249B61D__
-#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_9249B61D__
+#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_2B138642__
+#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_2B138642__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
 #include "ImageToggleButton.h"
+#include "ImageSlider.h"
 #include "ShredderResources.h"
 #include "Shredder.h"
 #include "ShredderPluginEditor.h"
@@ -87,6 +88,8 @@ private:
 	FSerializedTypeface serializedSekuntiaTf;
 	Typeface *sekuntiaTf;
 	Array <ToggleButton*> steps;
+	ImageSlider whiteKnob;
+	ImageToggleButton onOffButton;
     //[/UserVariables]
 
     //==============================================================================
@@ -116,7 +119,7 @@ private:
     Slider* decay;
     Slider* sustain;
     Slider* release;
-    Label* label;
+    Slider* mix;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -125,4 +128,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_9249B61D__
+#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_2B138642__

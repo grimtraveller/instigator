@@ -23,6 +23,8 @@
 #ifndef ADSR_H
 #define ADSR_H
 
+#include "Includes.h"
+
 ///
 /// ADSR envelope.
 ///
@@ -33,20 +35,13 @@ public:
 	float __decay;		///< Decay time (in samples)
 	float __sustain;	///< Sustain level
 	float __release;	///< Release time (in samples)
-
-	ADSR(
-	    float attack = 0.0,
-	    float decay = 0.0,
-	    float sustain = 1.0,
-	    float release = 1000
-	);
-
-	ADSR( const ADSR& orig );
-
+	ADSR (float attack = 0.0, float decay = 0.0, float sustain = 1.0, float release = 1000);
+	ADSR (const ADSR& orig);
 	~ADSR();
-
-	float get_value( float step );
+	float process (float step);
 	float release();
+	XmlElement *createXml();
+	void loadXml(XmlElement *xmlState);
 
 private:
 	enum ADSRState {

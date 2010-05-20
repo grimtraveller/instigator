@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  19 May 2010 2:52:12pm
+  Creation date:  20 May 2010 9:45:20pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_85AB9D93__
-#define __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_85AB9D93__
+#ifndef __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_18F4633C__
+#define __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_18F4633C__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -61,6 +61,10 @@ public:
     static const int _60sekuntia_jfontSize;
     static const char* knob0_png;
     static const int knob0_pngSize;
+    static const char* onoff_png;
+    static const int onoff_pngSize;
+    static const char* whiteknob_png;
+    static const int whiteknob_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
@@ -79,4 +83,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_85AB9D93__
+#endif   // __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_18F4633C__

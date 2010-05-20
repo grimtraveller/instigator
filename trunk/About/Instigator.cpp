@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 12:51:13am
+  Creation date:  21 May 2010 12:31:12am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -34,8 +34,8 @@ Instigator::Instigator ()
       cachedImage_instigator_logo_png (0)
 {
     addAndMakeVisible (hyperlinkButton = new HyperlinkButton (T("                               "),
-                                                              URL (T("http://instigator.org"))));
-    hyperlinkButton->setTooltip (T("http://instigator.org"));
+                                                              URL (T("http://instigator.tk"))));
+    hyperlinkButton->setTooltip (T("http://instigator.tk"));
     hyperlinkButton->setButtonText (T("                               "));
     hyperlinkButton->setColour (HyperlinkButton::textColourId, Colour (0x0));
 
@@ -108,9 +108,9 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="0 0 0M 0M" resource="instigator_logo_png" opacity="1" mode="0"/>
   </BACKGROUND>
   <HYPERLINKBUTTON name="new hyperlink" id="4f6f5b908d2da48d" memberName="hyperlinkButton"
-                   virtualName="" explicitFocusOrder="0" pos="216 392 208 40" tooltip="http://instigator.org"
+                   virtualName="" explicitFocusOrder="0" pos="216 392 208 40" tooltip="http://instigator.tk"
                    textCol="0" buttonText="                               " connectedEdges="0"
-                   needsCallback="0" radioGroupId="0" url="http://instigator.org"/>
+                   needsCallback="0" radioGroupId="0" url="http://instigator.tk"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -120,7 +120,7 @@ END_JUCER_METADATA
 //==============================================================================
 // Binary resources - be careful not to edit any of these sections!
 
-// JUCER_RESOURCE: instigator_logo_png, 900672, "../../../../Users/atom/Desktop/instigator_logo.png"
+// JUCER_RESOURCE: instigator_logo_png, 900672, "../../../Users/atom/Desktop/instigator_logo.png"
 static const unsigned char resource_Instigator_instigator_logo_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,2,128,0,0,1,224,8,6,0,0,0,53,209,220,228,0,0,10,79,105,67,67,80,80,104,111,116,
 111,115,104,111,112,32,73,67,67,32,112,114,111,102,105,108,101,0,0,120,218,157,83,103,84,83,233,22,61,247,222,244,66,75,136,128,148,75,111,82,21,8,32,82,66,139,128,20,145,38,42,33,9,16,74,136,33,161,217,
 21,81,193,17,69,69,4,27,200,160,136,3,142,142,128,140,21,81,44,12,138,10,216,7,228,33,162,142,131,163,136,138,202,251,225,123,163,107,214,188,247,230,205,254,181,215,62,231,172,243,157,179,207,7,192,8,
