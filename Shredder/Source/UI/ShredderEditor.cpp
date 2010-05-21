@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 9:26:54pm
+  Creation date:  21 May 2010 1:07:09pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -166,7 +166,6 @@ ShredderEditor::ShredderEditor (AudioProcessor *_shredder)
       led15 (0),
       led16 (0),
       positionInfo (0),
-      component (0),
       instigatorBtn (0)
 {
     addAndMakeVisible (slot1 = new ShredderSlot (this, shredder));
@@ -250,7 +249,6 @@ ShredderEditor::ShredderEditor (AudioProcessor *_shredder)
     positionInfo->setColour (TextEditor::textColourId, Colours::black);
     positionInfo->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
-    addAndMakeVisible (component = new ShredderPeakSlot (this, shredder));
     addAndMakeVisible (instigatorBtn = new ImageButton (T("instigatorBtn")));
     instigatorBtn->setButtonText (T("new button"));
     instigatorBtn->addButtonListener (this);
@@ -295,7 +293,7 @@ ShredderEditor::ShredderEditor (AudioProcessor *_shredder)
 	applyLookAndFeelToToggleButtons (this, T("led"), &ledButton);
     //[/UserPreSize]
 
-    setSize (694, 560);
+    setSize (694, 480);
 
     //[Constructor] You can add your own custom stuff here..
 	reloadLists();
@@ -331,7 +329,6 @@ ShredderEditor::~ShredderEditor()
     deleteAndZero (led15);
     deleteAndZero (led16);
     deleteAndZero (positionInfo);
-    deleteAndZero (component);
     deleteAndZero (instigatorBtn);
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -359,7 +356,7 @@ void ShredderEditor::resized()
     slot1->setBounds (8, 48, 680, 104);
     slot2->setBounds (8, 144, 680, 104);
     led1->setBounds (28, 16, 24, 24);
-    optionsButton->setBounds (632, 536, 56, 16);
+    optionsButton->setBounds (632, 456, 56, 16);
     slot3->setBounds (8, 240, 680, 104);
     slot4->setBounds (8, 336, 680, 104);
     led2->setBounds (68, 16, 24, 24);
@@ -377,9 +374,8 @@ void ShredderEditor::resized()
     led14->setBounds (572, 16, 24, 24);
     led15->setBounds (612, 16, 24, 24);
     led16->setBounds (652, 16, 24, 24);
-    positionInfo->setBounds (16, 512, 600, 16);
-    component->setBounds (8, 432, 680, 96);
-    instigatorBtn->setBounds (472, 528, 150, 32);
+    positionInfo->setBounds (32, 456, 424, 16);
+    instigatorBtn->setBounds (472, 448, 150, 32);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -485,7 +481,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public AudioProcessorEditor, public ChangeListener"
                  constructorParams="AudioProcessor *_shredder" variableInitialisers="AudioProcessorEditor (_shredder), shredder((Shredder *)_shredder), shredderOptions(this, (Shredder *)_shredder),  ledButton(Pic(ShredderResources::btn_led_png, ShredderResources::btn_led_pngSize), Font(12))"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="694" initialHeight="560">
+                 fixedSize="1" initialWidth="694" initialHeight="480">
   <BACKGROUND backgroundColour="ff000000"/>
   <JUCERCOMP name="" id="20ee16f709cc1227" memberName="slot1" virtualName=""
              explicitFocusOrder="0" pos="8 48 680 104" sourceFile="ShredderSlot.cpp"
@@ -497,7 +493,7 @@ BEGIN_JUCER_METADATA
                 explicitFocusOrder="0" pos="28 16 24 24" buttonText="" connectedEdges="0"
                 needsCallback="0" radioGroupId="2" state="0"/>
   <TEXTBUTTON name="optionsButton" id="b434469d0c406758" memberName="optionsButton"
-              virtualName="" explicitFocusOrder="0" pos="632 536 56 16" buttonText="Options"
+              virtualName="" explicitFocusOrder="0" pos="632 456 56 16" buttonText="Options"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <JUCERCOMP name="" id="81aa691ce23973a1" memberName="slot3" virtualName=""
              explicitFocusOrder="0" pos="8 240 680 104" sourceFile="ShredderSlot.cpp"
@@ -551,15 +547,12 @@ BEGIN_JUCER_METADATA
                 explicitFocusOrder="0" pos="652 16 24 24" buttonText="" connectedEdges="0"
                 needsCallback="0" radioGroupId="2" state="0"/>
   <LABEL name="positionInfo" id="6739761a4ee8528c" memberName="positionInfo"
-         virtualName="" explicitFocusOrder="0" pos="16 512 600 16" textCol="ffffffff"
+         virtualName="" explicitFocusOrder="0" pos="32 456 424 16" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default monospaced font"
          fontsize="14" bold="1" italic="0" justification="36"/>
-  <JUCERCOMP name="" id="247dadecbd83e3a2" memberName="component" virtualName=""
-             explicitFocusOrder="0" pos="8 432 680 96" sourceFile="ShredderPeakSlot.cpp"
-             constructorParams="this, shredder"/>
   <IMAGEBUTTON name="instigatorBtn" id="ff9a1c64c500f952" memberName="instigatorBtn"
-               virtualName="" explicitFocusOrder="0" pos="472 528 150 32" buttonText="new button"
+               virtualName="" explicitFocusOrder="0" pos="472 448 150 32" buttonText="new button"
                connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
                resourceNormal="name_png" opacityNormal="1" colourNormal="0"
                resourceOver="name_png" opacityOver="1" colourOver="0" resourceDown="name_png"

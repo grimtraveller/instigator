@@ -38,6 +38,7 @@ class Shredder  : public AudioProcessor, public ChangeBroadcaster
 		/* end VST stuff */
 
 		/* Shredder implementation */
+		void dumpPluginCache (const File &cacheFile);
 		bool loadPluginOnSlot (const int slotNumber, const int pluginIndex);
 		bool clearPluginOnSlot (const int slotNumber, const bool deleteEditor=true);
 		ShredderPlugin *getPluginOnSlot (const int slotNumber);

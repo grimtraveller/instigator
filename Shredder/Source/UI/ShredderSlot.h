@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 11:31:35pm
+  Creation date:  21 May 2010 4:40:02pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_2B138642__
-#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_2B138642__
+#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_21497BCE__
+#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_21497BCE__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -113,7 +113,6 @@ private:
     ImageButton* pluginMenu;
     ImageButton* pluginEditor;
     Label* pluginName;
-    Slider* fadeSlider;
     ToggleButton* processButton;
     Slider* attack;
     Slider* decay;
@@ -128,4 +127,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_2B138642__
+#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_21497BCE__

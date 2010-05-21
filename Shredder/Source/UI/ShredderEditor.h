@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 9:26:54pm
+  Creation date:  21 May 2010 1:07:09pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_53E1878D__
-#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_53E1878D__
+#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_D6D6DCFD__
+#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_D6D6DCFD__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -31,7 +31,6 @@
 //[/Headers]
 
 #include "ShredderSlot.h"
-#include "ShredderPeakSlot.h"
 
 
 //==============================================================================
@@ -107,7 +106,6 @@ private:
     ToggleButton* led15;
     ToggleButton* led16;
     Label* positionInfo;
-    ShredderPeakSlot* component;
     ImageButton* instigatorBtn;
 
     //==============================================================================
@@ -117,4 +115,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_53E1878D__
+#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_D6D6DCFD__
