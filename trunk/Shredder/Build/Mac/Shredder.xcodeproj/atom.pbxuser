@@ -3,15 +3,12 @@
 	089C1669FE841209C02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Release;
 		activeExecutable = 5C92AC4D115972B1003ABDFD /* Pluginhost */;
-		activeTarget = 5C3A55401132EDA70038C5B2 /* Ctrlr-Standalone */;
+		activeTarget = 8D01CCC60486CAD60068D4B7 /* Shredder */;
 		addToTargets = (
-			5C9756DD11593206004C236D /* Ctrlr-AU */,
-			5C3A55401132EDA70038C5B2 /* Ctrlr-Standalone */,
-			8D01CCC60486CAD60068D4B7 /* Ctrlr-VST */,
+			8D01CCC60486CAD60068D4B7 /* Shredder */,
 		);
 		codeSenseManager = 5C6E40C311218E7200B47A10 /* Code sense */;
 		executables = (
-			5C928E151157BC0D00C78637 /* Ctrlr-Standalone */,
 			5C92AC4D115972B1003ABDFD /* Pluginhost */,
 		);
 		perUserDictionary = {
@@ -21,11 +18,11 @@
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
 					20,
-					241,
+					149,
 					20,
-					141,
-					141,
-					70,
+					149,
+					149,
+					146,
 					20,
 				);
 				PBXFileTableDataSourceColumnsKey = (
@@ -127,64 +124,22 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 293295588;
-			PBXWorkspaceStateSaveDate = 293295588;
+			PBXPerProjectTemplateStateSaveDate = 296149660;
+			PBXWorkspaceStateSaveDate = 296149660;
 		};
 		perUserProjectItems = {
-			5CB3F51A117B56190045E34C /* PBXTextBookmark */ = 5CB3F51A117B56190045E34C /* PBXTextBookmark */;
-			5CB3F51B117B56190045E34C /* PBXTextBookmark */ = 5CB3F51B117B56190045E34C /* PBXTextBookmark */;
+			5CED5F9911A6E387004C6C07 /* PBXTextBookmark */ = 5CED5F9911A6E387004C6C07 /* PBXTextBookmark */;
+			5CED5F9C11A6E387004C6C07 /* PBXTextBookmark */ = 5CED5F9C11A6E387004C6C07 /* PBXTextBookmark */;
+			5CED5FB311A6E527004C6C07 /* PBXTextBookmark */ = 5CED5FB311A6E527004C6C07 /* PBXTextBookmark */;
+			5CED5FB511A6E527004C6C07 /* PBXTextBookmark */ = 5CED5FB511A6E527004C6C07 /* PBXTextBookmark */;
+			5CED5FC111A6E7AF004C6C07 /* PBXTextBookmark */ = 5CED5FC111A6E7AF004C6C07 /* PBXTextBookmark */;
+			5CED5FC211A6E7AF004C6C07 /* PlistBookmark */ = 5CED5FC211A6E7AF004C6C07 /* PlistBookmark */;
+			5CED5FC311A6E7AF004C6C07 /* PBXTextBookmark */ = 5CED5FC311A6E7AF004C6C07 /* PBXTextBookmark */;
+			5CED5FC411A6E7AF004C6C07 /* PlistBookmark */ = 5CED5FC411A6E7AF004C6C07 /* PlistBookmark */;
 		};
 		sourceControlManager = 5C6E40C211218E7200B47A10 /* Source Control */;
 		userBuildSettings = {
 		};
-	};
-	5C3A46BD1132ECF60038C5B2 /* juce_IncludeCharacteristics.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {890, 1582}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1815}";
-		};
-	};
-	5C3A46BF1132ECF60038C5B2 /* juce_PluginHostType.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {937, 2288}}";
-			sepNavSelRange = "{5460, 0}";
-			sepNavVisRange = "{4655, 851}";
-		};
-	};
-	5C3A46C11132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 2240}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1725}";
-		};
-	};
-	5C3A46C31132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {736, 4032}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1062}";
-		};
-	};
-	5C3A46C41132ECF60038C5B2 /* juce_StandaloneFilterWindow.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {736, 1260}}";
-			sepNavSelRange = "{2734, 47}";
-			sepNavVisRange = "{2350, 721}";
-		};
-	};
-	5C3A46C71132ECF60038C5B2 /* juce_VST_Wrapper.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1068, 22344}}";
-			sepNavSelRange = "{32629, 0}";
-			sepNavVisRange = "{31845, 1591}";
-		};
-	};
-	5C3A55401132EDA70038C5B2 /* Ctrlr-Standalone */ = {
-		activeExec = 0;
-		executables = (
-			5C928E151157BC0D00C78637 /* Ctrlr-Standalone */,
-		);
 	};
 	5C4CAE48115CE71C0090459A /* EdoController.cpp */ = {
 		isa = PBXFileReference;
@@ -193,9 +148,9 @@
 		path = /Users/atom/devel/ctrlr/EdoController/Build/Mac/EdoController/../../../EdoController.cpp;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {661, 4956}}";
+			sepNavIntBoundsRect = "{{0, 0}, {661, 5390}}";
 			sepNavSelRange = "{392, 0}";
-			sepNavVisRange = "{0, 262}";
+			sepNavVisRange = "{49, 232}";
 		};
 	};
 	5C6E40C211218E7200B47A10 /* Source Control */ = {
@@ -208,32 +163,6 @@
 	5C6E40C311218E7200B47A10 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	5C928E151157BC0D00C78637 /* Ctrlr-Standalone */ = {
-		isa = PBXExecutable;
-		activeArgIndices = (
-		);
-		argumentStrings = (
-		);
-		autoAttachOnCrash = 1;
-		breakpointsEnabled = 1;
-		configStateDict = {
-		};
-		customDataFormattersEnabled = 1;
-		debuggerPlugin = GDBDebugging;
-		disassemblyDisplayState = 0;
-		dylibVariantSuffix = "";
-		enableDebugStr = 1;
-		environmentEntries = (
-		);
-		executableSystemSymbolLevel = 0;
-		executableUserSymbolLevel = 0;
-		libgmallocEnabled = 0;
-		name = "Ctrlr-Standalone";
-		savedGlobals = {
-		};
-		sourceDirectories = (
-		);
 	};
 	5C92AC4D115972B1003ABDFD /* Pluginhost */ = {
 		isa = PBXExecutable;
@@ -286,22 +215,16 @@
 		path = "/Users/atom/devel/juce/extras/audio plugin host/Builds/MacOSX/build/Release/Plugin Host.app";
 		sourceTree = "<absolute>";
 	};
-	5C9756DD11593206004C236D /* Ctrlr-AU */ = {
-		activeExec = 0;
+	5CED5F4911A6E2DD004C6C07 /* ShredderPlugin.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {661, 1470}}";
+			sepNavSelRange = "{101, 28}";
+			sepNavVisRange = "{0, 331}";
+		};
 	};
-	5CB3F51A117B56190045E34C /* PBXTextBookmark */ = {
+	5CED5F9911A6E387004C6C07 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5C4CAE48115CE71C0090459A /* EdoController.cpp */;
-		name = "EdoController.cpp: 20";
-		rLen = 0;
-		rLoc = 392;
-		rType = 0;
-		vrLen = 262;
-		vrLoc = 0;
-	};
-	5CB3F51B117B56190045E34C /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5CB3F51C117B56190045E34C /* EdoController.cpp */;
 		name = "EdoController.cpp: 20";
 		rLen = 0;
 		rLoc = 392;
@@ -309,104 +232,87 @@
 		vrLen = 232;
 		vrLoc = 49;
 	};
-	5CB3F51C117B56190045E34C /* EdoController.cpp */ = {
-		isa = PBXFileReference;
-		name = EdoController.cpp;
-		path = /Users/atom/devel/ctrlr/EdoController/Build/Mac/EdoController/../../../EdoController.cpp;
-		sourceTree = "<absolute>";
+	5CED5F9C11A6E387004C6C07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5C4CAE48115CE71C0090459A /* EdoController.cpp */;
+		name = "EdoController.cpp: 20";
+		rLen = 0;
+		rLoc = 392;
+		rType = 0;
+		vrLen = 232;
+		vrLoc = 49;
 	};
-	5CE3D1AB1153DE8D00CFA78C /* Airbase.xml */ = {
+	5CED5FA311A6E468004C6C07 /* juce_AppConfig.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {546, 1386}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 895}";
+			sepNavIntBoundsRect = "{{0, 0}, {661, 560}}";
+			sepNavSelRange = "{470, 0}";
+			sepNavVisRange = "{0, 142}";
 		};
 	};
-	5CE3D1AC1153DE8D00CFA78C /* AirbaseController.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {816, 504}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 616}";
-		};
+	5CED5FB311A6E527004C6C07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5CED5F4911A6E2DD004C6C07 /* ShredderPlugin.h */;
+		name = "ShredderPlugin.h: 5";
+		rLen = 28;
+		rLoc = 101;
+		rType = 0;
+		vrLen = 331;
+		vrLoc = 0;
 	};
-	5CE3D1B01153DE8D00CFA78C /* JucePluginCharacteristics.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {890, 686}}";
-			sepNavSelRange = "{676, 0}";
-			sepNavVisRange = "{414, 1258}";
-		};
+	5CED5FB511A6E527004C6C07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5CED5F4911A6E2DD004C6C07 /* ShredderPlugin.h */;
+		name = "ShredderPlugin.h: 5";
+		rLen = 28;
+		rLoc = 101;
+		rType = 0;
+		vrLen = 331;
+		vrLoc = 0;
 	};
-	5CFC96F71157AC4600DB0269 /* juce_AU_Resources.r */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 966}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 2368}";
-		};
+	5CED5FC111A6E7AF004C6C07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5CED5FA311A6E468004C6C07 /* juce_AppConfig.h */;
+		name = "juce_AppConfig.h: 17";
+		rLen = 0;
+		rLoc = 470;
+		rType = 0;
+		vrLen = 142;
+		vrLoc = 0;
 	};
-	5CFC96F81157AC4600DB0269 /* juce_AU_Wrapper.mm */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {640, 19894}}";
-			sepNavSelRange = "{48254, 0}";
-			sepNavVisRange = "{0, 0}";
-		};
+	5CED5FC211A6E7AF004C6C07 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D01CCD10486CAD60068D4B7 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/atom/devel/instigator/Shredder/Build/Mac/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
 	};
-	5CFC99C01157ADC100DB0269 /* CADebugMacros.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 5950}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 2810}";
-		};
+	5CED5FC311A6E7AF004C6C07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5CED5FA311A6E468004C6C07 /* juce_AppConfig.h */;
+		name = "juce_AppConfig.h: 17";
+		rLen = 0;
+		rLoc = 470;
+		rType = 0;
+		vrLen = 142;
+		vrLoc = 0;
 	};
-	5CFC99CE1157ADC100DB0269 /* AUViewLocalizedStringKeys.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {787, 1106}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1409}";
-		};
+	5CED5FC411A6E7AF004C6C07 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D01CCD10486CAD60068D4B7 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleInfoDictionaryVersion,
+		);
+		name = /Users/atom/devel/instigator/Shredder/Build/Mac/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
 	};
-	5CFC99D01157ADC100DB0269 /* AUCarbonViewDispatch.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 1470}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 2777}";
-		};
-	};
-	5CFC99D81157ADC100DB0269 /* AUBase.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {516, 27944}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1409}";
-		};
-	};
-	5CFC99E01157ADC100DB0269 /* AUResources.r */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 1736}}";
-			sepNavSelRange = "{3472, 38}";
-			sepNavVisRange = "{2539, 1435}";
-		};
-	};
-	5CFC99E41157ADC100DB0269 /* ComponentBase.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 2156}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 2725}";
-		};
-	};
-	5CFC99E61157ADC100DB0269 /* AUMIDIBase.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 5866}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 2783}";
-		};
-	};
-	5CFC99F11157ADC100DB0269 /* AUBuffer.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {938, 2534}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 2673}";
-		};
-	};
-	8D01CCC60486CAD60068D4B7 /* Ctrlr-VST */ = {
+	8D01CCC60486CAD60068D4B7 /* Shredder */ = {
 		activeExec = 0;
 	};
 }
