@@ -6,7 +6,6 @@
 
 #define SP_LAST_POSITION		T("lastPosition")
 #define SP_LENGTH				T("length")
-#define SP_FADE_OFF				T("fadeOff")
 #define SP_PROCESSING			T("processing")
 #define SP_SLOT_NUMBER			T("slotNumber")
 #define SP_STEP_BITS			T("stepBits")
@@ -64,9 +63,6 @@ class ShredderPlugin
 
 		const int getLength ();
 		void setLength (const int _length);
-
-		void setFadeOff (const float newFade);
-		const float getFadeOff () { return (_propF(SP_FADE_OFF)); }
 		
 		void setProcessing (const bool _shouldBeProcessing);
 		const bool getProcessing () { return (_propB(SP_PROCESSING)); }

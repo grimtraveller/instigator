@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 11:31:35pm
+  Creation date:  21 May 2010 4:40:02pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -52,7 +52,6 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
       pluginMenu (0),
       pluginEditor (0),
       pluginName (0),
-      fadeSlider (0),
       processButton (0),
       attack (0),
       decay (0),
@@ -153,20 +152,6 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
     pluginName->setColour (TextEditor::textColourId, Colours::black);
     pluginName->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
-    addAndMakeVisible (fadeSlider = new Slider (T("fadeSlider")));
-    fadeSlider->setRange (0, 1, 0.01);
-    fadeSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    fadeSlider->setTextBoxStyle (Slider::TextBoxRight, false, 32, 16);
-    fadeSlider->setColour (Slider::backgroundColourId, Colours::white);
-    fadeSlider->setColour (Slider::thumbColourId, Colour (0xffc4c4c4));
-    fadeSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x7fffffff));
-    fadeSlider->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
-    fadeSlider->setColour (Slider::textBoxTextColourId, Colours::white);
-    fadeSlider->setColour (Slider::textBoxBackgroundColourId, Colour (0x0));
-    fadeSlider->setColour (Slider::textBoxHighlightColourId, Colour (0x40e0e0f2));
-    fadeSlider->setColour (Slider::textBoxOutlineColourId, Colour (0x0));
-    fadeSlider->addListener (this);
-
     addAndMakeVisible (processButton = new ToggleButton (T("processButton")));
     processButton->setButtonText (String::empty);
     processButton->addButtonListener (this);
@@ -259,7 +244,6 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
 		steps[i]->setLookAndFeel (&stepButton);
 	}
 
-	fadeSlider->setLookAndFeel (&whiteKnob);
 	attack->setLookAndFeel (&whiteKnob);
 	decay->setLookAndFeel (&whiteKnob);
 	sustain->setLookAndFeel (&whiteKnob);
@@ -303,7 +287,6 @@ ShredderSlot::~ShredderSlot()
     deleteAndZero (pluginMenu);
     deleteAndZero (pluginEditor);
     deleteAndZero (pluginName);
-    deleteAndZero (fadeSlider);
     deleteAndZero (processButton);
     deleteAndZero (attack);
     deleteAndZero (decay);
@@ -347,7 +330,6 @@ void ShredderSlot::resized()
     pluginMenu->setBounds (600, 64, 32, 32);
     pluginEditor->setBounds (632, 64, 32, 32);
     pluginName->setBounds (344, 72, 246, 24);
-    fadeSlider->setBounds (384, 72, 56, 24);
     processButton->setBounds (8, 72, 24, 24);
     attack->setBounds (160, 72, 52, 24);
     decay->setBounds (216, 72, 52, 24);
@@ -526,16 +508,7 @@ void ShredderSlot::sliderValueChanged (Slider* sliderThatWasMoved)
     //[UsersliderValueChanged_Pre]
     //[/UsersliderValueChanged_Pre]
 
-    if (sliderThatWasMoved == fadeSlider)
-    {
-        //[UserSliderCode_fadeSlider] -- add your slider handling code here..
-		shredder->getCallbackLock().enter();
-		if (shredder->getPluginOnSlot(slotNumber))
-			shredder->getPluginOnSlot(slotNumber)->setFadeOff ((float)sliderThatWasMoved->getValue());
-		shredder->getCallbackLock().exit();
-        //[/UserSliderCode_fadeSlider]
-    }
-    else if (sliderThatWasMoved == attack)
+    if (sliderThatWasMoved == attack)
     {
         //[UserSliderCode_attack] -- add your slider handling code here..
 		shredder->getCallbackLock().enter();
@@ -616,7 +589,6 @@ void ShredderSlot::reloadState()
 		const BigInteger steps	= p->getSteps();
 		length					= p->getLength();
 		const String name		= p->getName();
-		const float fade		= p->getFadeOff();
 		const bool process		= p->getProcessing();
 		const float _attack		= p->getAttack();
 		const float _decay		= p->getDecay();
@@ -626,7 +598,6 @@ void ShredderSlot::reloadState()
 
 		shredder->getCallbackLock().exit();
 
-		fadeSlider->setValue (fade, false);
 		pluginName->setText (name, false);
 		processButton->setToggleState (process, false);
 		attack->setValue (_attack, false);
@@ -646,7 +617,6 @@ void ShredderSlot::reloadState()
 	}
 	else
 	{
-		fadeSlider->setValue (0.0, false);
 		processButton->setToggleState (false, false);
 		pluginName->setText (T("--- No plugin"), false);
 	}
@@ -749,13 +719,6 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="--- No plugin" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="14" bold="1" italic="0" justification="34"/>
-  <SLIDER name="fadeSlider" id="49fa7714b5e59ae4" memberName="fadeSlider"
-          virtualName="" explicitFocusOrder="0" pos="384 72 56 24" bkgcol="ffffffff"
-          thumbcol="ffc4c4c4" rotarysliderfill="7fffffff" rotaryslideroutline="ffffffff"
-          textboxtext="ffffffff" textboxbkgd="0" textboxhighlight="40e0e0f2"
-          textboxoutline="0" min="0" max="1" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="32"
-          textBoxHeight="16" skewFactor="1"/>
   <TOGGLEBUTTON name="processButton" id="dff9ca9cd9964ab6" memberName="processButton"
                 virtualName="" explicitFocusOrder="0" pos="8 72 24 24" txtcol="ffffffff"
                 buttonText="" connectedEdges="0" needsCallback="1" radioGroupId="0"

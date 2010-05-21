@@ -48,7 +48,6 @@ void ShredderPlugin::setDefaults()
 	shredderPluginDefaultProperties.setValue (SP_LENGTH, 16);
 	shredderPluginDefaultProperties.setValue (SP_SAMPLERATE, 44100.0);
 	shredderPluginDefaultProperties.setValue (SP_PROCESSING, true);
-	shredderPluginDefaultProperties.setValue (SP_FADE_OFF, 0.0);
 	shredderPluginDefaultProperties.setValue (SP_SLOT_TYPE, SequencerSlot);
 
 	shredderPluginProperties.setFallbackPropertySet (&shredderPluginDefaultProperties);
@@ -96,7 +95,6 @@ void ShredderPlugin::replacePlugin (AudioPluginInstance *_pluginInstance, Plugin
 void ShredderPlugin::closePlugin(const bool deleteEditor)
 {
 	shredderPluginProperties.setValue (SP_LAST_POSITION, Rectangle<int>().toString());
-	setFadeOff (0.0f);
 	setProcessing (false);
 
 	if (pluginInstance)
@@ -114,6 +112,11 @@ AudioProcessorEditor *ShredderPlugin::getEditor ()
 	if (pluginInstance)
 	{
 		editor = pluginInstance->createEditorIfNeeded();
+		if (editor == 0)
+		{
+			editor = new GenericAudioProcessorEditor (pluginInstance);
+		}
+
 		return (editor);
 	}
 	
@@ -175,7 +178,6 @@ void ShredderPlugin::process(AudioSampleBuffer& buffer, MidiBuffer& midiMessages
 	const int ppqPerBar			= (lastPosInfo.timeSigNumerator * 4 / lastPosInfo.timeSigDenominator);
 	const double beats			= (fmod (lastPosInfo.ppqPosition, ppqPerBar) / ppqPerBar) * lastPosInfo.timeSigNumerator;
 	const int qnote				= ((int) (beats * lastPosInfo.timeSigDenominator)) + 1;
-	const float fade			= _propF(SP_FADE_OFF);
 	const int length			= _propI(SP_LENGTH);
 
 	/* move forward */
@@ -201,27 +203,9 @@ void ShredderPlugin::process(AudioSampleBuffer& buffer, MidiBuffer& midiMessages
 	{
 		pluginInstance->processBlock (buffer, midiMessages);
 	}
-	else if (fade == 0.0)
+	else
 	{
 		pluginInstance->processBlock (internalBuffer, midiMessages);
-	}
-	else if (		/* first step, but last was played */(lastBeat == 1 && stepBits[length-1] && fade > 0.0) 
-				||	/* previous step was played */ (lastBeat>1 && stepBits[lastBeat-2] && fade > 0.0))
-	{
-		double ip;
-		const double pos = modf (beats * lastPosInfo.timeSigDenominator, &ip);
-
-		if (pos < fade)
-		{
-			pluginInstance->processBlock (buffer, midiMessages);
-			
-			const float gain = (float)(fade - pos);
-
-			for (int i=0; i<buffer.getNumChannels(); i++)
-			{
-				buffer.applyGain (i, 0, buffer.getNumSamples(), gain);				
-			}
-		}
 	}
 }
 
@@ -231,11 +215,6 @@ void ShredderPlugin::processSequence(AudioSampleBuffer& buffer, MidiBuffer& midi
 
 void ShredderPlugin::processPeak(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo)
 {
-}
-
-void ShredderPlugin::setFadeOff (const float newFade)
-{
-	shredderPluginProperties.setValue (SP_FADE_OFF, newFade);
 }
 
 void ShredderPlugin::setProcessing (const bool _shouldBeProcessing)

@@ -314,6 +314,9 @@ void Shredder::processPlugins(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
 	loadedPlugins.getLock().exit();
 }
 
+void Shredder::dumpPluginCache (const File &cacheFile)
+{
+}
 //==============================================================================
 // Some utility stuff
 
