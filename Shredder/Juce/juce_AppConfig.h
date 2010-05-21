@@ -14,7 +14,7 @@
 #define JUCE_USE_XINERAMA				0
 #define JUCE_USE_XSHM					0
 #define JUCE_PLUGINHOST_VST				1
-#define JUCE_PLUGINHOST_AU				1
+#define JUCE_PLUGINHOST_AU				0
 
 /* debugging */
 #ifdef JUCE_DEBUG

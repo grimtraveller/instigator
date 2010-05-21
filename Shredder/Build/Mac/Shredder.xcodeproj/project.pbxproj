@@ -7,135 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C27CF68115790DE004119CE /* EdoController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C27CF67115790DE004119CE /* EdoController.a */; };
-		5C27CF69115790DE004119CE /* EdoController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C27CF67115790DE004119CE /* EdoController.a */; };
-		5C3A46C91132ECF60038C5B2 /* juce_IncludeCharacteristics.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46BD1132ECF60038C5B2 /* juce_IncludeCharacteristics.h */; };
-		5C3A46CA1132ECF60038C5B2 /* juce_PluginHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46BE1132ECF60038C5B2 /* juce_PluginHeaders.h */; };
-		5C3A46CB1132ECF60038C5B2 /* juce_PluginHostType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46BF1132ECF60038C5B2 /* juce_PluginHostType.h */; };
-		5C3A46CC1132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C11132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp */; };
-		5C3A46CD1132ECF60038C5B2 /* juce_AudioFilterStreamer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46C21132ECF60038C5B2 /* juce_AudioFilterStreamer.h */; };
-		5C3A46CE1132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C31132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp */; };
-		5C3A46CF1132ECF60038C5B2 /* juce_StandaloneFilterWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46C41132ECF60038C5B2 /* juce_StandaloneFilterWindow.h */; };
-		5C3A46D01132ECF60038C5B2 /* StandaloneFilterApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C51132ECF60038C5B2 /* StandaloneFilterApp.cpp */; };
-		5C3A46D11132ECF60038C5B2 /* juce_VST_Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C71132ECF60038C5B2 /* juce_VST_Wrapper.cpp */; };
-		5C3A46D21132ECF60038C5B2 /* juce_VST_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C81132ECF60038C5B2 /* juce_VST_Wrapper.mm */; };
-		5C3A55471132EDE60038C5B2 /* juce_AudioFilterStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C11132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp */; };
-		5C3A55481132EDE60038C5B2 /* juce_StandaloneFilterWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C31132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp */; };
-		5C3A55491132EDE60038C5B2 /* StandaloneFilterApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C51132ECF60038C5B2 /* StandaloneFilterApp.cpp */; };
-		5C3A554A1132EDE60038C5B2 /* juce_VST_Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C71132ECF60038C5B2 /* juce_VST_Wrapper.cpp */; };
-		5C3A554B1132EDE60038C5B2 /* juce_VST_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C81132ECF60038C5B2 /* juce_VST_Wrapper.mm */; };
-		5C3DBCBD11330007008C24E7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795640EFBF323002A2725 /* AudioUnit.framework */; };
-		5C3DBCBE11330007008C24E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795650EFBF323002A2725 /* Cocoa.framework */; };
-		5C3DBCBF11330007008C24E7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795660EFBF323002A2725 /* OpenGL.framework */; };
-		5C3DBCC011330007008C24E7 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795670EFBF323002A2725 /* IOKit.framework */; };
-		5C3DBCC111330007008C24E7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795680EFBF323002A2725 /* Carbon.framework */; };
-		5C3DBCC211330007008C24E7 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795690EFBF323002A2725 /* CoreMIDI.framework */; };
-		5C3DBCC311330007008C24E7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956A0EFBF323002A2725 /* CoreAudio.framework */; };
-		5C3DBCC411330007008C24E7 /* DiscRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956B0EFBF323002A2725 /* DiscRecording.framework */; };
-		5C3DBCC511330007008C24E7 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956C0EFBF323002A2725 /* QTKit.framework */; };
-		5C3DBCC611330007008C24E7 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956D0EFBF323002A2725 /* WebKit.framework */; };
-		5C3DBCC711330007008C24E7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84978758103561A60020003B /* AudioToolbox.framework */; };
-		5C3DBCFD11330150008C24E7 /* ctrlr.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5C3DBCFC11330150008C24E7 /* ctrlr.icns */; };
-		5C3DBD11113304F5008C24E7 /* ctrlr.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5C3DBCFC11330150008C24E7 /* ctrlr.icns */; };
-		5C9756E91159325E004C236D /* juce_IncludeCharacteristics.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46BD1132ECF60038C5B2 /* juce_IncludeCharacteristics.h */; };
-		5C9756EA1159325E004C236D /* juce_PluginHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46BE1132ECF60038C5B2 /* juce_PluginHeaders.h */; };
-		5C9756EB1159325E004C236D /* juce_PluginHostType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46BF1132ECF60038C5B2 /* juce_PluginHostType.h */; };
-		5C9756EC1159325E004C236D /* juce_AudioFilterStreamer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46C21132ECF60038C5B2 /* juce_AudioFilterStreamer.h */; };
-		5C9756ED1159325E004C236D /* juce_StandaloneFilterWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C3A46C41132ECF60038C5B2 /* juce_StandaloneFilterWindow.h */; };
-		5C9756EF1159325E004C236D /* AirbaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1AD1153DE8D00CFA78C /* AirbaseController.h */; };
-		5C9756F01159325E004C236D /* AirbaseMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1AF1153DE8D00CFA78C /* AirbaseMapping.h */; };
-		5C9756F11159325E004C236D /* JucePluginCharacteristics.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1B01153DE8D00CFA78C /* JucePluginCharacteristics.h */; };
-		5C9756F31159325E004C236D /* AirbaseEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1B51153DE8D00CFA78C /* AirbaseEditor.h */; };
-		5C9756F41159325E004C236D /* AirbaseLookAndFeel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1B71153DE8D00CFA78C /* AirbaseLookAndFeel.h */; };
-		5C9756F511593266004C236D /* ctrlr.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5C3DBCFC11330150008C24E7 /* ctrlr.icns */; };
-		5C9756F611593266004C236D /* Airbase.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AB1153DE8D00CFA78C /* Airbase.xml */; };
-		5C9756F71159326D004C236D /* juce_AudioFilterStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C11132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp */; };
-		5C9756F81159326D004C236D /* juce_StandaloneFilterWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C31132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp */; };
-		5C9756F91159326D004C236D /* StandaloneFilterApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C51132ECF60038C5B2 /* StandaloneFilterApp.cpp */; };
-		5C9756FA1159326D004C236D /* juce_VST_Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C71132ECF60038C5B2 /* juce_VST_Wrapper.cpp */; };
-		5C9756FB1159326D004C236D /* juce_VST_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A46C81132ECF60038C5B2 /* juce_VST_Wrapper.mm */; };
-		5C9757001159326D004C236D /* AirbaseController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AC1153DE8D00CFA78C /* AirbaseController.cpp */; };
-		5C9757011159326D004C236D /* AirbaseMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AE1153DE8D00CFA78C /* AirbaseMapping.cpp */; };
-		5C9757031159326D004C236D /* AirbaseEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1B41153DE8D00CFA78C /* AirbaseEditor.cpp */; };
-		5C9757041159326D004C236D /* AirbaseLookAndFeel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1B61153DE8D00CFA78C /* AirbaseLookAndFeel.cpp */; };
-		5C97570511593281004C236D /* juce_AU_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC96F81157AC4600DB0269 /* juce_AU_Wrapper.mm */; };
-		5C975998115932B6004C236D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795650EFBF323002A2725 /* Cocoa.framework */; };
-		5C975999115932B6004C236D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795660EFBF323002A2725 /* OpenGL.framework */; };
-		5C97599A115932B6004C236D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795670EFBF323002A2725 /* IOKit.framework */; };
-		5C97599B115932B6004C236D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795680EFBF323002A2725 /* Carbon.framework */; };
-		5C97599C115932B6004C236D /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795690EFBF323002A2725 /* CoreMIDI.framework */; };
-		5C97599D115932B6004C236D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956A0EFBF323002A2725 /* CoreAudio.framework */; };
-		5C97599E115932B6004C236D /* DiscRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956B0EFBF323002A2725 /* DiscRecording.framework */; };
-		5C97599F115932B6004C236D /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956C0EFBF323002A2725 /* QTKit.framework */; };
-		5C9759A0115932B6004C236D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437956D0EFBF323002A2725 /* WebKit.framework */; };
-		5C9759A1115932B6004C236D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84978758103561A60020003B /* AudioToolbox.framework */; };
-		5C9759A2115932B6004C236D /* EdoController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C27CF67115790DE004119CE /* EdoController.a */; };
-		5C9759A4115932CA004C236D /* juce_AU_Resources.r in Rez */ = {isa = PBXBuildFile; fileRef = 5CFC96F71157AC4600DB0269 /* juce_AU_Resources.r */; };
-		5C9759A911593364004C236D /* CADebugMacros.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C01157ADC100DB0269 /* CADebugMacros.h */; };
-		5C9759AA11593364004C236D /* CAAUParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C11157ADC100DB0269 /* CAAUParameter.cpp */; };
-		5C9759AB11593364004C236D /* CAAUParameter.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C21157ADC100DB0269 /* CAAUParameter.h */; };
-		5C9759AC11593364004C236D /* CAAudioChannelLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C31157ADC100DB0269 /* CAAudioChannelLayout.cpp */; };
-		5C9759AD11593364004C236D /* CAAudioChannelLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C41157ADC100DB0269 /* CAAudioChannelLayout.h */; };
-		5C9759AE11593364004C236D /* CAMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C51157ADC100DB0269 /* CAMutex.cpp */; };
-		5C9759AF11593364004C236D /* CAMutex.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C61157ADC100DB0269 /* CAMutex.h */; };
-		5C9759B011593364004C236D /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C71157ADC100DB0269 /* CAStreamBasicDescription.cpp */; };
-		5C9759B111593364004C236D /* CAStreamBasicDescription.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C81157ADC100DB0269 /* CAStreamBasicDescription.h */; };
-		5C9759B211593364004C236D /* CAVectorUnitTypes.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99C91157ADC100DB0269 /* CAVectorUnitTypes.h */; };
-		5C9759B311593364004C236D /* CAVectorUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99CA1157ADC100DB0269 /* CAVectorUnit.cpp */; };
-		5C9759B411593364004C236D /* CAVectorUnit.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99CB1157ADC100DB0269 /* CAVectorUnit.h */; };
-		5C9759BA115933CE004C236D /* AUBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D81157ADC100DB0269 /* AUBase.cpp */; };
-		5C9759BB115933CE004C236D /* AUBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D91157ADC100DB0269 /* AUBase.h */; };
-		5C9759BC115933CE004C236D /* AUDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99DA1157ADC100DB0269 /* AUDispatch.cpp */; };
-		5C9759BD115933CE004C236D /* AUDispatch.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99DB1157ADC100DB0269 /* AUDispatch.h */; };
-		5C9759BE115933CE004C236D /* AUInputElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99DC1157ADC100DB0269 /* AUInputElement.cpp */; };
-		5C9759BF115933CE004C236D /* AUInputElement.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99DD1157ADC100DB0269 /* AUInputElement.h */; };
-		5C9759C0115933CE004C236D /* AUOutputElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99DE1157ADC100DB0269 /* AUOutputElement.cpp */; };
-		5C9759C1115933CE004C236D /* AUOutputElement.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99DF1157ADC100DB0269 /* AUOutputElement.h */; };
-		5C9759C3115933CE004C236D /* AUScopeElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E11157ADC100DB0269 /* AUScopeElement.cpp */; };
-		5C9759C4115933CE004C236D /* AUScopeElement.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E21157ADC100DB0269 /* AUScopeElement.h */; };
-		5C9759C5115933CE004C236D /* ComponentBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E31157ADC100DB0269 /* ComponentBase.cpp */; };
-		5C9759C6115933CE004C236D /* ComponentBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E41157ADC100DB0269 /* ComponentBase.h */; };
-		5C9759C7115933D4004C236D /* AUMIDIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E61157ADC100DB0269 /* AUMIDIBase.cpp */; };
-		5C9759C8115933D4004C236D /* AUMIDIBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E71157ADC100DB0269 /* AUMIDIBase.h */; };
-		5C9759C9115933D4004C236D /* AUMIDIEffectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E81157ADC100DB0269 /* AUMIDIEffectBase.cpp */; };
-		5C9759CA115933D4004C236D /* AUMIDIEffectBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99E91157ADC100DB0269 /* AUMIDIEffectBase.h */; };
-		5C9759CB115933D4004C236D /* AUOutputBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99EA1157ADC100DB0269 /* AUOutputBase.cpp */; };
-		5C9759CC115933D4004C236D /* AUOutputBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99EB1157ADC100DB0269 /* AUOutputBase.h */; };
-		5C9759CD115933D4004C236D /* MusicDeviceBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99EC1157ADC100DB0269 /* MusicDeviceBase.cpp */; };
-		5C9759CE115933D4004C236D /* MusicDeviceBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99ED1157ADC100DB0269 /* MusicDeviceBase.h */; };
-		5C9759CF115933D4004C236D /* AUEffectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99EE1157ADC100DB0269 /* AUEffectBase.cpp */; };
-		5C9759D0115933D4004C236D /* AUEffectBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99EF1157ADC100DB0269 /* AUEffectBase.h */; };
-		5C9759D1115933D9004C236D /* AUBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F11157ADC100DB0269 /* AUBuffer.cpp */; };
-		5C9759D2115933D9004C236D /* AUBuffer.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F21157ADC100DB0269 /* AUBuffer.h */; };
-		5C9759D3115933D9004C236D /* AUDebugDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F31157ADC100DB0269 /* AUDebugDispatcher.cpp */; };
-		5C9759D4115933D9004C236D /* AUDebugDispatcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F41157ADC100DB0269 /* AUDebugDispatcher.h */; };
-		5C9759D5115933D9004C236D /* AUInputFormatConverter.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F51157ADC100DB0269 /* AUInputFormatConverter.h */; };
-		5C9759D6115933D9004C236D /* AUSilentTimeout.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F61157ADC100DB0269 /* AUSilentTimeout.h */; };
-		5C9759D7115933D9004C236D /* AUTimestampGenerator.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99F71157ADC100DB0269 /* AUTimestampGenerator.h */; };
-		5C9759D8115933DE004C236D /* AUCarbonViewDispatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D01157ADC100DB0269 /* AUCarbonViewDispatch.cpp */; };
-		5C9759D9115933DE004C236D /* AUCarbonViewControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D11157ADC100DB0269 /* AUCarbonViewControl.cpp */; };
-		5C9759DA115933DE004C236D /* AUCarbonViewControl.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D21157ADC100DB0269 /* AUCarbonViewControl.h */; };
-		5C9759DB115933DE004C236D /* CarbonEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D31157ADC100DB0269 /* CarbonEventHandler.cpp */; };
-		5C9759DC115933DE004C236D /* CarbonEventHandler.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D41157ADC100DB0269 /* CarbonEventHandler.h */; };
-		5C9759DD115933DE004C236D /* AUCarbonViewBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D51157ADC100DB0269 /* AUCarbonViewBase.cpp */; };
-		5C9759DE115933DE004C236D /* AUCarbonViewBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99D61157ADC100DB0269 /* AUCarbonViewBase.h */; };
-		5C9759DF115933E2004C236D /* AUViewLocalizedStringKeys.h in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC99CE1157ADC100DB0269 /* AUViewLocalizedStringKeys.h */; };
-		5C9768641159375F004C236D /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFC99B91157ADA900DB0269 /* AudioUnit.framework */; };
-		5CE3D1B81153DE8D00CFA78C /* Airbase.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AB1153DE8D00CFA78C /* Airbase.xml */; };
-		5CE3D1B91153DE8D00CFA78C /* AirbaseController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AC1153DE8D00CFA78C /* AirbaseController.cpp */; };
-		5CE3D1BA1153DE8D00CFA78C /* AirbaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1AD1153DE8D00CFA78C /* AirbaseController.h */; };
-		5CE3D1BB1153DE8D00CFA78C /* AirbaseMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AE1153DE8D00CFA78C /* AirbaseMapping.cpp */; };
-		5CE3D1BC1153DE8D00CFA78C /* AirbaseMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1AF1153DE8D00CFA78C /* AirbaseMapping.h */; };
-		5CE3D1BD1153DE8D00CFA78C /* JucePluginCharacteristics.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1B01153DE8D00CFA78C /* JucePluginCharacteristics.h */; };
-		5CE3D1C01153DE8D00CFA78C /* AirbaseEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1B41153DE8D00CFA78C /* AirbaseEditor.cpp */; };
-		5CE3D1C11153DE8D00CFA78C /* AirbaseEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1B51153DE8D00CFA78C /* AirbaseEditor.h */; };
-		5CE3D1C21153DE8D00CFA78C /* AirbaseLookAndFeel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1B61153DE8D00CFA78C /* AirbaseLookAndFeel.cpp */; };
-		5CE3D1C31153DE8D00CFA78C /* AirbaseLookAndFeel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE3D1B71153DE8D00CFA78C /* AirbaseLookAndFeel.h */; };
-		5CE3D1C41153DE8D00CFA78C /* Airbase.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AB1153DE8D00CFA78C /* Airbase.xml */; };
-		5CE3D1C51153DE8D00CFA78C /* AirbaseController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AC1153DE8D00CFA78C /* AirbaseController.cpp */; };
-		5CE3D1C61153DE8D00CFA78C /* AirbaseMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1AE1153DE8D00CFA78C /* AirbaseMapping.cpp */; };
-		5CE3D1C81153DE8D00CFA78C /* AirbaseEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1B41153DE8D00CFA78C /* AirbaseEditor.cpp */; };
-		5CE3D1C91153DE8D00CFA78C /* AirbaseLookAndFeel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3D1B61153DE8D00CFA78C /* AirbaseLookAndFeel.cpp */; };
+		5CED5F3B11A6E2C9004C6C07 /* juce_VST_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F3A11A6E2C9004C6C07 /* juce_VST_Wrapper.mm */; };
+		5CED5F6711A6E2DD004C6C07 /* adsr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F3F11A6E2DD004C6C07 /* adsr.cpp */; };
+		5CED5F6811A6E2DD004C6C07 /* adsr.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4011A6E2DD004C6C07 /* adsr.h */; };
+		5CED5F6911A6E2DD004C6C07 /* getTableValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4111A6E2DD004C6C07 /* getTableValue.h */; };
+		5CED5F6A11A6E2DD004C6C07 /* TableExponential.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4211A6E2DD004C6C07 /* TableExponential.h */; };
+		5CED5F6B11A6E2DD004C6C07 /* Includes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4311A6E2DD004C6C07 /* Includes.h */; };
+		5CED5F6C11A6E2DD004C6C07 /* JucePluginCharacteristics.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4511A6E2DD004C6C07 /* JucePluginCharacteristics.h */; };
+		5CED5F6D11A6E2DD004C6C07 /* Shredder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F4611A6E2DD004C6C07 /* Shredder.cpp */; };
+		5CED5F6E11A6E2DD004C6C07 /* Shredder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4711A6E2DD004C6C07 /* Shredder.h */; };
+		5CED5F6F11A6E2DD004C6C07 /* ShredderPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F4811A6E2DD004C6C07 /* ShredderPlugin.cpp */; };
+		5CED5F7011A6E2DD004C6C07 /* ShredderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F4911A6E2DD004C6C07 /* ShredderPlugin.h */; };
+		5CED5F7511A6E2DD004C6C07 /* FilmStrip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F4F11A6E2DD004C6C07 /* FilmStrip.cpp */; };
+		5CED5F7611A6E2DD004C6C07 /* FilmStrip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5011A6E2DD004C6C07 /* FilmStrip.h */; };
+		5CED5F7711A6E2DD004C6C07 /* FSerializedTypeface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5111A6E2DD004C6C07 /* FSerializedTypeface.cpp */; };
+		5CED5F7811A6E2DD004C6C07 /* FSerializedTypeface.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5211A6E2DD004C6C07 /* FSerializedTypeface.h */; };
+		5CED5F7911A6E2DD004C6C07 /* ImageSelectButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5311A6E2DD004C6C07 /* ImageSelectButton.cpp */; };
+		5CED5F7A11A6E2DD004C6C07 /* ImageSelectButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5411A6E2DD004C6C07 /* ImageSelectButton.h */; };
+		5CED5F7B11A6E2DD004C6C07 /* ImageSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5511A6E2DD004C6C07 /* ImageSlider.cpp */; };
+		5CED5F7C11A6E2DD004C6C07 /* ImageSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5611A6E2DD004C6C07 /* ImageSlider.h */; };
+		5CED5F7D11A6E2DD004C6C07 /* ImageToggleButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5711A6E2DD004C6C07 /* ImageToggleButton.cpp */; };
+		5CED5F7E11A6E2DD004C6C07 /* ImageToggleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5811A6E2DD004C6C07 /* ImageToggleButton.h */; };
+		5CED5F7F11A6E2DD004C6C07 /* ShredderEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5911A6E2DD004C6C07 /* ShredderEditor.cpp */; };
+		5CED5F8011A6E2DD004C6C07 /* ShredderEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5A11A6E2DD004C6C07 /* ShredderEditor.h */; };
+		5CED5F8111A6E2DD004C6C07 /* ShredderEditorOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5B11A6E2DD004C6C07 /* ShredderEditorOptions.cpp */; };
+		5CED5F8211A6E2DD004C6C07 /* ShredderEditorOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5C11A6E2DD004C6C07 /* ShredderEditorOptions.h */; };
+		5CED5F8311A6E2DD004C6C07 /* ShredderPeakSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5D11A6E2DD004C6C07 /* ShredderPeakSlot.cpp */; };
+		5CED5F8411A6E2DD004C6C07 /* ShredderPeakSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F5E11A6E2DD004C6C07 /* ShredderPeakSlot.h */; };
+		5CED5F8511A6E2DD004C6C07 /* ShredderPluginEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F5F11A6E2DD004C6C07 /* ShredderPluginEditor.cpp */; };
+		5CED5F8611A6E2DD004C6C07 /* ShredderPluginEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F6011A6E2DD004C6C07 /* ShredderPluginEditor.h */; };
+		5CED5F8711A6E2DD004C6C07 /* ShredderResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F6111A6E2DD004C6C07 /* ShredderResources.cpp */; };
+		5CED5F8811A6E2DD004C6C07 /* ShredderResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F6211A6E2DD004C6C07 /* ShredderResources.h */; };
+		5CED5F8911A6E2DD004C6C07 /* ShredderRMSMeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F6311A6E2DD004C6C07 /* ShredderRMSMeter.cpp */; };
+		5CED5F8A11A6E2DD004C6C07 /* ShredderRMSMeter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F6411A6E2DD004C6C07 /* ShredderRMSMeter.h */; };
+		5CED5F8B11A6E2DD004C6C07 /* ShredderSlot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5F6511A6E2DD004C6C07 /* ShredderSlot.cpp */; };
+		5CED5F8C11A6E2DD004C6C07 /* ShredderSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5F6611A6E2DD004C6C07 /* ShredderSlot.h */; };
+		5CED5FA511A6E468004C6C07 /* juce_AppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5FA311A6E468004C6C07 /* juce_AppConfig.h */; };
+		5CED5FA611A6E468004C6C07 /* juce_LibrarySource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5FA411A6E468004C6C07 /* juce_LibrarySource.mm */; };
+		5CED5FAD11A6E4B0004C6C07 /* Instigator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CED5FAB11A6E4B0004C6C07 /* Instigator.cpp */; };
+		5CED5FAE11A6E4B0004C6C07 /* Instigator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CED5FAC11A6E4B0004C6C07 /* Instigator.h */; };
 		843795700EFBF323002A2725 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795650EFBF323002A2725 /* Cocoa.framework */; };
 		843795710EFBF323002A2725 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795660EFBF323002A2725 /* OpenGL.framework */; };
 		843795720EFBF323002A2725 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843795670EFBF323002A2725 /* IOKit.framework */; };
@@ -149,83 +59,46 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C27CF67115790DE004119CE /* EdoController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = EdoController.a; path = ../../../../Bin/EdoController.a; sourceTree = SOURCE_ROOT; };
-		5C3A46BD1132ECF60038C5B2 /* juce_IncludeCharacteristics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = juce_IncludeCharacteristics.h; path = ../../../../Juce/PluginWrapper/juce_IncludeCharacteristics.h; sourceTree = SOURCE_ROOT; };
-		5C3A46BE1132ECF60038C5B2 /* juce_PluginHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = juce_PluginHeaders.h; path = ../../../../Juce/PluginWrapper/juce_PluginHeaders.h; sourceTree = SOURCE_ROOT; };
-		5C3A46BF1132ECF60038C5B2 /* juce_PluginHostType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = juce_PluginHostType.h; path = ../../../../Juce/PluginWrapper/juce_PluginHostType.h; sourceTree = SOURCE_ROOT; };
-		5C3A46C11132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = juce_AudioFilterStreamer.cpp; sourceTree = "<group>"; };
-		5C3A46C21132ECF60038C5B2 /* juce_AudioFilterStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = juce_AudioFilterStreamer.h; sourceTree = "<group>"; };
-		5C3A46C31132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = juce_StandaloneFilterWindow.cpp; sourceTree = "<group>"; };
-		5C3A46C41132ECF60038C5B2 /* juce_StandaloneFilterWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = juce_StandaloneFilterWindow.h; sourceTree = "<group>"; };
-		5C3A46C51132ECF60038C5B2 /* StandaloneFilterApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StandaloneFilterApp.cpp; sourceTree = "<group>"; };
-		5C3A46C71132ECF60038C5B2 /* juce_VST_Wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = juce_VST_Wrapper.cpp; sourceTree = "<group>"; };
-		5C3A46C81132ECF60038C5B2 /* juce_VST_Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = juce_VST_Wrapper.mm; sourceTree = "<group>"; };
-		5C3DBCFC11330150008C24E7 /* ctrlr.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ctrlr.icns; path = ../../../../ctrlr.icns; sourceTree = SOURCE_ROOT; };
-		5C928E141157BC0D00C78637 /* Airbase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbase.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9756DE11593206004C236D /* Airbase.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Airbase.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CE3D1AB1153DE8D00CFA78C /* Airbase.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Airbase.xml; sourceTree = "<group>"; };
-		5CE3D1AC1153DE8D00CFA78C /* AirbaseController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirbaseController.cpp; sourceTree = "<group>"; };
-		5CE3D1AD1153DE8D00CFA78C /* AirbaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirbaseController.h; sourceTree = "<group>"; };
-		5CE3D1AE1153DE8D00CFA78C /* AirbaseMapping.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirbaseMapping.cpp; sourceTree = "<group>"; };
-		5CE3D1AF1153DE8D00CFA78C /* AirbaseMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirbaseMapping.h; sourceTree = "<group>"; };
-		5CE3D1B01153DE8D00CFA78C /* JucePluginCharacteristics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JucePluginCharacteristics.h; sourceTree = "<group>"; };
-		5CE3D1B41153DE8D00CFA78C /* AirbaseEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirbaseEditor.cpp; sourceTree = "<group>"; };
-		5CE3D1B51153DE8D00CFA78C /* AirbaseEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirbaseEditor.h; sourceTree = "<group>"; };
-		5CE3D1B61153DE8D00CFA78C /* AirbaseLookAndFeel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirbaseLookAndFeel.cpp; sourceTree = "<group>"; };
-		5CE3D1B71153DE8D00CFA78C /* AirbaseLookAndFeel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirbaseLookAndFeel.h; sourceTree = "<group>"; };
-		5CFC96F71157AC4600DB0269 /* juce_AU_Resources.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = juce_AU_Resources.r; sourceTree = "<group>"; };
-		5CFC96F81157AC4600DB0269 /* juce_AU_Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = juce_AU_Wrapper.mm; sourceTree = "<group>"; };
+		5CED5F3A11A6E2C9004C6C07 /* juce_VST_Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_VST_Wrapper.mm; path = ../../Juce/PluginWrapper/VST/juce_VST_Wrapper.mm; sourceTree = SOURCE_ROOT; };
+		5CED5F3F11A6E2DD004C6C07 /* adsr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = adsr.cpp; sourceTree = "<group>"; };
+		5CED5F4011A6E2DD004C6C07 /* adsr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adsr.h; sourceTree = "<group>"; };
+		5CED5F4111A6E2DD004C6C07 /* getTableValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getTableValue.h; sourceTree = "<group>"; };
+		5CED5F4211A6E2DD004C6C07 /* TableExponential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableExponential.h; sourceTree = "<group>"; };
+		5CED5F4311A6E2DD004C6C07 /* Includes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Includes.h; path = ../../Source/Includes.h; sourceTree = SOURCE_ROOT; };
+		5CED5F4511A6E2DD004C6C07 /* JucePluginCharacteristics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JucePluginCharacteristics.h; sourceTree = "<group>"; };
+		5CED5F4611A6E2DD004C6C07 /* Shredder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shredder.cpp; sourceTree = "<group>"; };
+		5CED5F4711A6E2DD004C6C07 /* Shredder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shredder.h; sourceTree = "<group>"; };
+		5CED5F4811A6E2DD004C6C07 /* ShredderPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderPlugin.cpp; sourceTree = "<group>"; };
+		5CED5F4911A6E2DD004C6C07 /* ShredderPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderPlugin.h; sourceTree = "<group>"; };
+		5CED5F4F11A6E2DD004C6C07 /* FilmStrip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilmStrip.cpp; sourceTree = "<group>"; };
+		5CED5F5011A6E2DD004C6C07 /* FilmStrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilmStrip.h; sourceTree = "<group>"; };
+		5CED5F5111A6E2DD004C6C07 /* FSerializedTypeface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FSerializedTypeface.cpp; sourceTree = "<group>"; };
+		5CED5F5211A6E2DD004C6C07 /* FSerializedTypeface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSerializedTypeface.h; sourceTree = "<group>"; };
+		5CED5F5311A6E2DD004C6C07 /* ImageSelectButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSelectButton.cpp; sourceTree = "<group>"; };
+		5CED5F5411A6E2DD004C6C07 /* ImageSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSelectButton.h; sourceTree = "<group>"; };
+		5CED5F5511A6E2DD004C6C07 /* ImageSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSlider.cpp; sourceTree = "<group>"; };
+		5CED5F5611A6E2DD004C6C07 /* ImageSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSlider.h; sourceTree = "<group>"; };
+		5CED5F5711A6E2DD004C6C07 /* ImageToggleButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageToggleButton.cpp; sourceTree = "<group>"; };
+		5CED5F5811A6E2DD004C6C07 /* ImageToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToggleButton.h; sourceTree = "<group>"; };
+		5CED5F5911A6E2DD004C6C07 /* ShredderEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderEditor.cpp; sourceTree = "<group>"; };
+		5CED5F5A11A6E2DD004C6C07 /* ShredderEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderEditor.h; sourceTree = "<group>"; };
+		5CED5F5B11A6E2DD004C6C07 /* ShredderEditorOptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderEditorOptions.cpp; sourceTree = "<group>"; };
+		5CED5F5C11A6E2DD004C6C07 /* ShredderEditorOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderEditorOptions.h; sourceTree = "<group>"; };
+		5CED5F5D11A6E2DD004C6C07 /* ShredderPeakSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderPeakSlot.cpp; sourceTree = "<group>"; };
+		5CED5F5E11A6E2DD004C6C07 /* ShredderPeakSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderPeakSlot.h; sourceTree = "<group>"; };
+		5CED5F5F11A6E2DD004C6C07 /* ShredderPluginEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderPluginEditor.cpp; sourceTree = "<group>"; };
+		5CED5F6011A6E2DD004C6C07 /* ShredderPluginEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderPluginEditor.h; sourceTree = "<group>"; };
+		5CED5F6111A6E2DD004C6C07 /* ShredderResources.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderResources.cpp; sourceTree = "<group>"; };
+		5CED5F6211A6E2DD004C6C07 /* ShredderResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderResources.h; sourceTree = "<group>"; };
+		5CED5F6311A6E2DD004C6C07 /* ShredderRMSMeter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderRMSMeter.cpp; sourceTree = "<group>"; };
+		5CED5F6411A6E2DD004C6C07 /* ShredderRMSMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderRMSMeter.h; sourceTree = "<group>"; };
+		5CED5F6511A6E2DD004C6C07 /* ShredderSlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShredderSlot.cpp; sourceTree = "<group>"; };
+		5CED5F6611A6E2DD004C6C07 /* ShredderSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShredderSlot.h; sourceTree = "<group>"; };
+		5CED5FA311A6E468004C6C07 /* juce_AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = juce_AppConfig.h; path = ../../Juce/juce_AppConfig.h; sourceTree = SOURCE_ROOT; };
+		5CED5FA411A6E468004C6C07 /* juce_LibrarySource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_LibrarySource.mm; path = ../../Juce/juce_LibrarySource.mm; sourceTree = SOURCE_ROOT; };
+		5CED5FAB11A6E4B0004C6C07 /* Instigator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Instigator.cpp; path = ../../../About/Instigator.cpp; sourceTree = SOURCE_ROOT; };
+		5CED5FAC11A6E4B0004C6C07 /* Instigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instigator.h; path = ../../../About/Instigator.h; sourceTree = SOURCE_ROOT; };
 		5CFC99B91157ADA900DB0269 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
-		5CFC99C01157ADC100DB0269 /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CADebugMacros.h; path = Extras/CoreAudio/PublicUtility/CADebugMacros.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99C11157ADC100DB0269 /* CAAUParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAAUParameter.cpp; path = Extras/CoreAudio/PublicUtility/CAAUParameter.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99C21157ADC100DB0269 /* CAAUParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAUParameter.h; path = Extras/CoreAudio/PublicUtility/CAAUParameter.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99C31157ADC100DB0269 /* CAAudioChannelLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAAudioChannelLayout.cpp; path = Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99C41157ADC100DB0269 /* CAAudioChannelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAAudioChannelLayout.h; path = Extras/CoreAudio/PublicUtility/CAAudioChannelLayout.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99C51157ADC100DB0269 /* CAMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAMutex.cpp; path = Extras/CoreAudio/PublicUtility/CAMutex.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99C61157ADC100DB0269 /* CAMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAMutex.h; path = Extras/CoreAudio/PublicUtility/CAMutex.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99C71157ADC100DB0269 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAStreamBasicDescription.cpp; path = Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99C81157ADC100DB0269 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAStreamBasicDescription.h; path = Extras/CoreAudio/PublicUtility/CAStreamBasicDescription.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99C91157ADC100DB0269 /* CAVectorUnitTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAVectorUnitTypes.h; path = Extras/CoreAudio/PublicUtility/CAVectorUnitTypes.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99CA1157ADC100DB0269 /* CAVectorUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAVectorUnit.cpp; path = Extras/CoreAudio/PublicUtility/CAVectorUnit.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99CB1157ADC100DB0269 /* CAVectorUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAVectorUnit.h; path = Extras/CoreAudio/PublicUtility/CAVectorUnit.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99CE1157ADC100DB0269 /* AUViewLocalizedStringKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUViewLocalizedStringKeys.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUViewBase/AUViewLocalizedStringKeys.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99D01157ADC100DB0269 /* AUCarbonViewDispatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUCarbonViewDispatch.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/AUCarbonViewDispatch.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99D11157ADC100DB0269 /* AUCarbonViewControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUCarbonViewControl.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/AUCarbonViewControl.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99D21157ADC100DB0269 /* AUCarbonViewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUCarbonViewControl.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/AUCarbonViewControl.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99D31157ADC100DB0269 /* CarbonEventHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CarbonEventHandler.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/CarbonEventHandler.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99D41157ADC100DB0269 /* CarbonEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarbonEventHandler.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/CarbonEventHandler.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99D51157ADC100DB0269 /* AUCarbonViewBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUCarbonViewBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/AUCarbonViewBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99D61157ADC100DB0269 /* AUCarbonViewBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUCarbonViewBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUCarbonViewBase/AUCarbonViewBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99D81157ADC100DB0269 /* AUBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99D91157ADC100DB0269 /* AUBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99DA1157ADC100DB0269 /* AUDispatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUDispatch.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99DB1157ADC100DB0269 /* AUDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUDispatch.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUDispatch.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99DC1157ADC100DB0269 /* AUInputElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUInputElement.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99DD1157ADC100DB0269 /* AUInputElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUInputElement.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUInputElement.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99DE1157ADC100DB0269 /* AUOutputElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUOutputElement.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99DF1157ADC100DB0269 /* AUOutputElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUOutputElement.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUOutputElement.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99E01157ADC100DB0269 /* AUResources.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = AUResources.r; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUResources.r; sourceTree = DEVELOPER_DIR; };
-		5CFC99E11157ADC100DB0269 /* AUScopeElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUScopeElement.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99E21157ADC100DB0269 /* AUScopeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUScopeElement.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/AUScopeElement.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99E31157ADC100DB0269 /* ComponentBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ComponentBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99E41157ADC100DB0269 /* ComponentBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComponentBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase/ComponentBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99E61157ADC100DB0269 /* AUMIDIBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUMIDIBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUMIDIBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99E71157ADC100DB0269 /* AUMIDIBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUMIDIBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUMIDIBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99E81157ADC100DB0269 /* AUMIDIEffectBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUMIDIEffectBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUMIDIEffectBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99E91157ADC100DB0269 /* AUMIDIEffectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUMIDIEffectBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUMIDIEffectBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99EA1157ADC100DB0269 /* AUOutputBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUOutputBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUOutputBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99EB1157ADC100DB0269 /* AUOutputBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUOutputBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUOutputBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99EC1157ADC100DB0269 /* MusicDeviceBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MusicDeviceBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/MusicDeviceBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99ED1157ADC100DB0269 /* MusicDeviceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MusicDeviceBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/MusicDeviceBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99EE1157ADC100DB0269 /* AUEffectBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUEffectBase.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99EF1157ADC100DB0269 /* AUEffectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUEffectBase.h; path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases/AUEffectBase.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99F11157ADC100DB0269 /* AUBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUBuffer.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99F21157ADC100DB0269 /* AUBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUBuffer.h; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUBuffer.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99F31157ADC100DB0269 /* AUDebugDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AUDebugDispatcher.cpp; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.cpp; sourceTree = DEVELOPER_DIR; };
-		5CFC99F41157ADC100DB0269 /* AUDebugDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUDebugDispatcher.h; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUDebugDispatcher.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99F51157ADC100DB0269 /* AUInputFormatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUInputFormatConverter.h; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUInputFormatConverter.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99F61157ADC100DB0269 /* AUSilentTimeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUSilentTimeout.h; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUSilentTimeout.h; sourceTree = DEVELOPER_DIR; };
-		5CFC99F71157ADC100DB0269 /* AUTimestampGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUTimestampGenerator.h; path = Extras/CoreAudio/AudioUnits/AUPublic/Utility/AUTimestampGenerator.h; sourceTree = DEVELOPER_DIR; };
 		843795640EFBF323002A2725 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
 		843795650EFBF323002A2725 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		843795660EFBF323002A2725 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
@@ -238,48 +111,10 @@
 		8437956D0EFBF323002A2725 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		84978758103561A60020003B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D01CCD20486CAD60068D4B7 /* Airbase.component */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Airbase.component; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D01CCD20486CAD60068D4B7 /* Shredder.component */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Shredder.component; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5C3A553F1132EDA70038C5B2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C3DBCBD11330007008C24E7 /* AudioUnit.framework in Frameworks */,
-				5C3DBCBE11330007008C24E7 /* Cocoa.framework in Frameworks */,
-				5C3DBCBF11330007008C24E7 /* OpenGL.framework in Frameworks */,
-				5C3DBCC011330007008C24E7 /* IOKit.framework in Frameworks */,
-				5C3DBCC111330007008C24E7 /* Carbon.framework in Frameworks */,
-				5C3DBCC211330007008C24E7 /* CoreMIDI.framework in Frameworks */,
-				5C3DBCC311330007008C24E7 /* CoreAudio.framework in Frameworks */,
-				5C3DBCC411330007008C24E7 /* DiscRecording.framework in Frameworks */,
-				5C3DBCC511330007008C24E7 /* QTKit.framework in Frameworks */,
-				5C3DBCC611330007008C24E7 /* WebKit.framework in Frameworks */,
-				5C3DBCC711330007008C24E7 /* AudioToolbox.framework in Frameworks */,
-				5C27CF69115790DE004119CE /* EdoController.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C9756DC11593206004C236D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C9768641159375F004C236D /* AudioUnit.framework in Frameworks */,
-				5C975998115932B6004C236D /* Cocoa.framework in Frameworks */,
-				5C975999115932B6004C236D /* OpenGL.framework in Frameworks */,
-				5C97599A115932B6004C236D /* IOKit.framework in Frameworks */,
-				5C97599B115932B6004C236D /* Carbon.framework in Frameworks */,
-				5C97599C115932B6004C236D /* CoreMIDI.framework in Frameworks */,
-				5C97599D115932B6004C236D /* CoreAudio.framework in Frameworks */,
-				5C97599E115932B6004C236D /* DiscRecording.framework in Frameworks */,
-				5C97599F115932B6004C236D /* QTKit.framework in Frameworks */,
-				5C9759A0115932B6004C236D /* WebKit.framework in Frameworks */,
-				5C9759A1115932B6004C236D /* AudioToolbox.framework in Frameworks */,
-				5C9759A2115932B6004C236D /* EdoController.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D01CCCD0486CAD60068D4B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,7 +129,6 @@
 				843795770EFBF323002A2725 /* QTKit.framework in Frameworks */,
 				843795780EFBF323002A2725 /* WebKit.framework in Frameworks */,
 				84978759103561A60020003B /* AudioToolbox.framework in Frameworks */,
-				5C27CF68115790DE004119CE /* EdoController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +138,9 @@
 		089C166AFE841209C02AAC07 /* JuceDemoPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				5C3DB9E21132F6F4008C24E7 /* Controller */,
+				5CED5FAA11A6E4A4004C6C07 /* Instigator */,
+				5CED5FA211A6E459004C6C07 /* Juce Library Source */,
+				5CED5F3D11A6E2CE004C6C07 /* Shredder */,
 				5CA479CA1121F9DC002B823E /* Juce Plugin Wrapper Code */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
@@ -317,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				5CFC99B91157ADA900DB0269 /* AudioUnit.framework */,
-				5C27CF67115790DE004119CE /* EdoController.a */,
 				843795640EFBF323002A2725 /* AudioUnit.framework */,
 				84978758103561A60020003B /* AudioToolbox.framework */,
 				843795650EFBF323002A2725 /* Cocoa.framework */,
@@ -336,7 +171,6 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5C3DBCFC11330150008C24E7 /* ctrlr.icns */,
 				8D01CCD10486CAD60068D4B7 /* Info.plist */,
 			);
 			name = Resources;
@@ -345,304 +179,158 @@
 		19C28FB4FE9D528D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D01CCD20486CAD60068D4B7 /* Airbase.component */,
-				5C928E141157BC0D00C78637 /* Airbase.app */,
-				5C9756DE11593206004C236D /* Airbase.bundle */,
+				8D01CCD20486CAD60068D4B7 /* Shredder.component */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5C3A46C01132ECF60038C5B2 /* Standalone */ = {
-			isa = PBXGroup;
-			children = (
-				5C3A46C11132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp */,
-				5C3A46C21132ECF60038C5B2 /* juce_AudioFilterStreamer.h */,
-				5C3A46C31132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp */,
-				5C3A46C41132ECF60038C5B2 /* juce_StandaloneFilterWindow.h */,
-				5C3A46C51132ECF60038C5B2 /* StandaloneFilterApp.cpp */,
-			);
-			name = Standalone;
-			path = ../../../../Juce/PluginWrapper/Standalone;
-			sourceTree = SOURCE_ROOT;
-		};
-		5C3A46C61132ECF60038C5B2 /* VST */ = {
-			isa = PBXGroup;
-			children = (
-				5C3A46C71132ECF60038C5B2 /* juce_VST_Wrapper.cpp */,
-				5C3A46C81132ECF60038C5B2 /* juce_VST_Wrapper.mm */,
-			);
-			name = VST;
-			path = ../../../../Juce/PluginWrapper/VST;
-			sourceTree = SOURCE_ROOT;
-		};
-		5C3DB9E21132F6F4008C24E7 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5CE3D1AA1153DE8D00CFA78C /* Plugin */,
-				5CE3D1B31153DE8D00CFA78C /* UI */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		5CA479CA1121F9DC002B823E /* Juce Plugin Wrapper Code */ = {
 			isa = PBXGroup;
 			children = (
-				5CFC96F61157AC4600DB0269 /* AU */,
-				5C3A46BD1132ECF60038C5B2 /* juce_IncludeCharacteristics.h */,
-				5C3A46BE1132ECF60038C5B2 /* juce_PluginHeaders.h */,
-				5C3A46BF1132ECF60038C5B2 /* juce_PluginHostType.h */,
-				5C3A46C01132ECF60038C5B2 /* Standalone */,
-				5C3A46C61132ECF60038C5B2 /* VST */,
+				5CED5F3A11A6E2C9004C6C07 /* juce_VST_Wrapper.mm */,
 			);
 			name = "Juce Plugin Wrapper Code";
 			sourceTree = "<group>";
 		};
-		5CE3D1AA1153DE8D00CFA78C /* Plugin */ = {
+		5CED5F3D11A6E2CE004C6C07 /* Shredder */ = {
 			isa = PBXGroup;
 			children = (
-				5CE3D1AB1153DE8D00CFA78C /* Airbase.xml */,
-				5CE3D1AC1153DE8D00CFA78C /* AirbaseController.cpp */,
-				5CE3D1AD1153DE8D00CFA78C /* AirbaseController.h */,
-				5CE3D1AE1153DE8D00CFA78C /* AirbaseMapping.cpp */,
-				5CE3D1AF1153DE8D00CFA78C /* AirbaseMapping.h */,
-				5CE3D1B01153DE8D00CFA78C /* JucePluginCharacteristics.h */,
+				5CED5F3E11A6E2DD004C6C07 /* Hydrogen */,
+				5CED5F4311A6E2DD004C6C07 /* Includes.h */,
+				5CED5F4411A6E2DD004C6C07 /* Plugin */,
+				5CED5F4E11A6E2DD004C6C07 /* UI */,
+			);
+			name = Shredder;
+			sourceTree = "<group>";
+		};
+		5CED5F3E11A6E2DD004C6C07 /* Hydrogen */ = {
+			isa = PBXGroup;
+			children = (
+				5CED5F3F11A6E2DD004C6C07 /* adsr.cpp */,
+				5CED5F4011A6E2DD004C6C07 /* adsr.h */,
+				5CED5F4111A6E2DD004C6C07 /* getTableValue.h */,
+				5CED5F4211A6E2DD004C6C07 /* TableExponential.h */,
+			);
+			name = Hydrogen;
+			path = ../../Source/Hydrogen;
+			sourceTree = SOURCE_ROOT;
+		};
+		5CED5F4411A6E2DD004C6C07 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				5CED5F4511A6E2DD004C6C07 /* JucePluginCharacteristics.h */,
+				5CED5F4611A6E2DD004C6C07 /* Shredder.cpp */,
+				5CED5F4711A6E2DD004C6C07 /* Shredder.h */,
+				5CED5F4811A6E2DD004C6C07 /* ShredderPlugin.cpp */,
+				5CED5F4911A6E2DD004C6C07 /* ShredderPlugin.h */,
 			);
 			name = Plugin;
-			path = ../../Plugin;
+			path = ../../Source/Plugin;
 			sourceTree = SOURCE_ROOT;
 		};
-		5CE3D1B31153DE8D00CFA78C /* UI */ = {
+		5CED5F4E11A6E2DD004C6C07 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5CE3D1B41153DE8D00CFA78C /* AirbaseEditor.cpp */,
-				5CE3D1B51153DE8D00CFA78C /* AirbaseEditor.h */,
-				5CE3D1B61153DE8D00CFA78C /* AirbaseLookAndFeel.cpp */,
-				5CE3D1B71153DE8D00CFA78C /* AirbaseLookAndFeel.h */,
+				5CED5F4F11A6E2DD004C6C07 /* FilmStrip.cpp */,
+				5CED5F5011A6E2DD004C6C07 /* FilmStrip.h */,
+				5CED5F5111A6E2DD004C6C07 /* FSerializedTypeface.cpp */,
+				5CED5F5211A6E2DD004C6C07 /* FSerializedTypeface.h */,
+				5CED5F5311A6E2DD004C6C07 /* ImageSelectButton.cpp */,
+				5CED5F5411A6E2DD004C6C07 /* ImageSelectButton.h */,
+				5CED5F5511A6E2DD004C6C07 /* ImageSlider.cpp */,
+				5CED5F5611A6E2DD004C6C07 /* ImageSlider.h */,
+				5CED5F5711A6E2DD004C6C07 /* ImageToggleButton.cpp */,
+				5CED5F5811A6E2DD004C6C07 /* ImageToggleButton.h */,
+				5CED5F5911A6E2DD004C6C07 /* ShredderEditor.cpp */,
+				5CED5F5A11A6E2DD004C6C07 /* ShredderEditor.h */,
+				5CED5F5B11A6E2DD004C6C07 /* ShredderEditorOptions.cpp */,
+				5CED5F5C11A6E2DD004C6C07 /* ShredderEditorOptions.h */,
+				5CED5F5D11A6E2DD004C6C07 /* ShredderPeakSlot.cpp */,
+				5CED5F5E11A6E2DD004C6C07 /* ShredderPeakSlot.h */,
+				5CED5F5F11A6E2DD004C6C07 /* ShredderPluginEditor.cpp */,
+				5CED5F6011A6E2DD004C6C07 /* ShredderPluginEditor.h */,
+				5CED5F6111A6E2DD004C6C07 /* ShredderResources.cpp */,
+				5CED5F6211A6E2DD004C6C07 /* ShredderResources.h */,
+				5CED5F6311A6E2DD004C6C07 /* ShredderRMSMeter.cpp */,
+				5CED5F6411A6E2DD004C6C07 /* ShredderRMSMeter.h */,
+				5CED5F6511A6E2DD004C6C07 /* ShredderSlot.cpp */,
+				5CED5F6611A6E2DD004C6C07 /* ShredderSlot.h */,
 			);
 			name = UI;
-			path = ../../UI;
+			path = ../../Source/UI;
 			sourceTree = SOURCE_ROOT;
 		};
-		5CFC96F61157AC4600DB0269 /* AU */ = {
+		5CED5FA211A6E459004C6C07 /* Juce Library Source */ = {
 			isa = PBXGroup;
 			children = (
-				5CFC99BF1157ADC100DB0269 /* PublicUtility */,
-				5CFC99CC1157ADC100DB0269 /* AUPublic */,
-				5CFC96F71157AC4600DB0269 /* juce_AU_Resources.r */,
-				5CFC96F81157AC4600DB0269 /* juce_AU_Wrapper.mm */,
+				5CED5FA311A6E468004C6C07 /* juce_AppConfig.h */,
+				5CED5FA411A6E468004C6C07 /* juce_LibrarySource.mm */,
 			);
-			name = AU;
-			path = ../../../../Juce/PluginWrapper/AU;
-			sourceTree = SOURCE_ROOT;
+			name = "Juce Library Source";
+			sourceTree = "<group>";
 		};
-		5CFC99BF1157ADC100DB0269 /* PublicUtility */ = {
+		5CED5FAA11A6E4A4004C6C07 /* Instigator */ = {
 			isa = PBXGroup;
 			children = (
-				5CFC99C01157ADC100DB0269 /* CADebugMacros.h */,
-				5CFC99C11157ADC100DB0269 /* CAAUParameter.cpp */,
-				5CFC99C21157ADC100DB0269 /* CAAUParameter.h */,
-				5CFC99C31157ADC100DB0269 /* CAAudioChannelLayout.cpp */,
-				5CFC99C41157ADC100DB0269 /* CAAudioChannelLayout.h */,
-				5CFC99C51157ADC100DB0269 /* CAMutex.cpp */,
-				5CFC99C61157ADC100DB0269 /* CAMutex.h */,
-				5CFC99C71157ADC100DB0269 /* CAStreamBasicDescription.cpp */,
-				5CFC99C81157ADC100DB0269 /* CAStreamBasicDescription.h */,
-				5CFC99C91157ADC100DB0269 /* CAVectorUnitTypes.h */,
-				5CFC99CA1157ADC100DB0269 /* CAVectorUnit.cpp */,
-				5CFC99CB1157ADC100DB0269 /* CAVectorUnit.h */,
+				5CED5FAB11A6E4B0004C6C07 /* Instigator.cpp */,
+				5CED5FAC11A6E4B0004C6C07 /* Instigator.h */,
 			);
-			name = PublicUtility;
-			path = Extras/CoreAudio/PublicUtility;
-			sourceTree = DEVELOPER_DIR;
-		};
-		5CFC99CC1157ADC100DB0269 /* AUPublic */ = {
-			isa = PBXGroup;
-			children = (
-				5CFC99D71157ADC100DB0269 /* AUBase */,
-				5CFC99E51157ADC100DB0269 /* OtherBases */,
-				5CFC99F01157ADC100DB0269 /* Utility */,
-				5CFC99CF1157ADC100DB0269 /* AUCarbonViewBase */,
-				5CFC99CD1157ADC100DB0269 /* AUViewBase */,
-			);
-			name = AUPublic;
-			path = Extras/CoreAudio/AudioUnits/AUPublic;
-			sourceTree = DEVELOPER_DIR;
-		};
-		5CFC99CD1157ADC100DB0269 /* AUViewBase */ = {
-			isa = PBXGroup;
-			children = (
-				5CFC99CE1157ADC100DB0269 /* AUViewLocalizedStringKeys.h */,
-			);
-			name = AUViewBase;
-			path = "../$(DEVELOPER_DIR)";
-			sourceTree = DEVELOPER_DIR;
-		};
-		5CFC99CF1157ADC100DB0269 /* AUCarbonViewBase */ = {
-			isa = PBXGroup;
-			children = (
-				5CFC99D01157ADC100DB0269 /* AUCarbonViewDispatch.cpp */,
-				5CFC99D11157ADC100DB0269 /* AUCarbonViewControl.cpp */,
-				5CFC99D21157ADC100DB0269 /* AUCarbonViewControl.h */,
-				5CFC99D31157ADC100DB0269 /* CarbonEventHandler.cpp */,
-				5CFC99D41157ADC100DB0269 /* CarbonEventHandler.h */,
-				5CFC99D51157ADC100DB0269 /* AUCarbonViewBase.cpp */,
-				5CFC99D61157ADC100DB0269 /* AUCarbonViewBase.h */,
-			);
-			name = AUCarbonViewBase;
-			path = "../$(DEVELOPER_DIR)";
-			sourceTree = DEVELOPER_DIR;
-		};
-		5CFC99D71157ADC100DB0269 /* AUBase */ = {
-			isa = PBXGroup;
-			children = (
-				5CFC99D81157ADC100DB0269 /* AUBase.cpp */,
-				5CFC99D91157ADC100DB0269 /* AUBase.h */,
-				5CFC99DA1157ADC100DB0269 /* AUDispatch.cpp */,
-				5CFC99DB1157ADC100DB0269 /* AUDispatch.h */,
-				5CFC99DC1157ADC100DB0269 /* AUInputElement.cpp */,
-				5CFC99DD1157ADC100DB0269 /* AUInputElement.h */,
-				5CFC99DE1157ADC100DB0269 /* AUOutputElement.cpp */,
-				5CFC99DF1157ADC100DB0269 /* AUOutputElement.h */,
-				5CFC99E01157ADC100DB0269 /* AUResources.r */,
-				5CFC99E11157ADC100DB0269 /* AUScopeElement.cpp */,
-				5CFC99E21157ADC100DB0269 /* AUScopeElement.h */,
-				5CFC99E31157ADC100DB0269 /* ComponentBase.cpp */,
-				5CFC99E41157ADC100DB0269 /* ComponentBase.h */,
-			);
-			name = AUBase;
-			path = Extras/CoreAudio/AudioUnits/AUPublic/AUBase;
-			sourceTree = DEVELOPER_DIR;
-		};
-		5CFC99E51157ADC100DB0269 /* OtherBases */ = {
-			isa = PBXGroup;
-			children = (
-				5CFC99E61157ADC100DB0269 /* AUMIDIBase.cpp */,
-				5CFC99E71157ADC100DB0269 /* AUMIDIBase.h */,
-				5CFC99E81157ADC100DB0269 /* AUMIDIEffectBase.cpp */,
-				5CFC99E91157ADC100DB0269 /* AUMIDIEffectBase.h */,
-				5CFC99EA1157ADC100DB0269 /* AUOutputBase.cpp */,
-				5CFC99EB1157ADC100DB0269 /* AUOutputBase.h */,
-				5CFC99EC1157ADC100DB0269 /* MusicDeviceBase.cpp */,
-				5CFC99ED1157ADC100DB0269 /* MusicDeviceBase.h */,
-				5CFC99EE1157ADC100DB0269 /* AUEffectBase.cpp */,
-				5CFC99EF1157ADC100DB0269 /* AUEffectBase.h */,
-			);
-			name = OtherBases;
-			path = Extras/CoreAudio/AudioUnits/AUPublic/OtherBases;
-			sourceTree = DEVELOPER_DIR;
-		};
-		5CFC99F01157ADC100DB0269 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				5CFC99F11157ADC100DB0269 /* AUBuffer.cpp */,
-				5CFC99F21157ADC100DB0269 /* AUBuffer.h */,
-				5CFC99F31157ADC100DB0269 /* AUDebugDispatcher.cpp */,
-				5CFC99F41157ADC100DB0269 /* AUDebugDispatcher.h */,
-				5CFC99F51157ADC100DB0269 /* AUInputFormatConverter.h */,
-				5CFC99F61157ADC100DB0269 /* AUSilentTimeout.h */,
-				5CFC99F71157ADC100DB0269 /* AUTimestampGenerator.h */,
-			);
-			name = Utility;
-			path = Extras/CoreAudio/AudioUnits/AUPublic/Utility;
-			sourceTree = DEVELOPER_DIR;
+			name = Instigator;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5C9757101159329F004C236D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C9756E91159325E004C236D /* juce_IncludeCharacteristics.h in Headers */,
-				5C9756EA1159325E004C236D /* juce_PluginHeaders.h in Headers */,
-				5C9756EB1159325E004C236D /* juce_PluginHostType.h in Headers */,
-				5C9756EC1159325E004C236D /* juce_AudioFilterStreamer.h in Headers */,
-				5C9756ED1159325E004C236D /* juce_StandaloneFilterWindow.h in Headers */,
-				5C9756EF1159325E004C236D /* AirbaseController.h in Headers */,
-				5C9756F01159325E004C236D /* AirbaseMapping.h in Headers */,
-				5C9756F11159325E004C236D /* JucePluginCharacteristics.h in Headers */,
-				5C9756F31159325E004C236D /* AirbaseEditor.h in Headers */,
-				5C9756F41159325E004C236D /* AirbaseLookAndFeel.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D01CCC70486CAD60068D4B7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3A46C91132ECF60038C5B2 /* juce_IncludeCharacteristics.h in Headers */,
-				5C3A46CA1132ECF60038C5B2 /* juce_PluginHeaders.h in Headers */,
-				5C3A46CB1132ECF60038C5B2 /* juce_PluginHostType.h in Headers */,
-				5C3A46CD1132ECF60038C5B2 /* juce_AudioFilterStreamer.h in Headers */,
-				5C3A46CF1132ECF60038C5B2 /* juce_StandaloneFilterWindow.h in Headers */,
-				5CE3D1BA1153DE8D00CFA78C /* AirbaseController.h in Headers */,
-				5CE3D1BC1153DE8D00CFA78C /* AirbaseMapping.h in Headers */,
-				5CE3D1BD1153DE8D00CFA78C /* JucePluginCharacteristics.h in Headers */,
-				5CE3D1C11153DE8D00CFA78C /* AirbaseEditor.h in Headers */,
-				5CE3D1C31153DE8D00CFA78C /* AirbaseLookAndFeel.h in Headers */,
+				5CED5F6811A6E2DD004C6C07 /* adsr.h in Headers */,
+				5CED5F6911A6E2DD004C6C07 /* getTableValue.h in Headers */,
+				5CED5F6A11A6E2DD004C6C07 /* TableExponential.h in Headers */,
+				5CED5F6B11A6E2DD004C6C07 /* Includes.h in Headers */,
+				5CED5F6C11A6E2DD004C6C07 /* JucePluginCharacteristics.h in Headers */,
+				5CED5F6E11A6E2DD004C6C07 /* Shredder.h in Headers */,
+				5CED5F7011A6E2DD004C6C07 /* ShredderPlugin.h in Headers */,
+				5CED5F7611A6E2DD004C6C07 /* FilmStrip.h in Headers */,
+				5CED5F7811A6E2DD004C6C07 /* FSerializedTypeface.h in Headers */,
+				5CED5F7A11A6E2DD004C6C07 /* ImageSelectButton.h in Headers */,
+				5CED5F7C11A6E2DD004C6C07 /* ImageSlider.h in Headers */,
+				5CED5F7E11A6E2DD004C6C07 /* ImageToggleButton.h in Headers */,
+				5CED5F8011A6E2DD004C6C07 /* ShredderEditor.h in Headers */,
+				5CED5F8211A6E2DD004C6C07 /* ShredderEditorOptions.h in Headers */,
+				5CED5F8411A6E2DD004C6C07 /* ShredderPeakSlot.h in Headers */,
+				5CED5F8611A6E2DD004C6C07 /* ShredderPluginEditor.h in Headers */,
+				5CED5F8811A6E2DD004C6C07 /* ShredderResources.h in Headers */,
+				5CED5F8A11A6E2DD004C6C07 /* ShredderRMSMeter.h in Headers */,
+				5CED5F8C11A6E2DD004C6C07 /* ShredderSlot.h in Headers */,
+				5CED5FA511A6E468004C6C07 /* juce_AppConfig.h in Headers */,
+				5CED5FAE11A6E4B0004C6C07 /* Instigator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5C3A55401132EDA70038C5B2 /* Ctrlr-Standalone */ = {
+		8D01CCC60486CAD60068D4B7 /* Shredder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C3A55461132EDA90038C5B2 /* Build configuration list for PBXNativeTarget "Ctrlr-Standalone" */;
-			buildPhases = (
-				5C3A553D1132EDA70038C5B2 /* Resources */,
-				5C3A553E1132EDA70038C5B2 /* Sources */,
-				5C3A553F1132EDA70038C5B2 /* Frameworks */,
-				5C3DBCF41133005D008C24E7 /* Copy Standalone to Ctrlr */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Ctrlr-Standalone";
-			productName = TZ81Z_Standalone;
-			productReference = 5C928E141157BC0D00C78637 /* Airbase.app */;
-			productType = "com.apple.product-type.application";
-		};
-		5C9756DD11593206004C236D /* Ctrlr-AU */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5C9756E211593207004C236D /* Build configuration list for PBXNativeTarget "Ctrlr-AU" */;
-			buildPhases = (
-				5C9757101159329F004C236D /* Headers */,
-				5C9756DA11593206004C236D /* Resources */,
-				5C9756DB11593206004C236D /* Sources */,
-				5C9756DC11593206004C236D /* Frameworks */,
-				5C9759A811593362004C236D /* Rez */,
-				5C92AC2A11596F6D003ABDFD /* Copy AU To Ctrlr */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Ctrlr-AU";
-			productName = Airbase_AU;
-			productReference = 5C9756DE11593206004C236D /* Airbase.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-		8D01CCC60486CAD60068D4B7 /* Ctrlr-VST */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3E4BA243089833B7007656EC /* Build configuration list for PBXNativeTarget "Ctrlr-VST" */;
+			buildConfigurationList = 3E4BA243089833B7007656EC /* Build configuration list for PBXNativeTarget "Shredder" */;
 			buildPhases = (
 				8D01CCC70486CAD60068D4B7 /* Headers */,
 				8D01CCC90486CAD60068D4B7 /* Resources */,
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
 				8D01CCCF0486CAD60068D4B7 /* Rez */,
-				847A7D6510694C5500DD8999 /* Copy VST to Ctrlr */,
+				847A7D6510694C5500DD8999 /* Copy VST to System */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Ctrlr-VST";
+			name = Shredder;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = JuceDemoPlugin;
-			productReference = 8D01CCD20486CAD60068D4B7 /* Airbase.component */;
+			productReference = 8D01CCD20486CAD60068D4B7 /* Shredder.component */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -650,59 +338,29 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 3E4BA247089833B7007656EC /* Build configuration list for PBXProject "Ctrlr" */;
+			buildConfigurationList = 3E4BA247089833B7007656EC /* Build configuration list for PBXProject "Shredder" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* JuceDemoPlugin */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D01CCC60486CAD60068D4B7 /* Ctrlr-VST */,
-				5C3A55401132EDA70038C5B2 /* Ctrlr-Standalone */,
-				5C9756DD11593206004C236D /* Ctrlr-AU */,
+				8D01CCC60486CAD60068D4B7 /* Shredder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5C3A553D1132EDA70038C5B2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C3DBD11113304F5008C24E7 /* ctrlr.icns in Resources */,
-				5CE3D1C41153DE8D00CFA78C /* Airbase.xml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C9756DA11593206004C236D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C9756F511593266004C236D /* ctrlr.icns in Resources */,
-				5C9756F611593266004C236D /* Airbase.xml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D01CCC90486CAD60068D4B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3DBCFD11330150008C24E7 /* ctrlr.icns in Resources */,
-				5CE3D1B81153DE8D00CFA78C /* Airbase.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXRezBuildPhase section */
-		5C9759A811593362004C236D /* Rez */ = {
-			isa = PBXRezBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C9759A4115932CA004C236D /* juce_AU_Resources.r in Rez */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D01CCCF0486CAD60068D4B7 /* Rez */ = {
 			isa = PBXRezBuildPhase;
 			buildActionMask = 2147483647;
@@ -713,146 +371,45 @@
 /* End PBXRezBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5C3DBCF41133005D008C24E7 /* Copy Standalone to Ctrlr */ = {
+		847A7D6510694C5500DD8999 /* Copy VST to System */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Standalone to Ctrlr";
+			name = "Copy VST to System";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n\tcp -r $CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME ../../../../Bin/$PRODUCT_NAME\"_Debug\".app\nelse\n\tcp -r $CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME ../../../../Bin/$PRODUCT_NAME\".app\"\nfi\n";
-		};
-		5C92AC2A11596F6D003ABDFD /* Copy AU To Ctrlr */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy AU To Ctrlr";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nBINREPL=\"$SRCROOT/../../../../Tools/binrepl\"\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n  \tCTRLR=$SRCROOT/../../../../Bin/AU/$PRODUCT_NAME\"_Debug\".component  \nelse\n\tCTRLR=$SRCROOT/../../../../Bin/AU/$PRODUCT_NAME\".component\"\nfi\n\t\t\nif [ -d \"$CTRLR\" ]; then \n\trm -rf \"$CTRLR\"\nfi\n\n\nAU=~/Library/Audio/Plug-Ins/Components/$PRODUCT_NAME.component\n\nif [ -d \"$AU\" ]; then \n\trm -r \"$AU\"\nfi\n\necho \"Copy to Ctrlr bin folder and system folder\"\ncp -r \"$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME\" \"$CTRLR\"\ncp -r $CTRLR $AU\n\necho \"Do some SED on Info.plist\"\n\nsed -i \"\" -e 's/TDMwPTul/BNDLPTul/g' \"$CTRLR/Contents/PkgInfo\"\nsed -i \"\" -e 's/TDMw/BNDL/g' \"$CTRLR/Contents/Info.plist\"\n\necho \"Do the ObjC fix\"\nif [ ! -x $BINREPL ]; then\n\techo \"Build $BINREPL\"\n\tg++ $SRCROOT/../../../../Tools/binrepl.cc -o $SRCROOT/../../../../Tools/binrepl\nfi\n\n$BINREPL FINDMEQUICK $CTRLR/Contents/MacOS/$PRODUCT_NAME\n$BINREPL FINDMEQUICK $AU/Contents/MacOS/$PRODUCT_NAME";
-		};
-		847A7D6510694C5500DD8999 /* Copy VST to Ctrlr */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy VST to Ctrlr";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "BINREPL=\"$SRCROOT/../../../../Tools/binrepl\"\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n  \tCTRLR=$SRCROOT/../../../../Bin/VST/$PRODUCT_NAME\"_Debug\".vst  \nelse\n\tCTRLR=$SRCROOT/../../../../Bin/VST/$PRODUCT_NAME\".vst\"\nfi\n\t\t\nif [ -d \"$CTRLR\" ]; then \n\trm -rf \"$CTRLR\"\nfi\n\n  \ncp -r \"$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME\" \"$CTRLR\"\n  \t\nsed -i \"\" -e 's/TDMwPTul/BNDLPTul/g' \"$CTRLR/Contents/PkgInfo\"\nsed -i \"\" -e 's/TDMw/BNDL/g' \"$CTRLR/Contents/$INFOPLIST_FILE\"\n\necho \"Do the ObjC fix\"\nif [ ! -x $BINREPL ]; then\n\techo \"Build $BINREPL\"\n\tg++ $SRCROOT/../../../../Tools/binrepl.cc -o $SRCROOT/../../../../Tools/binrepl\nfi\n\n$BINREPL FINDMEQUICK $CTRLR/Contents/MacOS/$PRODUCT_NAME";
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n  \tCTRLR=$SRCROOT/../../../Bin/$CONFIGURATION\"-VST\"/$PRODUCT_NAME.vst  \nelse\n\tCTRLR=$SRCROOT/../../../Bin/$CONFIGURATION\"-VST\"/$PRODUCT_NAME.vst\nfi\n\ncp -r $CONFIGURATION_BUILD_DIR/$EXECUTABLE_NAME.component $CTRLR";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5C3A553E1132EDA70038C5B2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C3A55471132EDE60038C5B2 /* juce_AudioFilterStreamer.cpp in Sources */,
-				5C3A55481132EDE60038C5B2 /* juce_StandaloneFilterWindow.cpp in Sources */,
-				5C3A55491132EDE60038C5B2 /* StandaloneFilterApp.cpp in Sources */,
-				5C3A554A1132EDE60038C5B2 /* juce_VST_Wrapper.cpp in Sources */,
-				5C3A554B1132EDE60038C5B2 /* juce_VST_Wrapper.mm in Sources */,
-				5CE3D1C51153DE8D00CFA78C /* AirbaseController.cpp in Sources */,
-				5CE3D1C61153DE8D00CFA78C /* AirbaseMapping.cpp in Sources */,
-				5CE3D1C81153DE8D00CFA78C /* AirbaseEditor.cpp in Sources */,
-				5CE3D1C91153DE8D00CFA78C /* AirbaseLookAndFeel.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C9756DB11593206004C236D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C9759DF115933E2004C236D /* AUViewLocalizedStringKeys.h in Sources */,
-				5C9759D8115933DE004C236D /* AUCarbonViewDispatch.cpp in Sources */,
-				5C9759D9115933DE004C236D /* AUCarbonViewControl.cpp in Sources */,
-				5C9759DA115933DE004C236D /* AUCarbonViewControl.h in Sources */,
-				5C9759DB115933DE004C236D /* CarbonEventHandler.cpp in Sources */,
-				5C9759DC115933DE004C236D /* CarbonEventHandler.h in Sources */,
-				5C9759DD115933DE004C236D /* AUCarbonViewBase.cpp in Sources */,
-				5C9759DE115933DE004C236D /* AUCarbonViewBase.h in Sources */,
-				5C9759D1115933D9004C236D /* AUBuffer.cpp in Sources */,
-				5C9759D2115933D9004C236D /* AUBuffer.h in Sources */,
-				5C9759D3115933D9004C236D /* AUDebugDispatcher.cpp in Sources */,
-				5C9759D4115933D9004C236D /* AUDebugDispatcher.h in Sources */,
-				5C9759D5115933D9004C236D /* AUInputFormatConverter.h in Sources */,
-				5C9759D6115933D9004C236D /* AUSilentTimeout.h in Sources */,
-				5C9759D7115933D9004C236D /* AUTimestampGenerator.h in Sources */,
-				5C9759C7115933D4004C236D /* AUMIDIBase.cpp in Sources */,
-				5C9759C8115933D4004C236D /* AUMIDIBase.h in Sources */,
-				5C9759C9115933D4004C236D /* AUMIDIEffectBase.cpp in Sources */,
-				5C9759CA115933D4004C236D /* AUMIDIEffectBase.h in Sources */,
-				5C9759CB115933D4004C236D /* AUOutputBase.cpp in Sources */,
-				5C9759CC115933D4004C236D /* AUOutputBase.h in Sources */,
-				5C9759CD115933D4004C236D /* MusicDeviceBase.cpp in Sources */,
-				5C9759CE115933D4004C236D /* MusicDeviceBase.h in Sources */,
-				5C9759CF115933D4004C236D /* AUEffectBase.cpp in Sources */,
-				5C9759D0115933D4004C236D /* AUEffectBase.h in Sources */,
-				5C9759BA115933CE004C236D /* AUBase.cpp in Sources */,
-				5C9759BB115933CE004C236D /* AUBase.h in Sources */,
-				5C9759BC115933CE004C236D /* AUDispatch.cpp in Sources */,
-				5C9759BD115933CE004C236D /* AUDispatch.h in Sources */,
-				5C9759BE115933CE004C236D /* AUInputElement.cpp in Sources */,
-				5C9759BF115933CE004C236D /* AUInputElement.h in Sources */,
-				5C9759C0115933CE004C236D /* AUOutputElement.cpp in Sources */,
-				5C9759C1115933CE004C236D /* AUOutputElement.h in Sources */,
-				5C9759C3115933CE004C236D /* AUScopeElement.cpp in Sources */,
-				5C9759C4115933CE004C236D /* AUScopeElement.h in Sources */,
-				5C9759C5115933CE004C236D /* ComponentBase.cpp in Sources */,
-				5C9759C6115933CE004C236D /* ComponentBase.h in Sources */,
-				5C9759A911593364004C236D /* CADebugMacros.h in Sources */,
-				5C9759AA11593364004C236D /* CAAUParameter.cpp in Sources */,
-				5C9759AB11593364004C236D /* CAAUParameter.h in Sources */,
-				5C9759AC11593364004C236D /* CAAudioChannelLayout.cpp in Sources */,
-				5C9759AD11593364004C236D /* CAAudioChannelLayout.h in Sources */,
-				5C9759AE11593364004C236D /* CAMutex.cpp in Sources */,
-				5C9759AF11593364004C236D /* CAMutex.h in Sources */,
-				5C9759B011593364004C236D /* CAStreamBasicDescription.cpp in Sources */,
-				5C9759B111593364004C236D /* CAStreamBasicDescription.h in Sources */,
-				5C9759B211593364004C236D /* CAVectorUnitTypes.h in Sources */,
-				5C9759B311593364004C236D /* CAVectorUnit.cpp in Sources */,
-				5C9759B411593364004C236D /* CAVectorUnit.h in Sources */,
-				5C97570511593281004C236D /* juce_AU_Wrapper.mm in Sources */,
-				5C9756F71159326D004C236D /* juce_AudioFilterStreamer.cpp in Sources */,
-				5C9756F81159326D004C236D /* juce_StandaloneFilterWindow.cpp in Sources */,
-				5C9756F91159326D004C236D /* StandaloneFilterApp.cpp in Sources */,
-				5C9756FA1159326D004C236D /* juce_VST_Wrapper.cpp in Sources */,
-				5C9756FB1159326D004C236D /* juce_VST_Wrapper.mm in Sources */,
-				5C9757001159326D004C236D /* AirbaseController.cpp in Sources */,
-				5C9757011159326D004C236D /* AirbaseMapping.cpp in Sources */,
-				5C9757031159326D004C236D /* AirbaseEditor.cpp in Sources */,
-				5C9757041159326D004C236D /* AirbaseLookAndFeel.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D01CCCB0486CAD60068D4B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3A46CC1132ECF60038C5B2 /* juce_AudioFilterStreamer.cpp in Sources */,
-				5C3A46CE1132ECF60038C5B2 /* juce_StandaloneFilterWindow.cpp in Sources */,
-				5C3A46D01132ECF60038C5B2 /* StandaloneFilterApp.cpp in Sources */,
-				5C3A46D11132ECF60038C5B2 /* juce_VST_Wrapper.cpp in Sources */,
-				5C3A46D21132ECF60038C5B2 /* juce_VST_Wrapper.mm in Sources */,
-				5CE3D1B91153DE8D00CFA78C /* AirbaseController.cpp in Sources */,
-				5CE3D1BB1153DE8D00CFA78C /* AirbaseMapping.cpp in Sources */,
-				5CE3D1C01153DE8D00CFA78C /* AirbaseEditor.cpp in Sources */,
-				5CE3D1C21153DE8D00CFA78C /* AirbaseLookAndFeel.cpp in Sources */,
+				5CED5F3B11A6E2C9004C6C07 /* juce_VST_Wrapper.mm in Sources */,
+				5CED5F6711A6E2DD004C6C07 /* adsr.cpp in Sources */,
+				5CED5F6D11A6E2DD004C6C07 /* Shredder.cpp in Sources */,
+				5CED5F6F11A6E2DD004C6C07 /* ShredderPlugin.cpp in Sources */,
+				5CED5F7511A6E2DD004C6C07 /* FilmStrip.cpp in Sources */,
+				5CED5F7711A6E2DD004C6C07 /* FSerializedTypeface.cpp in Sources */,
+				5CED5F7911A6E2DD004C6C07 /* ImageSelectButton.cpp in Sources */,
+				5CED5F7B11A6E2DD004C6C07 /* ImageSlider.cpp in Sources */,
+				5CED5F7D11A6E2DD004C6C07 /* ImageToggleButton.cpp in Sources */,
+				5CED5F7F11A6E2DD004C6C07 /* ShredderEditor.cpp in Sources */,
+				5CED5F8111A6E2DD004C6C07 /* ShredderEditorOptions.cpp in Sources */,
+				5CED5F8311A6E2DD004C6C07 /* ShredderPeakSlot.cpp in Sources */,
+				5CED5F8511A6E2DD004C6C07 /* ShredderPluginEditor.cpp in Sources */,
+				5CED5F8711A6E2DD004C6C07 /* ShredderResources.cpp in Sources */,
+				5CED5F8911A6E2DD004C6C07 /* ShredderRMSMeter.cpp in Sources */,
+				5CED5F8B11A6E2DD004C6C07 /* ShredderSlot.cpp in Sources */,
+				5CED5FA611A6E468004C6C07 /* juce_LibrarySource.mm in Sources */,
+				5CED5FAD11A6E4B0004C6C07 /* Instigator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,33 +430,19 @@
 				);
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../../../EdoController/EdoLua/Libs/boost,
-					../../../../EdoController/EdoLua/Libs/lua/src,
-					../../../../EdoController/EdoLua/Libs/lua/etc,
-					../../../../EdoController/EdoLua/Libs/diluculum/include,
-					../../../../,
+					../../Source,
 					/Users/atom/devel/vstsdk2.4,
 					/Users/atom/devel/juce,
-					"../../../$(PRODUCT_NAME)/Plugin",
-					../../../../EdoController/,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/Components/";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/Debug\"",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/EdoController.build/Release/EdoController.build/Objects-normal/i386\"",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/EdoController.build/Release/EdoController.build/Objects-normal/ppc\"",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/Release\"",
-					"\"$(SRCROOT)/../../../../Bin\"",
-					"\"$(SRCROOT)/../../../../../juce/bin\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_LDFLAGS = "-bundle";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
-				PRODUCT_NAME = Airbase;
+				PRODUCT_NAME = Shredder;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -922,32 +465,18 @@
 				);
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					../../../../EdoController/EdoLua/Libs/boost,
-					../../../../EdoController/EdoLua/Libs/lua/src,
-					../../../../EdoController/EdoLua/Libs/lua/etc,
-					../../../../EdoController/EdoLua/Libs/diluculum/include,
-					../../../../,
+					../../Source,
 					/Users/atom/devel/vstsdk2.4,
 					/Users/atom/devel/juce,
-					"../../../$(PRODUCT_NAME)/Plugin",
-					../../../../EdoController/,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/Components/";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/Debug\"",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/EdoController.build/Release/EdoController.build/Objects-normal/i386\"",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/EdoController.build/Release/EdoController.build/Objects-normal/ppc\"",
-					"\"$(SRCROOT)/../../../../../EdoController/Build/Mac/build/Release\"",
-					"\"$(SRCROOT)/../../../../Bin\"",
-					"\"$(SRCROOT)/../../../../../juce/bin\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_STYLE = Bundle;
 				OTHER_LDFLAGS = "-bundle";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
-				PRODUCT_NAME = Airbase;
+				PRODUCT_NAME = Shredder;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -991,192 +520,10 @@
 			};
 			name = Release;
 		};
-		5C3A55441132EDA80038C5B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"JucePlugin_Build_Standalone=1",
-					JUCE_MAC,
-					JUCE_DEBUG,
-					"JUCE_ObjCExtraSuffix=0x1047",
-				);
-				HEADER_SEARCH_PATHS = (
-					../../../../EdoController/EdoLua/Libs/boost,
-					../../../../EdoController/EdoLua/Libs/lua/src,
-					../../../../EdoController/EdoLua/Libs/lua/etc,
-					../../../../EdoController/EdoLua/Libs/diluculum/include,
-					../../../../,
-					/Users/atom/devel/vstsdk2.4,
-					/Users/atom/devel/juce,
-					"../../../$(PRODUCT_NAME)/Plugin",
-					../../../../EdoController/,
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_PREPROCESS = NO;
-				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Bin\"",
-					"\"$(SRCROOT)/../../../../../juce/bin\"",
-				);
-				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
-				PRODUCT_NAME = Polylite;
-			};
-			name = Debug;
-		};
-		5C3A55451132EDA80038C5B2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"JucePlugin_Build_Standalone=1",
-					JUCE_MAC,
-					JUCE_RELEASE,
-					"JUCE_ObjCExtraSuffix=0x1097",
-				);
-				HEADER_SEARCH_PATHS = (
-					../../../../EdoController/EdoLua/Libs/boost,
-					../../../../EdoController/EdoLua/Libs/lua/src,
-					../../../../EdoController/EdoLua/Libs/lua/etc,
-					../../../../EdoController/EdoLua/Libs/diluculum/include,
-					../../../../,
-					/Users/atom/devel/vstsdk2.4,
-					/Users/atom/devel/juce,
-					"../../../$(PRODUCT_NAME)/Plugin",
-					../../../../EdoController/,
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_PREPROCESS = NO;
-				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Bin\"",
-					"\"$(SRCROOT)/../../../../../juce/bin\"",
-				);
-				OTHER_LDFLAGS = "";
-				PREBINDING = NO;
-				PRODUCT_NAME = Airbase;
-				VALID_ARCHS = "i386 ppc";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		5C9756E011593207004C236D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"JucePlugin_Build_AU=1",
-					JUCE_MAC,
-					JUCE_DEBUG,
-					"JUCE_ObjCExtraSuffix=0x1047",
-				);
-				HEADER_SEARCH_PATHS = (
-					../../../../EdoController/EdoLua/Libs/boost,
-					../../../../EdoController/EdoLua/Libs/lua/src,
-					../../../../EdoController/EdoLua/Libs/lua/etc,
-					../../../../EdoController/EdoLua/Libs/diluculum/include,
-					../../../../,
-					/Users/atom/devel/vstsdk2.4,
-					/Users/atom/devel/juce,
-					"../../../$(PRODUCT_NAME)/Plugin",
-					../../../../EdoController/,
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Airbase_AU-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Bin\"",
-					"\"$(SRCROOT)/../../../../../juce/bin\"",
-				);
-				OTHER_LDFLAGS = (
-					"-framework",
-					Carbon,
-				);
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
-				PREBINDING = NO;
-				PRODUCT_NAME = Airbase;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		5C9756E111593207004C236D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"JucePlugin_Build_AU=1",
-					JUCE_MAC,
-					JUCE_RELEASE,
-					"JUCE_ObjCExtraSuffix=0x1097",
-				);
-				HEADER_SEARCH_PATHS = (
-					../../../../EdoController/EdoLua/Libs/boost,
-					../../../../EdoController/EdoLua/Libs/lua/src,
-					../../../../EdoController/EdoLua/Libs/lua/etc,
-					../../../../EdoController/EdoLua/Libs/diluculum/include,
-					../../../../,
-					/Users/atom/devel/vstsdk2.4,
-					/Users/atom/devel/juce,
-					"../../../$(PRODUCT_NAME)/Plugin",
-					../../../../EdoController/,
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Bin\"",
-					"\"$(SRCROOT)/../../../../../juce/bin\"",
-				);
-				OTHER_LDFLAGS = (
-					"-framework",
-					Carbon,
-				);
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
-				PREBINDING = YES;
-				PRODUCT_NAME = Airbase;
-				WRAPPER_EXTENSION = bundle;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E4BA243089833B7007656EC /* Build configuration list for PBXNativeTarget "Ctrlr-VST" */ = {
+		3E4BA243089833B7007656EC /* Build configuration list for PBXNativeTarget "Shredder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E4BA244089833B7007656EC /* Debug */,
@@ -1185,29 +532,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3E4BA247089833B7007656EC /* Build configuration list for PBXProject "Ctrlr" */ = {
+		3E4BA247089833B7007656EC /* Build configuration list for PBXProject "Shredder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E4BA248089833B7007656EC /* Debug */,
 				3E4BA249089833B7007656EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		5C3A55461132EDA90038C5B2 /* Build configuration list for PBXNativeTarget "Ctrlr-Standalone" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5C3A55441132EDA80038C5B2 /* Debug */,
-				5C3A55451132EDA80038C5B2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		5C9756E211593207004C236D /* Build configuration list for PBXNativeTarget "Ctrlr-AU" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5C9756E011593207004C236D /* Debug */,
-				5C9756E111593207004C236D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
