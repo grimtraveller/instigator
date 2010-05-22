@@ -14,7 +14,8 @@
 #define SP_SLOT_TYPE			T("slotType")
 #define SP_SAMPLERATE			T("sampleRate")
 #define SP_ENVELOPE				T("envelope")
-#define SP_MIX					T("mix")
+#define SP_WET_LEVEL			T("wetLevel")
+#define SP_DRY_LEVEL			T("dryLevel")
 
 #define _propB(x)			shredderPluginProperties.getBoolValue(x)
 #define _propI(x)			shredderPluginProperties.getIntValue(x)
@@ -29,7 +30,8 @@ class ShredderPlugin
 		enum SlotType
 		{
 			SequencerSlot,
-			PeakSlot
+			PeakSlot,
+			MidiSlot
 		};
 
 		ShredderPlugin (AudioPluginInstance *_pluginInstance, PluginDescription &_pluginDescription);
@@ -50,7 +52,8 @@ class ShredderPlugin
 		void releaseResources();
 		void process(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo);
 		void processSequence(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo);
-		void processPeak(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo);
+		void processMidi(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo);
+		void processPlugin (AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const bool applyEffect=true);
 		
 		const String getName();
 
@@ -73,8 +76,10 @@ class ShredderPlugin
 		const ShredderPlugin::SlotType getSlotType();
 		void setSlotType(const SlotType newSlotType);
 
-		void setMix (const int mixAmount);
-		const int getMix();
+		void setDryLevel (const double newDryLevel);
+		const double getDryLevel();
+		void setWetLevel (const double newWetLevel);
+		const double getWetLevel();
 
 		AudioPluginInstance *pluginInstance;
 
@@ -98,7 +103,9 @@ class ShredderPlugin
 		AudioProcessorEditor *editor;
 		BigInteger stepBits;
 		int lastBeat;
+		float wetGain, dryGain;
 		ADSR envelope;
+		bool continueMidiProcessing;
 };
 
 #endif

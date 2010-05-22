@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 4:40:02pm
+  Creation date:  21 May 2010 11:03:37pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -31,7 +31,7 @@
 
 //==============================================================================
 ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder)
-    : stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0), serializedSekuntiaTf(ShredderResources::_60sekuntia_jfont, ShredderResources::_60sekuntia_jfontSize), whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), onOffButton(Pic(ShredderResources::onoff_png, ShredderResources::onoff_pngSize), Font(10, Font::bold)),
+    : stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold)),
       groupComponent (0),
       step1 (0),
       step2 (0),
@@ -57,7 +57,21 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
       decay (0),
       sustain (0),
       release (0),
-      mix (0)
+      dryLevel (0),
+      soloButton (0),
+      gateButton (0),
+      label (0),
+      label2 (0),
+      label3 (0),
+      label4 (0),
+      label5 (0),
+      label6 (0),
+      label7 (0),
+      label8 (0),
+      wetLevel (0),
+      label9 (0),
+      directButton (0),
+      label10 (0)
 {
     addAndMakeVisible (groupComponent = new GroupComponent (T("new group"),
                                                             String::empty));
@@ -145,8 +159,8 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
                              ImageCache::getFromMemory (plugin_editor_png, plugin_editor_pngSize), 1.0000f, Colour (0x0));
     addAndMakeVisible (pluginName = new Label (T("pluginName"),
                                                T("--- No plugin")));
-    pluginName->setFont (Font (14.0000f, Font::bold));
-    pluginName->setJustificationType (Justification::centredRight);
+    pluginName->setFont (Font (10.0000f, Font::bold));
+    pluginName->setJustificationType (Justification::bottomRight);
     pluginName->setEditable (false, false, false);
     pluginName->setColour (Label::textColourId, Colours::white);
     pluginName->setColour (TextEditor::textColourId, Colours::black);
@@ -201,16 +215,132 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
     release->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
     release->addListener (this);
 
-    addAndMakeVisible (mix = new Slider (T("mix")));
-    mix->setRange (0, 100, 1);
-    mix->setSliderStyle (Slider::RotaryVerticalDrag);
-    mix->setTextBoxStyle (Slider::TextBoxRight, false, 28, 20);
-    mix->setColour (Slider::rotarySliderFillColourId, Colours::white);
-    mix->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
-    mix->setColour (Slider::textBoxTextColourId, Colours::white);
-    mix->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
-    mix->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
-    mix->addListener (this);
+    addAndMakeVisible (dryLevel = new Slider (T("dryLevel")));
+    dryLevel->setRange (0, 100, 1);
+    dryLevel->setSliderStyle (Slider::RotaryVerticalDrag);
+    dryLevel->setTextBoxStyle (Slider::TextBoxRight, false, 28, 20);
+    dryLevel->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    dryLevel->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    dryLevel->setColour (Slider::textBoxTextColourId, Colours::white);
+    dryLevel->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    dryLevel->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    dryLevel->addListener (this);
+
+    addAndMakeVisible (soloButton = new ToggleButton (T("soloButton")));
+    soloButton->setButtonText (String::empty);
+    soloButton->addButtonListener (this);
+    soloButton->setColour (ToggleButton::textColourId, Colours::white);
+
+    addAndMakeVisible (gateButton = new ToggleButton (T("gateButton")));
+    gateButton->setButtonText (String::empty);
+    gateButton->addButtonListener (this);
+    gateButton->setColour (ToggleButton::textColourId, Colours::white);
+
+    addAndMakeVisible (label = new Label (T("new label"),
+                                          T("Dry")));
+    label->setFont (Font (10.0000f, Font::bold));
+    label->setJustificationType (Justification::centred);
+    label->setEditable (false, false, false);
+    label->setColour (Label::textColourId, Colours::white);
+    label->setColour (TextEditor::textColourId, Colours::black);
+    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label2 = new Label (T("new label"),
+                                           T("Attack")));
+    label2->setFont (Font (10.0000f, Font::bold));
+    label2->setJustificationType (Justification::centred);
+    label2->setEditable (false, false, false);
+    label2->setColour (Label::textColourId, Colours::white);
+    label2->setColour (TextEditor::textColourId, Colours::black);
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label3 = new Label (T("new label"),
+                                           T("Decay")));
+    label3->setFont (Font (10.0000f, Font::bold));
+    label3->setJustificationType (Justification::centred);
+    label3->setEditable (false, false, false);
+    label3->setColour (Label::textColourId, Colours::white);
+    label3->setColour (TextEditor::textColourId, Colours::black);
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label4 = new Label (T("new label"),
+                                           T("Sustain")));
+    label4->setFont (Font (10.0000f, Font::bold));
+    label4->setJustificationType (Justification::centred);
+    label4->setEditable (false, false, false);
+    label4->setColour (Label::textColourId, Colours::white);
+    label4->setColour (TextEditor::textColourId, Colours::black);
+    label4->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label5 = new Label (T("new label"),
+                                           T("Release")));
+    label5->setFont (Font (10.0000f, Font::bold));
+    label5->setJustificationType (Justification::centred);
+    label5->setEditable (false, false, false);
+    label5->setColour (Label::textColourId, Colours::white);
+    label5->setColour (TextEditor::textColourId, Colours::black);
+    label5->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label6 = new Label (T("new label"),
+                                           T("ENV")));
+    label6->setFont (Font (10.0000f, Font::bold));
+    label6->setJustificationType (Justification::centred);
+    label6->setEditable (false, false, false);
+    label6->setColour (Label::textColourId, Colours::white);
+    label6->setColour (TextEditor::textColourId, Colours::black);
+    label6->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label7 = new Label (T("new label"),
+                                           T("ON")));
+    label7->setFont (Font (10.0000f, Font::bold));
+    label7->setJustificationType (Justification::centred);
+    label7->setEditable (false, false, false);
+    label7->setColour (Label::textColourId, Colours::white);
+    label7->setColour (TextEditor::textColourId, Colours::black);
+    label7->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (label8 = new Label (T("new label"),
+                                           T("Solo")));
+    label8->setFont (Font (10.0000f, Font::bold));
+    label8->setJustificationType (Justification::centred);
+    label8->setEditable (false, false, false);
+    label8->setColour (Label::textColourId, Colours::white);
+    label8->setColour (TextEditor::textColourId, Colours::black);
+    label8->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (wetLevel = new Slider (T("wetLevel")));
+    wetLevel->setRange (0, 100, 1);
+    wetLevel->setSliderStyle (Slider::RotaryVerticalDrag);
+    wetLevel->setTextBoxStyle (Slider::TextBoxRight, false, 28, 20);
+    wetLevel->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    wetLevel->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    wetLevel->setColour (Slider::textBoxTextColourId, Colours::white);
+    wetLevel->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    wetLevel->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    wetLevel->addListener (this);
+
+    addAndMakeVisible (label9 = new Label (T("new label"),
+                                           T("Wet")));
+    label9->setFont (Font (10.0000f, Font::bold));
+    label9->setJustificationType (Justification::centred);
+    label9->setEditable (false, false, false);
+    label9->setColour (Label::textColourId, Colours::white);
+    label9->setColour (TextEditor::textColourId, Colours::black);
+    label9->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (directButton = new ToggleButton (T("directButton")));
+    directButton->setButtonText (String::empty);
+    directButton->addButtonListener (this);
+    directButton->setColour (ToggleButton::textColourId, Colours::white);
+
+    addAndMakeVisible (label10 = new Label (T("new label"),
+                                            T("Direct")));
+    label10->setFont (Font (10.0000f, Font::bold));
+    label10->setJustificationType (Justification::centred);
+    label10->setEditable (false, false, false);
+    label10->setColour (Label::textColourId, Colours::white);
+    label10->setColour (TextEditor::textColourId, Colours::black);
+    label10->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
 
     //[UserPreSize]
@@ -234,25 +364,26 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
 	steps.add (step15);
 	steps.add (step16);
 
-	sekuntiaTf = serializedSekuntiaTf.getTypefaceForFlags (Font::plain);
-	Font f(sekuntiaTf);
-	f.setHeight (18);
-	pluginName->setFont (f);
-
 	for (int i=0; i<steps.size(); i++)
 	{
 		steps[i]->setLookAndFeel (&stepButton);
 	}
 
+	shredder->addChangeListener (this);
+
 	attack->setLookAndFeel (&whiteKnob);
 	decay->setLookAndFeel (&whiteKnob);
 	sustain->setLookAndFeel (&whiteKnob);
 	release->setLookAndFeel (&whiteKnob);
-	mix->setLookAndFeel (&whiteKnob);
-	processButton->setLookAndFeel (&onOffButton);
+	dryLevel->setLookAndFeel (&whiteKnob);
+	wetLevel->setLookAndFeel (&whiteKnob);
+	processButton->setLookAndFeel (&greenButton);
+	soloButton->setLookAndFeel (&yellowButton);
+	gateButton->setLookAndFeel (&blueButton);
+	directButton->setLookAndFeel (&whiteButton);
     //[/UserPreSize]
 
-    setSize (680, 104);
+    setSize (688, 104);
 
     //[Constructor] You can add your own custom stuff here..
     //[/Constructor]
@@ -261,6 +392,8 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
 ShredderSlot::~ShredderSlot()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+	shredder->removeChangeListener (this);
+
 	if (shredderPluginEditor)
 	{
 		deleteAndZero (shredderPluginEditor);
@@ -292,7 +425,21 @@ ShredderSlot::~ShredderSlot()
     deleteAndZero (decay);
     deleteAndZero (sustain);
     deleteAndZero (release);
-    deleteAndZero (mix);
+    deleteAndZero (dryLevel);
+    deleteAndZero (soloButton);
+    deleteAndZero (gateButton);
+    deleteAndZero (label);
+    deleteAndZero (label2);
+    deleteAndZero (label3);
+    deleteAndZero (label4);
+    deleteAndZero (label5);
+    deleteAndZero (label6);
+    deleteAndZero (label7);
+    deleteAndZero (label8);
+    deleteAndZero (wetLevel);
+    deleteAndZero (label9);
+    deleteAndZero (directButton);
+    deleteAndZero (label10);
 
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
@@ -310,32 +457,46 @@ void ShredderSlot::paint (Graphics& g)
 
 void ShredderSlot::resized()
 {
-    groupComponent->setBounds (0, 0, 680, 104);
-    step1->setBounds (16, 24, 32, 32);
-    step2->setBounds (56, 24, 32, 32);
-    step3->setBounds (96, 24, 32, 32);
-    step4->setBounds (136, 24, 32, 32);
-    step5->setBounds (184, 24, 32, 32);
-    step6->setBounds (224, 24, 32, 32);
-    step7->setBounds (264, 24, 32, 32);
-    step8->setBounds (304, 24, 32, 32);
-    step9->setBounds (352, 24, 32, 32);
-    step10->setBounds (392, 24, 32, 32);
-    step11->setBounds (432, 24, 32, 32);
-    step12->setBounds (472, 24, 32, 32);
-    step13->setBounds (520, 24, 32, 32);
-    step14->setBounds (560, 24, 32, 32);
-    step15->setBounds (600, 24, 32, 32);
-    step16->setBounds (640, 24, 32, 32);
-    pluginMenu->setBounds (600, 64, 32, 32);
-    pluginEditor->setBounds (632, 64, 32, 32);
-    pluginName->setBounds (344, 72, 246, 24);
-    processButton->setBounds (8, 72, 24, 24);
-    attack->setBounds (160, 72, 52, 24);
-    decay->setBounds (216, 72, 52, 24);
-    sustain->setBounds (272, 72, 52, 24);
-    release->setBounds (328, 72, 52, 24);
-    mix->setBounds (40, 72, 52, 24);
+    groupComponent->setBounds (0, -8, 688, 104);
+    step1->setBounds (16, 8, 32, 32);
+    step2->setBounds (56, 8, 32, 32);
+    step3->setBounds (96, 8, 32, 32);
+    step4->setBounds (136, 8, 32, 32);
+    step5->setBounds (184, 8, 32, 32);
+    step6->setBounds (224, 8, 32, 32);
+    step7->setBounds (264, 8, 32, 32);
+    step8->setBounds (304, 8, 32, 32);
+    step9->setBounds (352, 8, 32, 32);
+    step10->setBounds (392, 8, 32, 32);
+    step11->setBounds (432, 8, 32, 32);
+    step12->setBounds (472, 8, 32, 32);
+    step13->setBounds (520, 8, 32, 32);
+    step14->setBounds (560, 8, 32, 32);
+    step15->setBounds (600, 8, 32, 32);
+    step16->setBounds (640, 8, 32, 32);
+    pluginMenu->setBounds (600, 40, 32, 32);
+    pluginEditor->setBounds (640, 40, 32, 32);
+    pluginName->setBounds (560, 72, 120, 16);
+    processButton->setBounds (16, 64, 24, 24);
+    attack->setBounds (304, 64, 52, 24);
+    decay->setBounds (360, 64, 52, 24);
+    sustain->setBounds (416, 64, 52, 24);
+    release->setBounds (472, 64, 52, 24);
+    dryLevel->setBounds (144, 64, 52, 24);
+    soloButton->setBounds (48, 64, 24, 24);
+    gateButton->setBounds (272, 64, 24, 24);
+    label->setBounds (144, 48, 52, 12);
+    label2->setBounds (304, 48, 52, 12);
+    label3->setBounds (360, 48, 52, 12);
+    label4->setBounds (416, 48, 52, 12);
+    label5->setBounds (472, 48, 52, 12);
+    label6->setBounds (264, 48, 40, 12);
+    label7->setBounds (16, 48, 24, 12);
+    label8->setBounds (40, 48, 40, 12);
+    wetLevel->setBounds (200, 64, 52, 24);
+    label9->setBounds (200, 48, 52, 12);
+    directButton->setBounds (80, 64, 24, 24);
+    label10->setBounds (72, 48, 40, 12);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -452,7 +613,7 @@ void ShredderSlot::buttonClicked (Button* buttonThatWasClicked)
 				deleteAndZero (shredderPluginEditor);
 			}
 			shredder->clearPluginOnSlot (slotNumber, false);
-			shredder->loadPluginOnSlot (slotNumber, ret-2);
+			shredder->loadPluginOnSlot (slotNumber, ShredderPlugin::SequencerSlot, ret-2);
 			shredder->getCallbackLock().exit();
 
 			reloadState();
@@ -496,6 +657,27 @@ void ShredderSlot::buttonClicked (Button* buttonThatWasClicked)
 
 		return;
         //[/UserButtonCode_processButton]
+    }
+    else if (buttonThatWasClicked == soloButton)
+    {
+        //[UserButtonCode_soloButton] -- add your button handler code here..
+		shredder->getCallbackLock().enter();
+		if (soloButton->getToggleState())
+			shredder->setSoloSlot (slotNumber);
+		else
+			shredder->setSoloSlot (-1);
+		shredder->getCallbackLock().exit();
+        //[/UserButtonCode_soloButton]
+    }
+    else if (buttonThatWasClicked == gateButton)
+    {
+        //[UserButtonCode_gateButton] -- add your button handler code here..
+        //[/UserButtonCode_gateButton]
+    }
+    else if (buttonThatWasClicked == directButton)
+    {
+        //[UserButtonCode_directButton] -- add your button handler code here..
+        //[/UserButtonCode_directButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -544,14 +726,23 @@ void ShredderSlot::sliderValueChanged (Slider* sliderThatWasMoved)
 		shredder->getCallbackLock().exit();
         //[/UserSliderCode_release]
     }
-    else if (sliderThatWasMoved == mix)
+    else if (sliderThatWasMoved == dryLevel)
     {
-        //[UserSliderCode_mix] -- add your slider handling code here..
+        //[UserSliderCode_dryLevel] -- add your slider handling code here..
 		shredder->getCallbackLock().enter();
 		if (shredder->getPluginOnSlot(slotNumber))
-			shredder->getPluginOnSlot(slotNumber)->setMix ((int)sliderThatWasMoved->getValue());
+			shredder->getPluginOnSlot(slotNumber)->setDryLevel (sliderThatWasMoved->getValue());
 		shredder->getCallbackLock().exit();
-        //[/UserSliderCode_mix]
+        //[/UserSliderCode_dryLevel]
+    }
+    else if (sliderThatWasMoved == wetLevel)
+    {
+        //[UserSliderCode_wetLevel] -- add your slider handling code here..
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setWetLevel (sliderThatWasMoved->getValue());
+		shredder->getCallbackLock().exit();
+        //[/UserSliderCode_wetLevel]
     }
 
     //[UsersliderValueChanged_Post]
@@ -564,6 +755,7 @@ void ShredderSlot::sliderValueChanged (Slider* sliderThatWasMoved)
 void ShredderSlot::setSlotNumber (const int _slotNumber)
 {
 	slotNumber = _slotNumber;
+	
 	reloadState();
 }
 
@@ -594,7 +786,9 @@ void ShredderSlot::reloadState()
 		const float _decay		= p->getDecay();
 		const float _sustain	= p->getSustain();
 		const float _release	= p->getRelease();
-		const int _mix			= p->getMix();
+		const double _dry		= p->getDryLevel();
+		const double _wet		= p->getWetLevel();
+		const int soloSlot		= shredder->getSoloSlot();
 
 		shredder->getCallbackLock().exit();
 
@@ -604,7 +798,13 @@ void ShredderSlot::reloadState()
 		decay->setValue (_decay, false);
 		sustain->setValue (_sustain, false);
 		release->setValue (_release, false);
-		mix->setValue (_mix, false);
+		dryLevel->setValue (_dry, false);
+		wetLevel->setValue (_wet, false);
+
+		if (soloSlot == slotNumber)
+			soloButton->setToggleState (true, false);
+		else
+			soloButton->setToggleState (false, false);
 
 		for (int i=0; i<length; i++)
 		{
@@ -632,6 +832,14 @@ void ShredderSlot::step (Button *stepButton)
 		shredder->getCallbackLock().exit();
 	}
 }
+
+void ShredderSlot::changeListenerCallback (void* objectThatHasChanged)
+{
+	if (objectThatHasChanged == shredder)
+	{
+		reloadState();
+	}
+}
 //[/MiscUserCode]
 
 
@@ -644,115 +852,184 @@ void ShredderSlot::step (Button *stepButton)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="ShredderSlot" componentName=""
-                 parentClasses="public Component" constructorParams="ShredderEditor *_shredderEditor, Shredder *_shredder"
-                 variableInitialisers="stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0), serializedSekuntiaTf(ShredderResources::_60sekuntia_jfont, ShredderResources::_60sekuntia_jfontSize), whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), onOffButton(Pic(ShredderResources::onoff_png, ShredderResources::onoff_pngSize), Font(10, Font::bold))"
+                 parentClasses="public Component, public ChangeListener, public ChangeBroadcaster"
+                 constructorParams="ShredderEditor *_shredderEditor, Shredder *_shredder"
+                 variableInitialisers="stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold))"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="680" initialHeight="104">
+                 fixedSize="1" initialWidth="688" initialHeight="104">
   <BACKGROUND backgroundColour="0"/>
   <GROUPCOMPONENT name="new group" id="a79a2bb9220771ce" memberName="groupComponent"
-                  virtualName="" explicitFocusOrder="0" pos="0 0 680 104" outlinecol="66ffffff"
+                  virtualName="" explicitFocusOrder="0" pos="0 -8 688 104" outlinecol="66ffffff"
                   title=""/>
   <TOGGLEBUTTON name="1" id="cfb4f3e0e2a015a8" memberName="step1" virtualName=""
-                explicitFocusOrder="0" pos="16 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="16 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="2" id="65f2541f5403c035" memberName="step2" virtualName=""
-                explicitFocusOrder="0" pos="56 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="56 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="3" id="b001f0ba8bb02626" memberName="step3" virtualName=""
-                explicitFocusOrder="0" pos="96 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="96 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="4" id="ebb3d1e5a0247dbf" memberName="step4" virtualName=""
-                explicitFocusOrder="0" pos="136 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="136 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="5" id="828f82329ce10b82" memberName="step5" virtualName=""
-                explicitFocusOrder="0" pos="184 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="184 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="6" id="7a2a90bac9521ebd" memberName="step6" virtualName=""
-                explicitFocusOrder="0" pos="224 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="224 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="7" id="ab6786989e14cbec" memberName="step7" virtualName=""
-                explicitFocusOrder="0" pos="264 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="264 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="8" id="e6aa3f9b14e2695b" memberName="step8" virtualName=""
-                explicitFocusOrder="0" pos="304 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="304 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="9" id="b32c9a3602a4b20f" memberName="step9" virtualName=""
-                explicitFocusOrder="0" pos="352 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="352 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="10" id="1ad9b2bb86eeb2e6" memberName="step10" virtualName=""
-                explicitFocusOrder="0" pos="392 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="392 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="11" id="e7c51dc8d134e5fd" memberName="step11" virtualName=""
-                explicitFocusOrder="0" pos="432 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="432 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="12" id="efb6d6013ce12051" memberName="step12" virtualName=""
-                explicitFocusOrder="0" pos="472 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="472 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="13" id="8c9bd0ffa80535a8" memberName="step13" virtualName=""
-                explicitFocusOrder="0" pos="520 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="520 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="14" id="69366f87a73976b1" memberName="step14" virtualName=""
-                explicitFocusOrder="0" pos="560 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="560 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="15" id="7693cfef2626d6a" memberName="step15" virtualName=""
-                explicitFocusOrder="0" pos="600 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="600 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="16" id="3c29b21cdbeb7bc1" memberName="step16" virtualName=""
-                explicitFocusOrder="0" pos="640 24 32 32" buttonText="" connectedEdges="0"
+                explicitFocusOrder="0" pos="640 8 32 32" buttonText="" connectedEdges="0"
                 needsCallback="1" radioGroupId="0" state="0"/>
   <IMAGEBUTTON name="pluginMenu" id="a8385423cc59fedd" memberName="pluginMenu"
-               virtualName="" explicitFocusOrder="0" pos="600 64 32 32" buttonText=""
+               virtualName="" explicitFocusOrder="0" pos="600 40 32 32" buttonText=""
                connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
                resourceNormal="plugin_unloaded_png" opacityNormal="0.699999988"
                colourNormal="0" resourceOver="plugin_unloaded_png" opacityOver="0.800000012"
                colourOver="0" resourceDown="plugin_unloaded_png" opacityDown="1"
                colourDown="0"/>
   <IMAGEBUTTON name="pluginEditor" id="8f20947e1ec0f9fa" memberName="pluginEditor"
-               virtualName="" explicitFocusOrder="0" pos="632 64 32 32" buttonText=""
+               virtualName="" explicitFocusOrder="0" pos="640 40 32 32" buttonText=""
                connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
                resourceNormal="plugin_editor_png" opacityNormal="0.71069181"
                colourNormal="0" resourceOver="plugin_editor_png" opacityOver="0.811320782"
                colourOver="0" resourceDown="plugin_editor_png" opacityDown="1"
                colourDown="0"/>
   <LABEL name="pluginName" id="6aba723e04970405" memberName="pluginName"
-         virtualName="" explicitFocusOrder="0" pos="344 72 246 24" textCol="ffffffff"
+         virtualName="" explicitFocusOrder="0" pos="560 72 120 16" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="--- No plugin" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="14" bold="1" italic="0" justification="34"/>
+         fontsize="10" bold="1" italic="0" justification="18"/>
   <TOGGLEBUTTON name="processButton" id="dff9ca9cd9964ab6" memberName="processButton"
-                virtualName="" explicitFocusOrder="0" pos="8 72 24 24" txtcol="ffffffff"
+                virtualName="" explicitFocusOrder="0" pos="16 64 24 24" txtcol="ffffffff"
                 buttonText="" connectedEdges="0" needsCallback="1" radioGroupId="0"
                 state="0"/>
   <SLIDER name="attack" id="4786b9b86028837c" memberName="attack" virtualName=""
-          explicitFocusOrder="0" pos="160 72 52 24" rotarysliderfill="ffffffff"
+          explicitFocusOrder="0" pos="304 64 52 24" rotarysliderfill="ffffffff"
           rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
           textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
           textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="decay" id="8ee841ecb4b32b26" memberName="decay" virtualName=""
-          explicitFocusOrder="0" pos="216 72 52 24" rotarysliderfill="ffffffff"
+          explicitFocusOrder="0" pos="360 64 52 24" rotarysliderfill="ffffffff"
           rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
           textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
           textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="sustain" id="c31fce3c0095eed4" memberName="sustain" virtualName=""
-          explicitFocusOrder="0" pos="272 72 52 24" rotarysliderfill="ffffffff"
+          explicitFocusOrder="0" pos="416 64 52 24" rotarysliderfill="ffffffff"
           rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
           textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
           textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="release" id="7ed2af46945d5cd9" memberName="release" virtualName=""
-          explicitFocusOrder="0" pos="328 72 52 24" rotarysliderfill="ffffffff"
+          explicitFocusOrder="0" pos="472 64 52 24" rotarysliderfill="ffffffff"
           rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
           textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
           textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
           textBoxHeight="20" skewFactor="1"/>
-  <SLIDER name="mix" id="275d54b3a3e29ac1" memberName="mix" virtualName=""
-          explicitFocusOrder="0" pos="40 72 52 24" rotarysliderfill="ffffffff"
+  <SLIDER name="dryLevel" id="275d54b3a3e29ac1" memberName="dryLevel" virtualName=""
+          explicitFocusOrder="0" pos="144 64 52 24" rotarysliderfill="ffffffff"
           rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
           textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
           textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
           textBoxHeight="20" skewFactor="1"/>
+  <TOGGLEBUTTON name="soloButton" id="532e45ff68962cd2" memberName="soloButton"
+                virtualName="" explicitFocusOrder="0" pos="48 64 24 24" txtcol="ffffffff"
+                buttonText="" connectedEdges="0" needsCallback="1" radioGroupId="0"
+                state="0"/>
+  <TOGGLEBUTTON name="gateButton" id="c366c82d529eb887" memberName="gateButton"
+                virtualName="" explicitFocusOrder="0" pos="272 64 24 24" txtcol="ffffffff"
+                buttonText="" connectedEdges="0" needsCallback="1" radioGroupId="0"
+                state="0"/>
+  <LABEL name="new label" id="9962c37d2ea6092c" memberName="label" virtualName=""
+         explicitFocusOrder="0" pos="144 48 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Dry" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="fe03cc4db4bb26ee" memberName="label2" virtualName=""
+         explicitFocusOrder="0" pos="304 48 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Attack" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="f8d6a1f6a7d5170a" memberName="label3" virtualName=""
+         explicitFocusOrder="0" pos="360 48 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Decay" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="44758ebc6e59ad43" memberName="label4" virtualName=""
+         explicitFocusOrder="0" pos="416 48 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Sustain" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="c4a191ca80db9c6e" memberName="label5" virtualName=""
+         explicitFocusOrder="0" pos="472 48 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Release" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="7ef07815a5006c20" memberName="label6" virtualName=""
+         explicitFocusOrder="0" pos="264 48 40 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="ENV" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="26d8a21a7c135e4f" memberName="label7" virtualName=""
+         explicitFocusOrder="0" pos="16 48 24 12" textCol="ffffffff" edTextCol="ff000000"
+         edBkgCol="0" labelText="ON" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="6fc6f0c9322e8b39" memberName="label8" virtualName=""
+         explicitFocusOrder="0" pos="40 48 40 12" textCol="ffffffff" edTextCol="ff000000"
+         edBkgCol="0" labelText="Solo" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         bold="1" italic="0" justification="36"/>
+  <SLIDER name="wetLevel" id="343bc8071bf8b160" memberName="wetLevel" virtualName=""
+          explicitFocusOrder="0" pos="200 64 52 24" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="0" max="100" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="6d5ecbf0472fc122" memberName="label9" virtualName=""
+         explicitFocusOrder="0" pos="200 48 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Wet" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <TOGGLEBUTTON name="directButton" id="9dab6ef1cb306316" memberName="directButton"
+                virtualName="" explicitFocusOrder="0" pos="80 64 24 24" txtcol="ffffffff"
+                buttonText="" connectedEdges="0" needsCallback="1" radioGroupId="0"
+                state="0"/>
+  <LABEL name="new label" id="5097eea0344e3b22" memberName="label10" virtualName=""
+         explicitFocusOrder="0" pos="72 48 40 12" textCol="ffffffff" edTextCol="ff000000"
+         edBkgCol="0" labelText="Direct" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         bold="1" italic="0" justification="36"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

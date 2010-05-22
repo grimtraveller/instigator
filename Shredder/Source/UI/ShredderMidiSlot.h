@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 11:12:49pm
+  Creation date:  21 May 2010 11:35:18pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,19 +19,20 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_EE3AB81B__
-#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_EE3AB81B__
+#ifndef __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_B0F8E208__
+#define __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_B0F8E208__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
-#include "ShredderEditorOptions.h"
-#include "ShredderPluginEditor.h"
+#include "ImageToggleButton.h"
+#include "ImageSlider.h"
 #include "ShredderResources.h"
-#include "../../../About/Instigator.h"
+#include "Shredder.h"
+#include "ShredderPluginEditor.h"
+
+class ShredderEditor;
 //[/Headers]
 
-#include "ShredderSlot.h"
-#include "ShredderMidiSlot.h"
 
 
 //==============================================================================
@@ -42,81 +43,72 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class ShredderEditor  : public AudioProcessorEditor,
-                        public ChangeListener,
-                        public ButtonListener
+class ShredderMidiSlot  : public Component,
+                          public ChangeListener,
+                          public ChangeBroadcaster,
+                          public ButtonListener,
+                          public SliderListener
 {
 public:
     //==============================================================================
-    ShredderEditor (AudioProcessor *_shredder);
-    ~ShredderEditor();
+    ShredderMidiSlot (ShredderEditor *_shredderEditor, Shredder *_shredder);
+    ~ShredderMidiSlot();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-	void reloadLists();
-	void closePluginEditor (ShredderPluginEditor *editorToClose);
-	PopupMenu &getPluginMenu() { return (pluginMenu); }
+	void setSlotNumber (const int _slotNumber);
+	void reloadState();
 	void changeListenerCallback (void* objectThatHasChanged);
-	void toggleLed(const int ledIndex);
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
+    void sliderValueChanged (Slider* sliderThatWasMoved);
 
     // Binary resources:
-    static const char* name_png;
-    static const int name_pngSize;
+    static const char* plugin_editor_png;
+    static const int plugin_editor_pngSize;
+    static const char* plugin_loaded_png;
+    static const int plugin_loaded_pngSize;
+    static const char* plugin_unloaded_png;
+    static const int plugin_unloaded_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-	ImageToggleButton ledButton;
-	ShredderEditorOptions shredderOptions;
+	ImageToggleButton stepButton;
 	Shredder *shredder;
-	OwnedArray <ShredderPluginEditor> editors;
-	Image* backgroundImage;
-	PopupMenu pluginMenu;
-	int lastBeat;
-	Array <ToggleButton*>leds;
-	Instigator instigator;
+	ShredderEditor *shredderEditor;
+	int slotNumber;
+	ShredderPluginEditor *shredderPluginEditor;
+	ImageSlider whiteKnob;
+	ImageToggleButton greenButton, blueButton, yellowButton, whiteButton;
     //[/UserVariables]
 
     //==============================================================================
-    ShredderSlot* slot1;
-    ShredderSlot* slot2;
-    ToggleButton* led1;
-    TextButton* optionsButton;
-    ShredderSlot* slot3;
-    ShredderSlot* slot4;
-    ToggleButton* led2;
-    ToggleButton* led3;
-    ToggleButton* led4;
-    ToggleButton* led5;
-    ToggleButton* led6;
-    ToggleButton* led7;
-    ToggleButton* led8;
-    ToggleButton* led9;
-    ToggleButton* led10;
-    ToggleButton* led11;
-    ToggleButton* led12;
-    ToggleButton* led13;
-    ToggleButton* led14;
-    ToggleButton* led15;
-    ToggleButton* led16;
-    ImageButton* instigatorBtn;
-    ShredderMidiSlot* midiSlot1;
-    ShredderMidiSlot* midiSlot2;
-    ShredderMidiSlot* midiSlot3;
-    ShredderMidiSlot* midiSlot4;
+    GroupComponent* groupComponent;
+    ImageButton* pluginMenu;
+    ImageButton* pluginEditor;
+    Label* pluginName;
+    ToggleButton* processButton;
+    Slider* dryLevel;
+    ToggleButton* soloButton;
+    Label* label;
+    Label* label7;
+    Label* label8;
+    Slider* wetLevel;
+    Label* label9;
+    ToggleButton* directButton;
+    Label* label10;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
-    ShredderEditor (const ShredderEditor&);
-    const ShredderEditor& operator= (const ShredderEditor&);
+    ShredderMidiSlot (const ShredderMidiSlot&);
+    const ShredderMidiSlot& operator= (const ShredderMidiSlot&);
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_EE3AB81B__
+#endif   // __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_B0F8E208__

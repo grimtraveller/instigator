@@ -39,11 +39,13 @@ class Shredder  : public AudioProcessor, public ChangeBroadcaster
 
 		/* Shredder implementation */
 		void dumpPluginCache (const File &cacheFile);
-		bool loadPluginOnSlot (const int slotNumber, const int pluginIndex);
+		bool loadPluginOnSlot (const int slotNumber, ShredderPlugin::SlotType slotType, const int pluginIndex);
 		bool clearPluginOnSlot (const int slotNumber, const bool deleteEditor=true);
 		ShredderPlugin *getPluginOnSlot (const int slotNumber);
 		void processPlugins(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo);
-		
+		void setSoloSlot (const int newSoloSlot);
+		const int getSoloSlot();
+
 		/* public properties for faster access */
 		float currentRmsValue[2];
 		PropertySet shredderProperties;

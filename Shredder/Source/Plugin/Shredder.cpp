@@ -228,8 +228,10 @@ void Shredder::setStateInformation (const void* data, int sizeInBytes)
     }
 }
 
-bool Shredder::loadPluginOnSlot (const int slotNumber, const int pluginIndex)
+bool Shredder::loadPluginOnSlot (const int slotNumber, ShredderPlugin::SlotType slotType, const int pluginIndex)
 {
+	Log (T("Shredder::loadPluginOnSlot slotNumber:") + String(slotNumber) + T(" type:") + String((int)slotType) + T(" index:") + String(pluginIndex));
+
 	if (pluginIndex >= 0)
 	{
 		/* new plugin */
@@ -259,12 +261,13 @@ bool Shredder::loadPluginOnSlot (const int slotNumber, const int pluginIndex)
 				if (p)
 				{
 					p->replacePlugin (instance, *pd);
+					p->setSlotType (slotType);
 				}
 				else
 				{
 					p = new ShredderPlugin(instance, *pd);
-					loadedPlugins.add (p);
 					p->setSlotNumber (slotNumber);
+					loadedPlugins.add (p);
 				}
 				
 				loadedPlugins.getLock().exit();
@@ -304,6 +307,17 @@ ShredderPlugin *Shredder::getPluginOnSlot(const int slotNumber)
 
 void Shredder::processPlugins(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo)
 {
+	const int soloSlot = shredderProperties.getIntValue (T("soloSlot"), -1);
+
+	if (soloSlot >=0 && getPluginOnSlot(soloSlot))
+	{
+		loadedPlugins.getLock().enter();
+		getPluginOnSlot(soloSlot)->process (buffer, midiMessages, lastPosInfo);
+		loadedPlugins.getLock().exit();
+
+		return;
+	}
+
 	loadedPlugins.getLock().enter();
 
 	for (int i=0; i<loadedPlugins.size(); i++)
@@ -316,6 +330,18 @@ void Shredder::processPlugins(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
 
 void Shredder::dumpPluginCache (const File &cacheFile)
 {
+}
+
+void Shredder::setSoloSlot (const int newSoloSlot)
+{
+	shredderProperties.setValue (T("soloSlot"), newSoloSlot);
+
+	sendChangeMessage (this);
+}
+
+const int Shredder::getSoloSlot()
+{
+	return (shredderProperties.getIntValue (T("soloSlot"), -1));
 }
 //==============================================================================
 // Some utility stuff

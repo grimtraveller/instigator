@@ -1045,22 +1045,14 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="PeakSlot"
+				Name="MidiSlot"
 				>
 				<File
-					RelativePath="..\..\Source\UI\ShredderPeakSlot.cpp"
+					RelativePath="..\..\Source\UI\ShredderMidiSlot.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Source\UI\ShredderPeakSlot.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Source\UI\ShredderRMSMeter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Source\UI\ShredderRMSMeter.h"
+					RelativePath="..\..\Source\UI\ShredderMidiSlot.h"
 					>
 				</File>
 			</Filter>
