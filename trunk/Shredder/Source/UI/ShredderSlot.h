@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 4:40:02pm
+  Creation date:  21 May 2010 11:03:37pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_21497BCE__
-#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_21497BCE__
+#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_1620D9D1__
+#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_1620D9D1__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -29,7 +29,7 @@
 #include "ShredderResources.h"
 #include "Shredder.h"
 #include "ShredderPluginEditor.h"
-#include "FSerializedTypeface.h"
+#include "ShredderPlugin.h"
 
 class ShredderEditor;
 //[/Headers]
@@ -45,6 +45,8 @@ class ShredderEditor;
                                                                     //[/Comments]
 */
 class ShredderSlot  : public Component,
+                      public ChangeListener,
+                      public ChangeBroadcaster,
                       public ButtonListener,
                       public SliderListener
 {
@@ -59,6 +61,7 @@ public:
 	void reloadState();
 	void setLength(const int _length);
 	void step (Button *stepButton);
+	void changeListenerCallback (void* objectThatHasChanged);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -85,11 +88,9 @@ private:
 	int slotNumber;
 	ShredderPluginEditor *shredderPluginEditor;
 	int length;
-	FSerializedTypeface serializedSekuntiaTf;
-	Typeface *sekuntiaTf;
 	Array <ToggleButton*> steps;
 	ImageSlider whiteKnob;
-	ImageToggleButton onOffButton;
+	ImageToggleButton greenButton, blueButton, yellowButton, whiteButton;
     //[/UserVariables]
 
     //==============================================================================
@@ -118,7 +119,21 @@ private:
     Slider* decay;
     Slider* sustain;
     Slider* release;
-    Slider* mix;
+    Slider* dryLevel;
+    ToggleButton* soloButton;
+    ToggleButton* gateButton;
+    Label* label;
+    Label* label2;
+    Label* label3;
+    Label* label4;
+    Label* label5;
+    Label* label6;
+    Label* label7;
+    Label* label8;
+    Slider* wetLevel;
+    Label* label9;
+    ToggleButton* directButton;
+    Label* label10;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -127,4 +142,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_21497BCE__
+#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_1620D9D1__

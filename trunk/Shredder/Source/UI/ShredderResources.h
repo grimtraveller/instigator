@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  20 May 2010 9:45:20pm
+  Creation date:  21 May 2010 11:03:54pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_18F4633C__
-#define __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_18F4633C__
+#ifndef __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_43E099F0__
+#define __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_43E099F0__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -57,14 +57,16 @@ public:
     static const int btn_led_pngSize;
     static const char* shredder_bg_jpg;
     static const int shredder_bg_jpgSize;
-    static const char* _60sekuntia_jfont;
-    static const int _60sekuntia_jfontSize;
-    static const char* knob0_png;
-    static const int knob0_pngSize;
-    static const char* onoff_png;
-    static const int onoff_pngSize;
     static const char* whiteknob_png;
     static const int whiteknob_pngSize;
+    static const char* btn_blue_png;
+    static const int btn_blue_pngSize;
+    static const char* btn_green_png;
+    static const int btn_green_pngSize;
+    static const char* btn_yellow_png;
+    static const int btn_yellow_pngSize;
+    static const char* btn_white_png;
+    static const int btn_white_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
@@ -83,4 +85,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_18F4633C__
+#endif   // __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_43E099F0__

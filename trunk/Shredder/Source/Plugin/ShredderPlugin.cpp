@@ -1,13 +1,13 @@
 #include "ShredderPlugin.h"
 
 ShredderPlugin::ShredderPlugin (AudioPluginInstance *_pluginInstance, PluginDescription &_pluginDescription) 
-	:	pluginInstance(_pluginInstance), editor(0), pluginDescription(_pluginDescription)
+	:	pluginInstance(_pluginInstance), editor(0), pluginDescription(_pluginDescription), continueMidiProcessing(false)
 {	
 	setDefaults();
 }
 
 ShredderPlugin::ShredderPlugin (XmlElement *xmlState, AudioPluginFormatManager &pluginManager)
-	:	editor(0), pluginInstance(0)
+	:	editor(0), pluginInstance(0), continueMidiProcessing(false)
 {
 	setDefaults();
 
@@ -26,6 +26,9 @@ ShredderPlugin::ShredderPlugin (XmlElement *xmlState, AudioPluginFormatManager &
 
 			pluginInstance		= pluginManager.createPluginInstance (pluginDescription, errorMessage);
 
+			dryGain = _propF(SP_DRY_LEVEL)/100.0f;
+			wetGain = _propF(SP_WET_LEVEL)/100.0f;
+
 			if (pluginInstance == 0)
 			{
 				AlertWindow::showMessageBox (AlertWindow::WarningIcon, T("Error"), T("Unable to load plugin: ") + errorMessage);
@@ -43,7 +46,9 @@ ShredderPlugin::ShredderPlugin (XmlElement *xmlState, AudioPluginFormatManager &
 void ShredderPlugin::setDefaults()
 {
 	lastBeat	= 1;
-	
+	wetGain		= 1.0f;
+	dryGain		= 1.0f;
+
 	stepBits.clear();
 	shredderPluginDefaultProperties.setValue (SP_LENGTH, 16);
 	shredderPluginDefaultProperties.setValue (SP_SAMPLERATE, 44100.0);
@@ -148,7 +153,8 @@ const String ShredderPlugin::getName()
 
 void ShredderPlugin::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-	lastBeat = 1;
+	lastBeat				= 1;
+	continueMidiProcessing	= false;
 
 	shredderPluginProperties.setValue (SP_SAMPLERATE, sampleRate);
 
@@ -173,8 +179,23 @@ void ShredderPlugin::process(AudioSampleBuffer& buffer, MidiBuffer& midiMessages
 		return;
 	}
 
-	AudioSampleBuffer internalBuffer (buffer);
+	switch (_propI(SP_SLOT_TYPE))
+	{
+		case SequencerSlot:
+			processSequence (buffer, midiMessages, lastPosInfo);
+			break;
 
+		case MidiSlot:
+			processMidi (buffer, midiMessages, lastPosInfo);
+			break;
+
+		default:
+			break;
+	}
+}
+
+void ShredderPlugin::processSequence(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo)
+{
 	const int ppqPerBar			= (lastPosInfo.timeSigNumerator * 4 / lastPosInfo.timeSigDenominator);
 	const double beats			= (fmod (lastPosInfo.ppqPosition, ppqPerBar) / ppqPerBar) * lastPosInfo.timeSigNumerator;
 	const int qnote				= ((int) (beats * lastPosInfo.timeSigDenominator)) + 1;
@@ -201,20 +222,62 @@ void ShredderPlugin::process(AudioSampleBuffer& buffer, MidiBuffer& midiMessages
 
 	if (stepBits[lastBeat-1])
 	{
-		pluginInstance->processBlock (buffer, midiMessages);
+		processPlugin (buffer, midiMessages);
+	}
+	else
+	{
+		processPlugin (buffer, midiMessages, false);
+	}
+}
+
+void ShredderPlugin::processMidi(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo)
+{
+	MidiBuffer::Iterator i(midiMessages);
+	MidiMessage m(0xf0);
+	int pos;
+
+	while (i.getNextEvent (m, pos))
+	{
+		const bool nOn	= m.isNoteOn (true);
+		const bool nOff	= m.isNoteOff (true);
+
+		if (nOn)
+		{
+			continueMidiProcessing = true;
+		}
+		if (nOff)
+		{
+			continueMidiProcessing = false;
+		}
+	}
+
+	if (continueMidiProcessing)
+	{
+		processPlugin (buffer, midiMessages);
+	}
+	else
+	{
+		processPlugin (buffer, midiMessages, false);
+	}
+}
+
+void ShredderPlugin::processPlugin (AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const bool applyEffect)
+{
+	AudioSampleBuffer internalBuffer (buffer);
+
+	if (applyEffect)
+	{
+		pluginInstance->processBlock (internalBuffer, midiMessages);
+		for (int i=0; i<buffer.getNumChannels(); i++)
+		{
+			buffer.applyGain (i, 0, buffer.getNumSamples(), dryGain);
+			buffer.addFrom (i, 0, internalBuffer, i, 0, internalBuffer.getNumSamples(), wetGain);
+		}
 	}
 	else
 	{
 		pluginInstance->processBlock (internalBuffer, midiMessages);
 	}
-}
-
-void ShredderPlugin::processSequence(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo)
-{
-}
-
-void ShredderPlugin::processPeak(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, const AudioPlayHead::CurrentPositionInfo &lastPosInfo)
-{
 }
 
 void ShredderPlugin::setProcessing (const bool _shouldBeProcessing)
@@ -307,12 +370,24 @@ void ShredderPlugin::setRelease(const float newRelease)
 	envelope.__release = newRelease;
 }
 
-void ShredderPlugin::setMix (const int mixAmount)
+void ShredderPlugin::setDryLevel (const double newDryLevel)
 {
-	shredderPluginProperties.setValue (SP_MIX, mixAmount);
+	dryGain = (float)newDryLevel/100.0f;
+	shredderPluginProperties.setValue (SP_DRY_LEVEL, newDryLevel);
 }
 
-const int ShredderPlugin::getMix()
+const double ShredderPlugin::getDryLevel()
 {
-	return (_propI(SP_MIX));
+	return (_propD(SP_DRY_LEVEL));
+}
+
+void ShredderPlugin::setWetLevel (const double newWetLevel)
+{
+	wetGain = (float)newWetLevel/100.0f;
+	shredderPluginProperties.setValue (SP_WET_LEVEL, newWetLevel);
+}
+
+const double ShredderPlugin::getWetLevel()
+{
+	return (_propD(SP_WET_LEVEL));
 }

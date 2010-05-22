@@ -4,11 +4,13 @@
 #include "Includes.h"
 #include "ShredderPlugin.h"
 class ShredderSlot;
+class ShredderMidiSlot;
 
 class ShredderPluginEditor : public DocumentWindow
 {
 	public:
 		ShredderPluginEditor(ShredderPlugin *_shredderPlugin, ShredderSlot *_shredderSlot);
+		ShredderPluginEditor(ShredderPlugin *_shredderPlugin, ShredderMidiSlot *_shredderSlot);
 		~ShredderPluginEditor();
 		void closeButtonPressed();
 		void resized();
@@ -18,6 +20,7 @@ class ShredderPluginEditor : public DocumentWindow
 		int x,y;
 		ShredderPlugin *shredderPlugin;
 		ShredderSlot *shredderSlot;
+		ShredderMidiSlot *shredderMidiSlot;
 };
 
 #endif
