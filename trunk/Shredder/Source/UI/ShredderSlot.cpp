@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 11:03:37pm
+  Creation date:  24 May 2010 1:01:27am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -31,7 +31,7 @@
 
 //==============================================================================
 ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder)
-    : stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold)),
+    : stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold)), lastToggledStepWhileDragging(-1),
       groupComponent (0),
       step1 (0),
       step2 (0),
@@ -71,7 +71,9 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
       wetLevel (0),
       label9 (0),
       directButton (0),
-      label10 (0)
+      label10 (0),
+      label11 (0),
+      shuffleButton (0)
 {
     addAndMakeVisible (groupComponent = new GroupComponent (T("new group"),
                                                             String::empty));
@@ -342,8 +344,19 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
     label10->setColour (TextEditor::textColourId, Colours::black);
     label10->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
+    addAndMakeVisible (label11 = new Label (T("new label"),
+                                            T("Shuffle")));
+    label11->setFont (Font (10.0000f, Font::bold));
+    label11->setJustificationType (Justification::centred);
+    label11->setEditable (false, false, false);
+    label11->setColour (Label::textColourId, Colours::white);
+    label11->setColour (TextEditor::textColourId, Colours::black);
+    label11->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (shuffleButton = new ShredderShuffleButton());
 
     //[UserPreSize]
+	shuffleButton->addButtonListener (this);
 	steps.add (step1);
 	steps.add (step2);
 	steps.add (step3);
@@ -366,11 +379,9 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
 
 	for (int i=0; i<steps.size(); i++)
 	{
+		steps[i]->addMouseListener (this, true);
 		steps[i]->setLookAndFeel (&stepButton);
 	}
-
-	shredder->addChangeListener (this);
-
 	attack->setLookAndFeel (&whiteKnob);
 	decay->setLookAndFeel (&whiteKnob);
 	sustain->setLookAndFeel (&whiteKnob);
@@ -392,8 +403,6 @@ ShredderSlot::ShredderSlot (ShredderEditor *_shredderEditor, Shredder *_shredder
 ShredderSlot::~ShredderSlot()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
-	shredder->removeChangeListener (this);
-
 	if (shredderPluginEditor)
 	{
 		deleteAndZero (shredderPluginEditor);
@@ -440,6 +449,8 @@ ShredderSlot::~ShredderSlot()
     deleteAndZero (label9);
     deleteAndZero (directButton);
     deleteAndZero (label10);
+    deleteAndZero (label11);
+    deleteAndZero (shuffleButton);
 
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
@@ -497,6 +508,8 @@ void ShredderSlot::resized()
     label9->setBounds (200, 48, 52, 12);
     directButton->setBounds (80, 64, 24, 24);
     label10->setBounds (72, 48, 40, 12);
+    label11->setBounds (528, 48, 40, 12);
+    shuffleButton->setBounds (536, 64, 24, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -614,6 +627,10 @@ void ShredderSlot::buttonClicked (Button* buttonThatWasClicked)
 			}
 			shredder->clearPluginOnSlot (slotNumber, false);
 			shredder->loadPluginOnSlot (slotNumber, ShredderPlugin::SequencerSlot, ret-2);
+
+			if (shredder->getPluginOnSlot(slotNumber))
+				shredder->getPluginOnSlot(slotNumber)->addChangeListener (this);
+
 			shredder->getCallbackLock().exit();
 
 			reloadState();
@@ -672,15 +689,31 @@ void ShredderSlot::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == gateButton)
     {
         //[UserButtonCode_gateButton] -- add your button handler code here..
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setGate (buttonThatWasClicked->getToggleState());
+		shredder->getCallbackLock().exit();
         //[/UserButtonCode_gateButton]
     }
     else if (buttonThatWasClicked == directButton)
     {
         //[UserButtonCode_directButton] -- add your button handler code here..
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setDirect (buttonThatWasClicked->getToggleState());
+		shredder->getCallbackLock().exit();
         //[/UserButtonCode_directButton]
     }
 
     //[UserbuttonClicked_Post]
+	else if (buttonThatWasClicked == shuffleButton)
+	{
+		Random r(Time::getHighResolutionTicks());
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setStepsAsInt(r.nextInt());
+		shredder->getCallbackLock().exit();
+	}
 	step (buttonThatWasClicked);
     //[/UserbuttonClicked_Post]
 }
@@ -749,13 +782,28 @@ void ShredderSlot::sliderValueChanged (Slider* sliderThatWasMoved)
     //[/UsersliderValueChanged_Post]
 }
 
+void ShredderSlot::mouseDrag (const MouseEvent& e)
+{
+    //[UserCode_mouseDrag] -- Add your code here...
+	ToggleButton *b = dynamic_cast<ToggleButton*>(getComponentAt(e.getEventRelativeTo (this).x, e.getEventRelativeTo (this).y));
+	if (b!=NULL)
+	{
+		if (steps.contains (b) && lastToggledStepWhileDragging != steps.indexOf (b))
+		{
+			lastToggledStepWhileDragging = steps.indexOf (b);
+			b->triggerClick();
+		}
+	}
+    //[/UserCode_mouseDrag]
+}
+
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void ShredderSlot::setSlotNumber (const int _slotNumber)
 {
 	slotNumber = _slotNumber;
-	
+
 	reloadState();
 }
 
@@ -835,10 +883,7 @@ void ShredderSlot::step (Button *stepButton)
 
 void ShredderSlot::changeListenerCallback (void* objectThatHasChanged)
 {
-	if (objectThatHasChanged == shredder)
-	{
-		reloadState();
-	}
+	reloadState();
 }
 //[/MiscUserCode]
 
@@ -854,9 +899,12 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="ShredderSlot" componentName=""
                  parentClasses="public Component, public ChangeListener, public ChangeBroadcaster"
                  constructorParams="ShredderEditor *_shredderEditor, Shredder *_shredder"
-                 variableInitialisers="stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold))"
+                 variableInitialisers="stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold)), lastToggledStepWhileDragging(-1)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
                  fixedSize="1" initialWidth="688" initialHeight="104">
+  <METHODS>
+    <METHOD name="mouseDrag (const MouseEvent&amp; e)"/>
+  </METHODS>
   <BACKGROUND backgroundColour="0"/>
   <GROUPCOMPONENT name="new group" id="a79a2bb9220771ce" memberName="groupComponent"
                   virtualName="" explicitFocusOrder="0" pos="0 -8 688 104" outlinecol="66ffffff"
@@ -1030,6 +1078,14 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Direct" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="10"
          bold="1" italic="0" justification="36"/>
+  <LABEL name="new label" id="438c3864563727ee" memberName="label11" virtualName=""
+         explicitFocusOrder="0" pos="528 48 40 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Shuffle" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <JUCERCOMP name="shuffleButton" id="c95e819f87a2c51c" memberName="shuffleButton"
+             virtualName="" explicitFocusOrder="0" pos="536 64 24 24" sourceFile="ShredderShuffleButton.cpp"
+             constructorParams=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

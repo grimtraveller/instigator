@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 11:35:18pm
+  Creation date:  23 May 2010 10:33:22pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -45,7 +45,13 @@ ShredderMidiSlot::ShredderMidiSlot (ShredderEditor *_shredderEditor, Shredder *_
       wetLevel (0),
       label9 (0),
       directButton (0),
-      label10 (0)
+      label10 (0),
+      midiNoteButton (0),
+      midiNoteLabel (0),
+      midiChannel (0),
+      label3 (0),
+      matchVelo (0),
+      label4 (0)
 {
     addAndMakeVisible (groupComponent = new GroupComponent (T("new group"),
                                                             String::empty));
@@ -158,17 +164,71 @@ ShredderMidiSlot::ShredderMidiSlot (ShredderEditor *_shredderEditor, Shredder *_
     label10->setColour (TextEditor::textColourId, Colours::black);
     label10->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
+    addAndMakeVisible (midiNoteButton = new ImageButton (T("midiNoteButton")));
+    midiNoteButton->setButtonText (T("new button"));
+    midiNoteButton->addButtonListener (this);
+
+    midiNoteButton->setImages (false, true, true,
+                               ImageCache::getFromMemory (midi_png, midi_pngSize), 0.7000f, Colour (0x0),
+                               ImageCache::getFromMemory (midi_png, midi_pngSize), 0.8000f, Colour (0x0),
+                               ImageCache::getFromMemory (midi_png, midi_pngSize), 1.0000f, Colour (0x0));
+    addAndMakeVisible (midiNoteLabel = new Label (T("midiNoteLabel"),
+                                                  T("Note")));
+    midiNoteLabel->setFont (Font (10.0000f, Font::bold));
+    midiNoteLabel->setJustificationType (Justification::centred);
+    midiNoteLabel->setEditable (false, false, false);
+    midiNoteLabel->setColour (Label::textColourId, Colours::white);
+    midiNoteLabel->setColour (TextEditor::textColourId, Colours::black);
+    midiNoteLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (midiChannel = new Slider (T("midiChannel")));
+    midiChannel->setRange (1, 16, 1);
+    midiChannel->setSliderStyle (Slider::RotaryVerticalDrag);
+    midiChannel->setTextBoxStyle (Slider::TextBoxRight, false, 28, 20);
+    midiChannel->setColour (Slider::rotarySliderFillColourId, Colours::white);
+    midiChannel->setColour (Slider::rotarySliderOutlineColourId, Colours::white);
+    midiChannel->setColour (Slider::textBoxTextColourId, Colours::white);
+    midiChannel->setColour (Slider::textBoxBackgroundColourId, Colour (0xffffff));
+    midiChannel->setColour (Slider::textBoxOutlineColourId, Colour (0x808080));
+    midiChannel->addListener (this);
+
+    addAndMakeVisible (label3 = new Label (T("new label"),
+                                           T("Channel")));
+    label3->setFont (Font (10.0000f, Font::bold));
+    label3->setJustificationType (Justification::centred);
+    label3->setEditable (false, false, false);
+    label3->setColour (Label::textColourId, Colours::white);
+    label3->setColour (TextEditor::textColourId, Colours::black);
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
+    addAndMakeVisible (matchVelo = new ToggleButton (T("matchVelo")));
+    matchVelo->setButtonText (String::empty);
+    matchVelo->addButtonListener (this);
+    matchVelo->setColour (ToggleButton::textColourId, Colours::white);
+
+    addAndMakeVisible (label4 = new Label (T("new label"),
+                                           T("Match Velo")));
+    label4->setFont (Font (10.0000f, Font::bold));
+    label4->setJustificationType (Justification::centred);
+    label4->setEditable (false, false, false);
+    label4->setColour (Label::textColourId, Colours::white);
+    label4->setColour (TextEditor::textColourId, Colours::black);
+    label4->setColour (TextEditor::backgroundColourId, Colour (0x0));
+
 
     //[UserPreSize]
+	midiKeyboardState.addListener (this);
 	shredder->addChangeListener (this);
 	dryLevel->setLookAndFeel (&whiteKnob);
 	wetLevel->setLookAndFeel (&whiteKnob);
+	midiChannel->setLookAndFeel (&whiteKnob);
 	processButton->setLookAndFeel (&greenButton);
 	soloButton->setLookAndFeel (&yellowButton);
 	directButton->setLookAndFeel (&whiteButton);
+	matchVelo->setLookAndFeel (&blueButton);
     //[/UserPreSize]
 
-    setSize (120, 168);
+    setSize (168, 168);
 
     //[Constructor] You can add your own custom stuff here..
     //[/Constructor]
@@ -199,6 +259,12 @@ ShredderMidiSlot::~ShredderMidiSlot()
     deleteAndZero (label9);
     deleteAndZero (directButton);
     deleteAndZero (label10);
+    deleteAndZero (midiNoteButton);
+    deleteAndZero (midiNoteLabel);
+    deleteAndZero (midiChannel);
+    deleteAndZero (label3);
+    deleteAndZero (matchVelo);
+    deleteAndZero (label4);
 
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
@@ -216,7 +282,7 @@ void ShredderMidiSlot::paint (Graphics& g)
 
 void ShredderMidiSlot::resized()
 {
-    groupComponent->setBounds (0, -8, 120, 168);
+    groupComponent->setBounds (0, -8, 168, 168);
     pluginMenu->setBounds (24, 8, 32, 32);
     pluginEditor->setBounds (64, 8, 32, 32);
     pluginName->setBounds (8, 40, 104, 16);
@@ -230,6 +296,12 @@ void ShredderMidiSlot::resized()
     label9->setBounds (64, 112, 52, 12);
     directButton->setBounds (80, 80, 24, 24);
     label10->setBounds (72, 64, 40, 12);
+    midiNoteButton->setBounds (120, 72, 32, 32);
+    midiNoteLabel->setBounds (104, 48, 64, 28);
+    midiChannel->setBounds (112, 24, 52, 24);
+    label3->setBounds (112, 8, 52, 12);
+    matchVelo->setBounds (128, 128, 24, 24);
+    label4->setBounds (112, 112, 52, 12);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -319,7 +391,33 @@ void ShredderMidiSlot::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == directButton)
     {
         //[UserButtonCode_directButton] -- add your button handler code here..
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setDirect (buttonThatWasClicked->getToggleState());
+		shredder->getCallbackLock().exit();
         //[/UserButtonCode_directButton]
+    }
+    else if (buttonThatWasClicked == midiNoteButton)
+    {
+        //[UserButtonCode_midiNoteButton] -- add your button handler code here..
+		PopupMenu m;
+		MidiKeyboardComponent keys(midiKeyboardState, MidiKeyboardComponent::horizontalKeyboard);
+		keys.setSize (256, 64);
+
+		m.addCustomItem (1, &keys, 256, 64, false);
+		m.show();
+
+		return;
+        //[/UserButtonCode_midiNoteButton]
+    }
+    else if (buttonThatWasClicked == matchVelo)
+    {
+        //[UserButtonCode_matchVelo] -- add your button handler code here..
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setVelocityMatch (buttonThatWasClicked->getToggleState());
+		shredder->getCallbackLock().exit();
+        //[/UserButtonCode_matchVelo]
     }
 
     //[UserbuttonClicked_Post]
@@ -348,6 +446,15 @@ void ShredderMidiSlot::sliderValueChanged (Slider* sliderThatWasMoved)
 			shredder->getPluginOnSlot(slotNumber)->setWetLevel (sliderThatWasMoved->getValue());
 		shredder->getCallbackLock().exit();
         //[/UserSliderCode_wetLevel]
+    }
+    else if (sliderThatWasMoved == midiChannel)
+    {
+        //[UserSliderCode_midiChannel] -- add your slider handling code here..
+		shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setMidiChannel ((int)sliderThatWasMoved->getValue());
+		shredder->getCallbackLock().exit();
+        //[/UserSliderCode_midiChannel]
     }
 
     //[UsersliderValueChanged_Post]
@@ -378,6 +485,10 @@ void ShredderMidiSlot::reloadState()
 		const float _release	= p->getRelease();
 		const double _dry		= p->getDryLevel();
 		const double _wet		= p->getWetLevel();
+		const int note			= p->getMidiNote();
+		const double velo		= p->getMidiNoteVelocity();
+		const bool _matchVelo	= p->getVelocityMatch();
+		const int channel		= p->getMidiChannel();
 		const int soloSlot		= shredder->getSoloSlot();
 
 		shredder->getCallbackLock().exit();
@@ -386,6 +497,10 @@ void ShredderMidiSlot::reloadState()
 		processButton->setToggleState (process, false);
 		dryLevel->setValue (_dry, false);
 		wetLevel->setValue (_wet, false);
+		midiChannel->setValue (channel, false);
+		matchVelo->setToggleState (_matchVelo, false);
+
+		midiNoteLabel->setText (T("Note: ") + MidiMessage::getMidiNoteName (note, true, true, 5) + T("\nVelo: ") + String((int)velo), false);
 
 		if (soloSlot == slotNumber)
 			soloButton->setToggleState (true, false);
@@ -406,6 +521,20 @@ void ShredderMidiSlot::changeListenerCallback (void* objectThatHasChanged)
 		reloadState();
 	}
 }
+
+void ShredderMidiSlot::handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity)
+{
+	shredder->getCallbackLock().enter();
+		if (shredder->getPluginOnSlot(slotNumber))
+			shredder->getPluginOnSlot(slotNumber)->setMidiNote (midiNoteNumber, velocity*127);
+	shredder->getCallbackLock().exit();
+
+	midiNoteLabel->setText (T("Note: ") + MidiMessage::getMidiNoteName (midiNoteNumber, true, true, 5) + T("\nVelo: ") + String(velocity*127), false);
+}
+
+void ShredderMidiSlot::handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber)
+{
+}
 //[/MiscUserCode]
 
 
@@ -418,14 +547,14 @@ void ShredderMidiSlot::changeListenerCallback (void* objectThatHasChanged)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="ShredderMidiSlot" componentName=""
-                 parentClasses="public Component, public ChangeListener, public ChangeBroadcaster"
+                 parentClasses="public Component, public ChangeListener, public ChangeBroadcaster, public MidiKeyboardStateListener"
                  constructorParams="ShredderEditor *_shredderEditor, Shredder *_shredder"
                  variableInitialisers="stepButton(Pic(ShredderResources::btn_seq_png, ShredderResources::btn_seq_pngSize), Font(10)), shredderEditor(_shredderEditor), shredder(_shredder), slotNumber(-1), shredderPluginEditor(0),  whiteKnob(Pic(ShredderResources::whiteknob_png, ShredderResources::whiteknob_pngSize), Font(10, Font::bold)), greenButton(Pic(ShredderResources::btn_green_png, ShredderResources::btn_green_pngSize), Font(10, Font::bold)), blueButton(Pic(ShredderResources::btn_blue_png, ShredderResources::btn_blue_pngSize), Font(10, Font::bold)), yellowButton(Pic(ShredderResources::btn_yellow_png, ShredderResources::btn_yellow_pngSize), Font(10, Font::bold)), whiteButton(Pic(ShredderResources::btn_white_png, ShredderResources::btn_white_pngSize), Font(10, Font::bold))"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="120" initialHeight="168">
+                 fixedSize="1" initialWidth="168" initialHeight="168">
   <BACKGROUND backgroundColour="0"/>
   <GROUPCOMPONENT name="new group" id="a79a2bb9220771ce" memberName="groupComponent"
-                  virtualName="" explicitFocusOrder="0" pos="0 -8 120 168" outlinecol="66ffffff"
+                  virtualName="" explicitFocusOrder="0" pos="0 -8 168 168" outlinecol="66ffffff"
                   title=""/>
   <IMAGEBUTTON name="pluginMenu" id="a8385423cc59fedd" memberName="pluginMenu"
                virtualName="" explicitFocusOrder="0" pos="24 8 32 32" buttonText=""
@@ -495,6 +624,37 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Direct" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="10"
          bold="1" italic="0" justification="36"/>
+  <IMAGEBUTTON name="midiNoteButton" id="bd84b41ed8e05b8e" memberName="midiNoteButton"
+               virtualName="" explicitFocusOrder="0" pos="120 72 32 32" buttonText="new button"
+               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
+               resourceNormal="midi_png" opacityNormal="0.699999988" colourNormal="0"
+               resourceOver="midi_png" opacityOver="0.800000012" colourOver="0"
+               resourceDown="midi_png" opacityDown="1" colourDown="0"/>
+  <LABEL name="midiNoteLabel" id="bdf7249c98073038" memberName="midiNoteLabel"
+         virtualName="" explicitFocusOrder="0" pos="104 48 64 28" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Note" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
+  <SLIDER name="midiChannel" id="f646e18115c8f4c0" memberName="midiChannel"
+          virtualName="" explicitFocusOrder="0" pos="112 24 52 24" rotarysliderfill="ffffffff"
+          rotaryslideroutline="ffffffff" textboxtext="ffffffff" textboxbkgd="ffffff"
+          textboxoutline="808080" min="1" max="16" int="1" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxRight" textBoxEditable="1" textBoxWidth="28"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="131daf589c063052" memberName="label3" virtualName=""
+         explicitFocusOrder="0" pos="112 8 52 12" textCol="ffffffff" edTextCol="ff000000"
+         edBkgCol="0" labelText="Channel" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         bold="1" italic="0" justification="36"/>
+  <TOGGLEBUTTON name="matchVelo" id="123a79e84e3b42e5" memberName="matchVelo"
+                virtualName="" explicitFocusOrder="0" pos="128 128 24 24" txtcol="ffffffff"
+                buttonText="" connectedEdges="0" needsCallback="1" radioGroupId="0"
+                state="0"/>
+  <LABEL name="new label" id="80de10d86e6131d2" memberName="label4" virtualName=""
+         explicitFocusOrder="0" pos="112 112 52 12" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Match Velo" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="1" italic="0" justification="36"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -616,3 +776,22 @@ static const unsigned char resource_ShredderMidiSlot_plugin_unloaded_png[] = { 1
 
 const char* ShredderMidiSlot::plugin_unloaded_png = (const char*) resource_ShredderMidiSlot_plugin_unloaded_png;
 const int ShredderMidiSlot::plugin_unloaded_pngSize = 1660;
+
+// JUCER_RESOURCE: midi_png, 791, "../../../../../Users/atom/Desktop/midi.png"
+static const unsigned char resource_ShredderMidiSlot_midi_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,
+0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,218,5,22,15,30,28,9,255,54,119,0,0,2,151,73,68,65,84,88,195,237,150,207,
+78,219,64,16,135,191,141,157,52,78,20,130,80,8,230,226,68,144,28,203,9,81,137,254,145,42,42,46,61,68,84,69,188,65,121,11,184,229,17,122,225,92,113,224,5,42,196,161,82,65,188,69,79,189,84,45,82,37,170,
+198,144,120,166,7,59,110,156,216,8,164,230,212,140,180,178,215,158,157,249,252,155,245,238,194,204,102,246,191,155,73,121,214,0,116,138,249,190,2,65,218,203,23,128,26,99,52,2,208,172,126,214,179,251,140,
+141,238,223,164,1,124,234,118,187,162,170,218,110,183,21,208,189,189,61,85,85,61,58,58,138,131,12,109,216,63,57,57,209,81,235,116,58,10,232,230,230,166,170,170,158,157,157,197,190,190,239,107,183,219,
+149,72,5,0,114,35,0,246,237,237,173,33,204,2,192,96,48,0,192,247,253,4,233,245,245,117,124,63,254,110,56,70,68,0,232,245,122,137,113,81,142,71,105,0,177,57,142,67,161,80,136,251,170,74,181,90,77,248,228,
+114,169,67,177,109,155,74,165,18,127,132,170,82,46,151,51,39,69,106,148,114,185,76,179,217,140,131,136,8,141,70,35,1,84,175,215,89,88,88,136,125,70,193,90,173,22,150,101,197,99,155,205,230,195,1,86,87,
+87,99,25,85,149,70,163,193,220,220,92,236,83,175,215,113,93,119,50,96,46,71,187,221,38,159,207,39,224,199,21,188,23,192,184,2,67,0,85,101,113,113,145,229,229,101,70,230,35,0,150,101,209,106,181,176,109,
+59,246,245,60,239,225,0,43,43,43,119,40,16,2,184,174,155,89,130,33,128,136,224,121,30,243,243,243,169,203,75,6,64,105,66,1,207,243,18,10,12,75,160,42,32,2,162,17,64,168,64,62,63,84,32,8,225,171,213,212,
+229,205,78,244,162,132,133,66,129,165,165,165,88,1,145,128,90,173,70,177,88,140,253,42,149,10,142,227,132,0,230,111,100,99,192,117,221,248,47,17,17,106,181,26,37,199,9,21,24,87,44,145,63,186,174,173,61,
+230,244,244,35,251,251,239,128,128,237,237,87,92,156,127,102,107,235,37,0,37,167,136,109,91,160,194,147,141,13,68,52,130,21,118,118,58,28,31,127,96,119,247,45,160,172,175,175,115,121,121,193,243,103,79,
+41,149,156,59,215,248,243,195,131,3,149,129,159,104,193,160,55,214,15,155,164,180,73,223,222,132,207,225,193,129,2,223,83,75,160,58,8,247,9,205,222,173,204,3,118,54,147,226,16,230,200,152,3,65,255,6,149,
+254,120,153,254,221,86,104,194,28,153,0,253,155,95,32,3,80,153,18,65,46,204,145,5,112,243,251,39,208,71,53,152,146,2,86,148,35,29,32,8,252,43,253,241,229,220,232,148,106,96,140,33,240,175,52,235,192,243,
+122,244,240,48,229,246,62,107,162,122,192,198,148,143,129,223,128,11,64,152,217,204,102,6,252,1,180,73,204,185,99,29,145,35,0,0,0,0,73,69,78,68,174,66,96,130,0,0};
+
+const char* ShredderMidiSlot::midi_png = (const char*) resource_ShredderMidiSlot_midi_png;
+const int ShredderMidiSlot::midi_pngSize = 791;

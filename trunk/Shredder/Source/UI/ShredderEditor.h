@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 11:12:49pm
+  Creation date:  24 May 2010 12:40:49am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_EE3AB81B__
-#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_EE3AB81B__
+#ifndef __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_5956C5BD__
+#define __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_5956C5BD__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -67,6 +67,8 @@ public:
     // Binary resources:
     static const char* name_png;
     static const int name_pngSize;
+    static const char* options_png;
+    static const int options_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
@@ -88,7 +90,6 @@ private:
     ShredderSlot* slot1;
     ShredderSlot* slot2;
     ToggleButton* led1;
-    TextButton* optionsButton;
     ShredderSlot* slot3;
     ShredderSlot* slot4;
     ToggleButton* led2;
@@ -111,6 +112,7 @@ private:
     ShredderMidiSlot* midiSlot2;
     ShredderMidiSlot* midiSlot3;
     ShredderMidiSlot* midiSlot4;
+    ImageButton* optionsButton;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -119,4 +121,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_EE3AB81B__
+#endif   // __JUCER_HEADER_SHREDDEREDITOR_SHREDDEREDITOR_5956C5BD__

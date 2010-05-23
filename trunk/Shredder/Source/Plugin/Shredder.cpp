@@ -26,6 +26,26 @@ Shredder::Shredder() : savedSamplesPerBlock(8192), savedSampleRate(44100)
 	{
 		Log (T("Shredder::ctor found plugin format: ") + pluginFormatManager.getFormat(i)->getName());
 	}
+
+	File f = _cacheFile();
+	if (f.existsAsFile())
+	{
+		XmlDocument doc(f.loadFileAsString());
+
+		XmlElement *pluginCache = doc.getDocumentElement();
+
+		if (pluginCache)
+		{
+			forEachXmlChildElement (*pluginCache, e)
+			{
+				PluginDescription *p = new PluginDescription();
+				p->loadFromXml (*e);
+				pluginsToUse.add (p);
+			}
+
+			deleteAndZero (pluginCache);
+		}
+	}
 }
 
 Shredder::~Shredder()
@@ -159,6 +179,9 @@ void Shredder::getStateInformation (MemoryBlock& destData)
 	}
 
 	XmlElement *pluginsActive = new XmlElement (T("pluginsActive"));
+	
+	loadedPlugins.getLock().enter();
+
 	for (int i=0; i<loadedPlugins.size(); i++)
 	{
 		XmlElement *state = loadedPlugins[i]->createXml();
@@ -167,6 +190,8 @@ void Shredder::getStateInformation (MemoryBlock& destData)
 			pluginsActive->addChildElement (state);
 		}
 	}
+
+	loadedPlugins.getLock().exit();
 
 	shredderProperties.setValue (T("pluginCache"), pluginCache);
 	shredderProperties.setValue (T("pluginsActive"), pluginsActive);
@@ -267,6 +292,7 @@ bool Shredder::loadPluginOnSlot (const int slotNumber, ShredderPlugin::SlotType 
 				{
 					p = new ShredderPlugin(instance, *pd);
 					p->setSlotNumber (slotNumber);
+					p->setSlotType (slotType);
 					loadedPlugins.add (p);
 				}
 				
@@ -318,18 +344,46 @@ void Shredder::processPlugins(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
 		return;
 	}
 
+	AudioSampleBuffer directInput(buffer);
+
 	loadedPlugins.getLock().enter();
 
 	for (int i=0; i<loadedPlugins.size(); i++)
 	{
-		loadedPlugins[i]->process (buffer, midiMessages, lastPosInfo);
+		if (loadedPlugins[i]->getDirect())
+		{
+			AudioSampleBuffer tempBuf (directInput);
+			loadedPlugins[i]->process (tempBuf, midiMessages, lastPosInfo);
+			for (int i=0; i<tempBuf.getNumChannels(); i++)
+			{
+				buffer.addFrom (i, 0, tempBuf, i, 0, tempBuf.getNumSamples());
+			}
+		}
+		else
+		{
+			loadedPlugins[i]->process (buffer, midiMessages, lastPosInfo);
+		}
 	}
 
 	loadedPlugins.getLock().exit();
 }
 
-void Shredder::dumpPluginCache (const File &cacheFile)
+const bool Shredder::dumpPluginCache (const File &cacheFile)
 {
+	XmlElement *pluginCache = new XmlElement (T("pluginCache"));
+	
+	loadedPlugins.getLock().enter();
+
+	for (int i=0; i<pluginsToUse.size(); i++)
+	{
+		pluginCache->addChildElement (pluginsToUse[i]->createXml());
+	}
+
+	loadedPlugins.getLock().exit();
+	const String doc = pluginCache->createDocument(String::empty);
+	deleteAndZero (pluginCache);
+
+	return (cacheFile.replaceWithText (doc));
 }
 
 void Shredder::setSoloSlot (const int newSoloSlot)
