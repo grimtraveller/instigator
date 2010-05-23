@@ -297,20 +297,26 @@ void ShredderEditorOptions::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == saveCache)
     {
         //[UserButtonCode_saveCache] -- add your button handler code here..
-		File sharedSettingsFile = File::getSpecialLocation (File::commonApplicationDataDirectory).getChildFile (T("Shredder.xml"));
+		File sharedSettingsFile = _cacheFile();
 		if (sharedSettingsFile.existsAsFile())
 		{
 			const int ret = AlertWindow::showOkCancelBox (AlertWindow::WarningIcon, T("Overwrite"), T("Settings already exist, would you like to overwrite them?"), T("Yes"), T("No"));
 			if (ret)
 			{
-				shredder->dumpPluginCache (sharedSettingsFile);
+				if (shredder->dumpPluginCache (sharedSettingsFile))
+				{
+					AlertWindow::showMessageBox (AlertWindow::WarningIcon, T("Plugin cache"), T("Wrote shared plugin cache to: ") + sharedSettingsFile.getFullPathName());
+				}
 			}
 		}
 		else
 		{
 			if (sharedSettingsFile.hasWriteAccess ())
 			{
-				shredder->dumpPluginCache (sharedSettingsFile);
+				if (shredder->dumpPluginCache (sharedSettingsFile))
+				{
+					AlertWindow::showMessageBox (AlertWindow::WarningIcon, T("Plugin cache"), T("Wrote shared plugin cache to: ") + sharedSettingsFile.getFullPathName());
+				}
 			}
 			else
 			{

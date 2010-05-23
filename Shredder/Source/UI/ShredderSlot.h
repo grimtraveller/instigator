@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 11:03:37pm
+  Creation date:  24 May 2010 1:01:27am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_1620D9D1__
-#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_1620D9D1__
+#ifndef __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_196192D4__
+#define __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_196192D4__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -34,6 +34,7 @@
 class ShredderEditor;
 //[/Headers]
 
+#include "ShredderShuffleButton.h"
 
 
 //==============================================================================
@@ -68,6 +69,7 @@ public:
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
     void sliderValueChanged (Slider* sliderThatWasMoved);
+    void mouseDrag (const MouseEvent& e);
 
     // Binary resources:
     static const char* plugin_editor_png;
@@ -91,6 +93,7 @@ private:
 	Array <ToggleButton*> steps;
 	ImageSlider whiteKnob;
 	ImageToggleButton greenButton, blueButton, yellowButton, whiteButton;
+	int lastToggledStepWhileDragging;
     //[/UserVariables]
 
     //==============================================================================
@@ -134,6 +137,8 @@ private:
     Label* label9;
     ToggleButton* directButton;
     Label* label10;
+    Label* label11;
+    ShredderShuffleButton* shuffleButton;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -142,4 +147,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_1620D9D1__
+#endif   // __JUCER_HEADER_SHREDDERSLOT_SHREDDERSLOT_196192D4__

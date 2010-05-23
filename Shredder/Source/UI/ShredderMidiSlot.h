@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  21 May 2010 11:35:18pm
+  Creation date:  23 May 2010 10:33:22pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_B0F8E208__
-#define __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_B0F8E208__
+#ifndef __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_E15E2152__
+#define __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_E15E2152__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -46,6 +46,7 @@ class ShredderEditor;
 class ShredderMidiSlot  : public Component,
                           public ChangeListener,
                           public ChangeBroadcaster,
+                          public MidiKeyboardStateListener,
                           public ButtonListener,
                           public SliderListener
 {
@@ -59,6 +60,8 @@ public:
 	void setSlotNumber (const int _slotNumber);
 	void reloadState();
 	void changeListenerCallback (void* objectThatHasChanged);
+	void handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity);
+	void handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -73,6 +76,8 @@ public:
     static const int plugin_loaded_pngSize;
     static const char* plugin_unloaded_png;
     static const int plugin_unloaded_pngSize;
+    static const char* midi_png;
+    static const int midi_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
@@ -86,6 +91,7 @@ private:
 	ShredderPluginEditor *shredderPluginEditor;
 	ImageSlider whiteKnob;
 	ImageToggleButton greenButton, blueButton, yellowButton, whiteButton;
+	MidiKeyboardState midiKeyboardState;
     //[/UserVariables]
 
     //==============================================================================
@@ -103,6 +109,12 @@ private:
     Label* label9;
     ToggleButton* directButton;
     Label* label10;
+    ImageButton* midiNoteButton;
+    Label* midiNoteLabel;
+    Slider* midiChannel;
+    Label* label3;
+    ToggleButton* matchVelo;
+    Label* label4;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
@@ -111,4 +123,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_B0F8E208__
+#endif   // __JUCER_HEADER_SHREDDERMIDISLOT_SHREDDERMIDISLOT_E15E2152__

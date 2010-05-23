@@ -3,12 +3,14 @@
 ShredderPlugin::ShredderPlugin (AudioPluginInstance *_pluginInstance, PluginDescription &_pluginDescription) 
 	:	pluginInstance(_pluginInstance), editor(0), pluginDescription(_pluginDescription), continueMidiProcessing(false)
 {	
+	Log (T("ShredderPlugin::ctor 1"));
 	setDefaults();
 }
 
 ShredderPlugin::ShredderPlugin (XmlElement *xmlState, AudioPluginFormatManager &pluginManager)
 	:	editor(0), pluginInstance(0), continueMidiProcessing(false)
 {
+	Log (T("ShredderPlugin::ctor 2"));
 	setDefaults();
 
 	if (xmlState->hasTagName (T("shredderPlugin")))
@@ -56,6 +58,7 @@ void ShredderPlugin::setDefaults()
 	shredderPluginDefaultProperties.setValue (SP_SLOT_TYPE, SequencerSlot);
 
 	shredderPluginProperties.setFallbackPropertySet (&shredderPluginDefaultProperties);
+	shredderPluginProperties.addChangeListener (this);
 }
 
 XmlElement *ShredderPlugin::createXml()
@@ -85,6 +88,14 @@ ShredderPlugin::~ShredderPlugin()
 	if (pluginInstance)
 	{
 		deleteAndZero (pluginInstance);
+	}
+}
+
+void ShredderPlugin::changeListenerCallback (void* objectThatHasChanged)
+{
+	if (objectThatHasChanged == &shredderPluginProperties)
+	{
+		sendChangeMessage (this);
 	}
 }
 
@@ -241,11 +252,14 @@ void ShredderPlugin::processMidi(AudioSampleBuffer& buffer, MidiBuffer& midiMess
 		const bool nOn	= m.isNoteOn (true);
 		const bool nOff	= m.isNoteOff (true);
 
-		if (nOn)
+		if (nOn && m.getNoteNumber() == getMidiNote() && m.isForChannel (getMidiChannel()))
 		{
-			continueMidiProcessing = true;
+			if ((getVelocityMatch() && getMidiNoteVelocity() == m.getVelocity()) || !getVelocityMatch())
+			{
+				continueMidiProcessing = true;
+			}
 		}
-		if (nOff)
+		if (nOff && m.getNoteNumber() == getMidiNote() && m.isForChannel (getMidiChannel()))
 		{
 			continueMidiProcessing = false;
 		}
@@ -325,6 +339,12 @@ void ShredderPlugin::setStep (const int stepNumber, const bool stepState)
 	stepBits.setBit (stepNumber-1, stepState);
 }
 
+void ShredderPlugin::setStepsAsInt (const int steps)
+{
+	stepBits.setBitRangeAsInt (0, 16, steps);
+	sendChangeMessage (this);
+}
+
 const bool ShredderPlugin::getStep (const int stepNumber)
 {
 	return (stepBits[stepNumber-1]);
@@ -338,6 +358,7 @@ const float ShredderPlugin::getAttack()
 void ShredderPlugin::setAttack(const float newAttack)
 {
 	envelope.__attack = newAttack;
+	sendChangeMessage (this);
 }
 
 const float ShredderPlugin::getDecay()
@@ -348,6 +369,7 @@ const float ShredderPlugin::getDecay()
 void ShredderPlugin::setDecay(const float newDecay)
 {
 	envelope.__decay = newDecay;
+	sendChangeMessage (this);
 }
 
 const float ShredderPlugin::getSustain()
@@ -358,6 +380,7 @@ const float ShredderPlugin::getSustain()
 void ShredderPlugin::setSustain(const float newSustain)
 {
 	envelope.__sustain = newSustain;
+	sendChangeMessage (this);
 }
 
 const float ShredderPlugin::getRelease()
@@ -368,6 +391,7 @@ const float ShredderPlugin::getRelease()
 void ShredderPlugin::setRelease(const float newRelease)
 {
 	envelope.__release = newRelease;
+	sendChangeMessage (this);
 }
 
 void ShredderPlugin::setDryLevel (const double newDryLevel)
@@ -390,4 +414,60 @@ void ShredderPlugin::setWetLevel (const double newWetLevel)
 const double ShredderPlugin::getWetLevel()
 {
 	return (_propD(SP_WET_LEVEL));
+}
+
+void ShredderPlugin::setMidiChannel (const int midiChannel)
+{
+	shredderPluginProperties.setValue (SP_MIDI_CHANNEL, midiChannel);
+}
+
+const int ShredderPlugin::getMidiChannel()
+{
+	return (_propI(SP_MIDI_CHANNEL));
+}
+
+void ShredderPlugin::setMidiNote (const int midiNote, const double velocity)
+{
+	shredderPluginProperties.setValue (SP_MIDI_NOTE, midiNote);
+	shredderPluginProperties.setValue (SP_MIDI_NOTE_VELO, velocity);
+}
+
+const int ShredderPlugin::getMidiNote ()
+{
+	return (_propI(SP_MIDI_NOTE));
+}
+
+const double ShredderPlugin::getMidiNoteVelocity ()
+{
+	return (_propD(SP_MIDI_NOTE_VELO));
+}
+
+void ShredderPlugin::setGate (const bool setGateMode)
+{
+	shredderPluginProperties.setValue (SP_GATE_MODE, setGateMode);
+}
+
+const bool ShredderPlugin::getGate()
+{
+	return (_propB(SP_GATE_MODE));
+}
+
+void ShredderPlugin::setDirect (const bool setDirect)
+{
+	shredderPluginProperties.setValue (SP_DIRECT, setDirect);
+}
+
+const bool ShredderPlugin::getDirect()
+{
+	return (_propB(SP_DIRECT));
+}
+
+void ShredderPlugin::setVelocityMatch (const bool setVelocityMatch)
+{
+	shredderPluginProperties.setValue (SP_VELOCITY_MATCH, setVelocityMatch);
+}
+
+const bool ShredderPlugin::getVelocityMatch ()
+{
+	return (_propB(SP_VELOCITY_MATCH));
 }

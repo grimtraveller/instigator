@@ -992,6 +992,14 @@
 				RelativePath="..\..\Source\UI\ShredderPluginEditor.h"
 				>
 			</File>
+			<File
+				RelativePath="..\..\Source\UI\ShredderShuffleButton.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Source\UI\ShredderShuffleButton.h"
+				>
+			</File>
 			<Filter
 				Name="L&amp;F"
 				>

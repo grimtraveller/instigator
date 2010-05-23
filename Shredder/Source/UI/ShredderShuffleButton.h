@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  24 May 2010 1:00:36am
+  Creation date:  24 May 2010 12:57:22am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_2B0D63B__
-#define __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_2B0D63B__
+#ifndef __JUCER_HEADER_SHREDDERSHUFFLEBUTTON_SHREDDERSHUFFLEBUTTON_328E3165__
+#define __JUCER_HEADER_SHREDDERSHUFFLEBUTTON_SHREDDERSHUFFLEBUTTON_328E3165__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "Includes.h"
@@ -36,37 +36,23 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class ShredderResources  : public Component
+class ShredderShuffleButton  : public Button
 {
 public:
     //==============================================================================
-    ShredderResources ();
-    ~ShredderResources();
+    ShredderShuffleButton ();
+    ~ShredderShuffleButton();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     //[/UserMethods]
 
-    void paint (Graphics& g);
     void resized();
+    void paintButton (Graphics& g, bool isMouseOverButton, bool isButtonDown);
 
     // Binary resources:
-    static const char* btn_seq_png;
-    static const int btn_seq_pngSize;
-    static const char* btn_led_png;
-    static const int btn_led_pngSize;
-    static const char* whiteknob_png;
-    static const int whiteknob_pngSize;
-    static const char* btn_blue_png;
-    static const int btn_blue_pngSize;
-    static const char* btn_green_png;
-    static const int btn_green_pngSize;
-    static const char* btn_yellow_png;
-    static const int btn_yellow_pngSize;
-    static const char* btn_white_png;
-    static const int btn_white_pngSize;
-    static const char* bg0_jpg;
-    static const int bg0_jpgSize;
+    static const char* btn_violet_png;
+    static const int btn_violet_pngSize;
 
     //==============================================================================
     juce_UseDebuggingNewOperator
@@ -76,13 +62,13 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-
+    Image* cachedImage_btn_violet_png;
 
     //==============================================================================
     // (prevent copy constructor and operator= being generated..)
-    ShredderResources (const ShredderResources&);
-    const ShredderResources& operator= (const ShredderResources&);
+    ShredderShuffleButton (const ShredderShuffleButton&);
+    const ShredderShuffleButton& operator= (const ShredderShuffleButton&);
 };
 
 
-#endif   // __JUCER_HEADER_SHREDDERRESOURCES_SHREDDERRESOURCES_2B0D63B__
+#endif   // __JUCER_HEADER_SHREDDERSHUFFLEBUTTON_SHREDDERSHUFFLEBUTTON_328E3165__

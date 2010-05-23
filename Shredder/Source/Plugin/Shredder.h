@@ -4,6 +4,8 @@
 #include "Includes.h"
 #include "ShredderPlugin.h"
 
+#define _cacheFile() File::getSpecialLocation (File::userApplicationDataDirectory).getChildFile (T("ShredderPluginCache.xml"))
+
 //==============================================================================
 class Shredder  : public AudioProcessor, public ChangeBroadcaster
 {
@@ -38,7 +40,7 @@ class Shredder  : public AudioProcessor, public ChangeBroadcaster
 		/* end VST stuff */
 
 		/* Shredder implementation */
-		void dumpPluginCache (const File &cacheFile);
+		const bool dumpPluginCache (const File &cacheFile);
 		bool loadPluginOnSlot (const int slotNumber, ShredderPlugin::SlotType slotType, const int pluginIndex);
 		bool clearPluginOnSlot (const int slotNumber, const bool deleteEditor=true);
 		ShredderPlugin *getPluginOnSlot (const int slotNumber);
